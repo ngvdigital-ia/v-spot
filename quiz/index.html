@@ -171,7 +171,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <h1 class="headline">How to make any woman <em>soak the whole bed</em> and have the best orgasm of her life using only your fingertips</h1>
     <p class="subheadline">Answer these 7 quick questions and unlock the exclusive class that reveals hands-on techniques with real models, showing you how to make her come like never before.</p>
 
-    <!-- VIDEO INTRO — autoplay muted, tap pra som -->
+    <!-- VIDEO INTRO — autoplay muted, tap pra som (sound-toggle injetado via JS) -->
     <div class="video-wrap" id="media-intro" data-media-slot="intro">
       <div class="video-fallback" id="intro-fallback" style="width:100%;height:100%;background:linear-gradient(135deg,#100004,#0d0008,#05000f);">
         <svg width="100%" height="100%" viewBox="0 0 360 200" preserveAspectRatio="xMidYMid slice">
@@ -181,10 +181,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <circle cx="180" cy="100" r="65" fill="rgba(200,16,46,0.04)"/>
           <circle cx="180" cy="100" r="40" fill="rgba(200,16,46,0.05)"/>
         </svg>
-      </div>
-      <div class="sound-toggle" id="sound-toggle" hidden>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        <span>Tap for sound</span>
       </div>
       <div class="video-corner">Exclusive</div>
     </div>
@@ -250,9 +246,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
   <div class="content">
     <div class="result-hero">
-      <div class="result-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8102e" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
       <h2 class="result-title">You are <em>ready</em><br>for this class</h2>
     </div>
 
@@ -384,7 +377,14 @@ function startQuiz() {
   renderQuestion();
 }
 
+// HTML do botão "Tap for sound" (injetado em todo vídeo)
+const SOUND_TOGGLE_HTML = `<div class="sound-toggle" hidden>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+  <span>Tap for sound</span>
+</div>`;
+
 // Renderiza mídia genérica em qualquer slot (intro / result / questão)
+// Pra type=video: injeta sound-toggle e wire automaticamente.
 function renderMediaInto(el, slot, opts = {}) {
   if (!el) return null;
   if (!slot) return null;
@@ -414,11 +414,19 @@ function renderMediaInto(el, slot, opts = {}) {
     const sources = (slot.sources || [{src: slot.src, type: 'video/mp4'}])
       .map(s => `<source src="${s.src}" type="${s.type}">`).join('');
     const preload = opts.preload || 'metadata';
-    el.innerHTML = `
-      <video preload="${preload}" muted playsinline autoplay loop ${slot.poster ? `poster="${slot.poster}"` : ''}>
-        ${sources}
-      </video>`;
-    return el.querySelector('video');
+    const videoHtml = `<video preload="${preload}" muted playsinline autoplay loop ${slot.poster ? `poster="${slot.poster}"` : ''}>${sources}</video>`;
+    if (opts.preserve) {
+      // Intro: mantém fallback SVG existente, insere video antes + sound-toggle no final
+      el.insertAdjacentHTML('afterbegin', videoHtml);
+      el.insertAdjacentHTML('beforeend', SOUND_TOGGLE_HTML);
+    } else {
+      el.innerHTML = videoHtml + SOUND_TOGGLE_HTML;
+    }
+    const video = el.querySelector('video');
+    const toggle = el.querySelector('.sound-toggle');
+    const fallback = el.querySelector('.video-fallback');
+    wireSoundToggle(video, toggle, fallback);
+    return video;
   }
   return null;
 }
@@ -460,44 +468,18 @@ function wireSoundToggle(video, toggleBtn, fallbackEl) {
 
 // Aplica intro + result no boot da página
 (function initStaticMedia() {
-  // Intro: vídeo autoplay no topo
   if (mediaIntro) {
     const intro = document.getElementById('media-intro');
-    const fallback = document.getElementById('intro-fallback');
-    const toggle = document.getElementById('sound-toggle');
-    if (intro && mediaIntro.type === 'video') {
-      // Mantém fallback SVG e botão sound — adiciona <video> antes deles
-      const video = renderVideoIntoWrap(intro, mediaIntro);
-      wireSoundToggle(video, toggle, fallback);
-    } else if (intro) {
-      intro.innerHTML = '';
-      renderMediaInto(intro, mediaIntro);
-    }
+    if (intro) renderMediaInto(intro, mediaIntro, { preserve: true });
   }
-  // Result: placeholder ou vídeo
   if (mediaResult) {
     const r = document.getElementById('media-result');
     if (r) {
       r.innerHTML = '';
-      const v = renderMediaInto(r, mediaResult, { preload: 'none' });
-      if (v) v.muted = true;
+      renderMediaInto(r, mediaResult, { preload: 'none' });
     }
   }
 })();
-
-// Insere <video> dentro do video-wrap mantendo overlay/sound-toggle/corner
-function renderVideoIntoWrap(wrap, slot) {
-  const sources = (slot.sources || [{src: slot.src, type: 'video/mp4'}])
-    .map(s => `<source src="${s.src}" type="${s.type}">`).join('');
-  const videoHtml = `<video preload="metadata" muted playsinline autoplay loop ${slot.poster ? `poster="${slot.poster}"` : ''}>${sources}</video>`;
-  const fallback = wrap.querySelector('.video-fallback');
-  if (fallback) {
-    fallback.insertAdjacentHTML('beforebegin', videoHtml);
-  } else {
-    wrap.insertAdjacentHTML('afterbegin', videoHtml);
-  }
-  return wrap.querySelector('video');
-}
 
 function renderMedia(slot) {
   const el = document.getElementById('q-media');
