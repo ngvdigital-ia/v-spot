@@ -24,10 +24,26 @@ fbq('track', 'PageView');
 
 <link rel="dns-prefetch" href="https://connect.facebook.net">
 <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Preload mídia crítica above-the-fold (Landing) -->
+<link rel="preload" as="image" href="assets/intro-poster.webp" fetchpriority="high">
+<link rel="preload" as="video" href="assets/intro.mp4" type="video/mp4">
+
+<!-- Prefetch low-priority das próximas mídias do quiz (carrega quando idle) -->
+<link rel="prefetch" href="assets/q1.mp4" as="video" type="video/mp4">
+<link rel="prefetch" href="assets/q1-poster.webp" as="image">
+<link rel="prefetch" href="assets/q2.mp4" as="video" type="video/mp4">
+<link rel="prefetch" href="assets/q3.webp" as="image">
+<link rel="prefetch" href="assets/q4.webp" as="image">
+<link rel="prefetch" href="assets/q5.webp" as="image">
+<link rel="prefetch" href="assets/q7.webp" as="image">
+<link rel="prefetch" href="assets/result.mp4" as="video" type="video/mp4">
+<link rel="prefetch" href="assets/result-poster.webp" as="image">
+
+<!-- Google Fonts non-blocking (carrega após render; Georgia/system como fallback) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap"></noscript>
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -74,14 +90,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .age-warning{display:flex;align-items:flex-start;gap:8px;margin-top:16px;padding:10px 12px;background:rgba(200,16,46,0.07);border-left:2px solid var(--crimson);border-radius:0 4px 4px 0;font-size:12px;color:rgba(240,236,229,0.65);line-height:1.5}
 .age-warning strong{color:var(--crimson);font-weight:600}
 
-.video-wrap{margin-top:22px;position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(200,16,46,0.2);background:#0a0a0a;aspect-ratio:16/9;cursor:pointer}
-.video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
-.video-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(8,8,8,0.7),rgba(20,4,8,0.8));pointer-events:none}
-.play-btn{width:60px;height:60px;border-radius:50%;background:var(--crimson);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,background 0.2s}
-.play-btn svg{margin-left:3px}
-.video-wrap:hover .play-btn{transform:scale(1.08);background:var(--crimson-light)}
-.video-label{margin-top:10px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(240,236,229,0.5)}
-.video-corner{position:absolute;top:10px;right:10px;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);background:rgba(0,0,0,0.7);padding:3px 7px;border-radius:2px;border:1px solid rgba(201,168,76,0.3)}
+.video-wrap{margin-top:22px;position:relative;border-radius:6px;overflow:hidden;border:1px solid rgba(200,16,46,0.2);background:#0a0a0a;aspect-ratio:16/9}
+.video-wrap video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1}
+.video-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:100%;height:100%;z-index:0}
+.sound-toggle{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:rgba(0,0,0,0.78);border:1px solid rgba(200,16,46,0.45);border-radius:24px;color:#fff;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;cursor:pointer;backdrop-filter:blur(6px);animation:soundPulse 2.4s infinite;z-index:3}
+.sound-toggle[hidden]{display:none}
+.sound-toggle:hover{background:rgba(200,16,46,0.9);border-color:var(--crimson-light)}
+.sound-toggle.muted-anim{box-shadow:0 0 0 0 rgba(200,16,46,0.7)}
+@keyframes soundPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,16,46,0.6)}50%{box-shadow:0 0 0 8px rgba(200,16,46,0)}}
+.video-corner{position:absolute;top:10px;right:10px;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);background:rgba(0,0,0,0.7);padding:3px 7px;border-radius:2px;border:1px solid rgba(201,168,76,0.3);z-index:2}
 
 .cta-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:22px;padding:17px 24px;background:linear-gradient(135deg,#c8102e,#a50d25);color:#fff;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s,transform 0.15s;position:relative;overflow:hidden;text-decoration:none}
 .cta-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.08),transparent)}
@@ -122,17 +139,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .q-option.selected::before{width:3px}
 
 /* RESULT */
-.result-hero{margin-top:24px;text-align:center}
-.result-icon{width:64px;height:64px;margin:0 auto 16px;border-radius:50%;background:rgba(200,16,46,0.1);border:1px solid rgba(200,16,46,0.3);display:flex;align-items:center;justify-content:center}
-.result-title{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.3;color:var(--text)}
+.result-hero{margin-top:18px;text-align:center}
+.result-icon{width:52px;height:52px;margin:0 auto 12px;border-radius:50%;background:rgba(200,16,46,0.1);border:1px solid rgba(200,16,46,0.3);display:flex;align-items:center;justify-content:center}
+.result-title{font-family:var(--serif);font-size:22px;font-weight:700;line-height:1.3;color:var(--text)}
 .result-title em{font-style:normal;color:var(--gold)}
-.countdown-box{margin-top:22px;padding:16px;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.2);border-radius:6px;display:flex;align-items:center;gap:12px}
-.countdown-dot{width:8px;height:8px;background:var(--crimson);border-radius:50%;flex-shrink:0;animation:pulse 1.2s infinite}
-.countdown-text{font-size:13px;color:var(--text-muted);line-height:1.5}
-.countdown-text strong{color:#ff4060;font-family:'Courier New',monospace;font-size:15px}
-.result-copy{margin-top:22px;font-size:14px;line-height:1.7;color:var(--text-muted)}
+.result-copy{margin-top:16px;font-size:13.5px;line-height:1.6;color:var(--text-muted)}
 .result-copy strong{color:var(--text)}
-.result-warning{margin-top:18px;padding:12px 14px;background:rgba(201,168,76,0.06);border-left:2px solid var(--gold);border-radius:0 4px 4px 0;font-size:12px;color:rgba(240,236,229,0.6);line-height:1.6}
+.result-warning{margin-top:14px;padding:10px 12px;background:rgba(201,168,76,0.06);border-left:2px solid var(--gold);border-radius:0 4px 4px 0;font-size:12px;color:rgba(240,236,229,0.6);line-height:1.55}
 .result-warning strong{color:var(--gold-light)}
 .cta-gold{background:linear-gradient(135deg,#c9a84c,#a88530);color:#1a0f00;font-weight:700}
 
@@ -156,14 +169,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="content">
     <div class="restricted-tag">Restricted Access · Explicit Content</div>
     <h1 class="headline">How to make any woman <em>soak the whole bed</em> and have the best orgasm of her life using only your fingertips</h1>
-    <p class="subheadline">Answer these 7 quick questions and unlock the exclusive class that reveals hands-on techniques with real models — showing you how to make her come like never before.</p>
-    <div class="age-warning">
-      <strong>⚠ Attention:</strong> Only watch this if you are over 18 and want to become an unforgettable man in bed.
-    </div>
+    <p class="subheadline">Answer these 7 quick questions and unlock the exclusive class that reveals hands-on techniques with real models, showing you how to make her come like never before.</p>
 
-    <!-- VÍDEO INTRO (placeholder até receber arquivo) -->
-    <div class="video-wrap" id="media-intro" data-media-slot="intro" onclick="startQuiz()">
-      <div style="width:100%;height:100%;background:linear-gradient(135deg,#100004,#0d0008,#05000f);">
+    <!-- VIDEO INTRO — autoplay muted, tap pra som -->
+    <div class="video-wrap" id="media-intro" data-media-slot="intro">
+      <div class="video-fallback" id="intro-fallback" style="width:100%;height:100%;background:linear-gradient(135deg,#100004,#0d0008,#05000f);">
         <svg width="100%" height="100%" viewBox="0 0 360 200" preserveAspectRatio="xMidYMid slice">
           <defs><radialGradient id="vg" cx="50%" cy="50%" r="55%"><stop offset="0%" stop-color="#3d001a" stop-opacity="0.6"/><stop offset="100%" stop-color="#050003" stop-opacity="1"/></radialGradient></defs>
           <rect width="360" height="200" fill="url(#vg)"/>
@@ -172,11 +182,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <circle cx="180" cy="100" r="40" fill="rgba(200,16,46,0.05)"/>
         </svg>
       </div>
-      <div class="video-overlay">
-        <div class="play-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-label">Click to begin</div>
+      <div class="sound-toggle" id="sound-toggle" hidden>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <span>Tap for sound</span>
       </div>
       <div class="video-corner">Exclusive</div>
+    </div>
+
+    <!-- AGE WARNING — abaixo do vídeo (pedido Diogo: melhor pro mobile, vídeo já chama atenção) -->
+    <div class="age-warning">
+      <strong>⚠ Attention:</strong> Only watch this if you are over 18 and want to become unforgettable in bed.
     </div>
 
     <button class="cta-btn" onclick="startQuiz()">
@@ -228,9 +243,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <span class="topbar-logo">Squirting System</span>
     <span class="topbar-badge">🔒 Unlocked</span>
   </div>
+  <!-- Timer-strip único: recebe texto ATTENTION (Pedro: tirar duplicação pra caber numa dobra mobile) -->
   <div class="timer-strip">
     <span class="dot"></span>
-    <span>This class goes offline in <strong id="countdown-result">--:--:--</strong></span>
+    <span>⚠ <strong>ATTENTION:</strong> This exclusive class goes offline in <strong id="countdown-result">--:--:--</strong></span>
   </div>
   <div class="content">
     <div class="result-hero">
@@ -239,12 +255,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
       <h2 class="result-title">You are <em>ready</em><br>for this class</h2>
     </div>
-    <div class="countdown-box">
-      <div class="countdown-dot"></div>
-      <div class="countdown-text">⚠ <strong>ATTENTION:</strong> This exclusive class goes offline in <strong id="countdown-result2">--:--:--</strong></div>
-    </div>
 
-    <!-- VÍDEO RESULT (placeholder até receber arquivo) — vai aqui o "[sex squirting]" da copy -->
+    <!-- VÍDEO RESULT (squirt — corte 1:04-1:14 do Pornhub ph5a4253f7bb75f) -->
     <div class="q-media" id="media-result" data-media-slot="result" style="margin-top:22px">
       <div class="q-media-inner">
         <div class="q-media-icon">
@@ -266,36 +278,50 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       This is not theory. It is an explicit class, recorded live.
     </p>
     <div class="result-warning">
-      <strong>Do not skip any part.</strong> Pay attention, take everything in, and tonight — make your woman never forget you.
+      <strong>Do not skip any part.</strong> Pay attention, take everything in, and tonight, make your woman never forget you.
     </div>
-    <a href="https://roxyfox.online/vsl" class="cta-btn cta-gold" style="margin-top:24px;" onclick="trackClick()">
+    <a href="https://roxyfox.online/vsl" class="cta-btn cta-gold" style="margin-top:18px;" onclick="trackClick()">
       <span>I want to make my woman squirt for the first time today</span>
       <span class="arrow">→</span>
     </a>
     <p class="cta-secondary" style="margin-top:14px;">🔒 18+ Content · Private Access · Unlocks now</p>
-    <div class="page-footer" style="margin-top:32px;border-top:1px solid rgba(255,255,255,0.04);padding-top:20px;">For adults 18 and over only</div>
   </div>
 </div>
 
 <script>
 // === MEDIA SLOTS ===
-// Estratégia (do Diogo): 2 vídeos (LANDING intro + RESULT antes do CTA pra VSL).
-// Questões = apenas imagens WebP. Pra não inflar mobile.
+// Estratégia (Diogo): vídeos auto-play muted, com tap-to-unmute. Questões = imagens.
 // type: "video" | "image" | null (null = placeholder dashed)
-// src:  caminho relativo. Vídeo: webm + mp4 fallback. Imagem: webp.
-// poster: thumbnail webp pra video (preload="none" só baixa quando rola até lá)
+// src:  caminho local. Vídeo: mp4. Imagem: webp.
+// poster: thumbnail pra video (loaded antes do play)
+//
+// === ARQUIVOS PENDENTES (baixar Drive → assets/) ===
+// Ver assets/README.md pra IDs do Drive + timings dos cortes (Pornhub).
+// Ative os slots abaixo trocando null pelo objeto comentado quando arquivo existir.
 
-const mediaIntro = null; // landing — vídeo squirting principal (gancho)
-const mediaResult = null; // result screen — "[sex squirting]" antes do CTA pra VSL
+const mediaIntro = {
+  type: 'video',
+  sources: [{ src: 'assets/intro.mp4', type: 'video/mp4' }],
+  poster: 'assets/intro-poster.webp'
+};
 
+const mediaResult = {
+  type: 'video',
+  sources: [{ src: 'assets/result.mp4', type: 'video/mp4' }],
+  poster: 'assets/result-poster.webp'
+};
+
+// Mapeamento conforme script Doc do Diogo (verificado em capturas Slack 14h03-14h05):
+// Landing intro = squirt; Q1+Q2 = vídeos; Q3-Q5+Q7 = imgs; Q6 = sem mídia (Diogo não postou); Result = Tutorial.
+// Q1+Q2 com preload="none" (lazy, só baixam ao chegar) pra não impactar load inicial.
 const mediaPerQuestion = [
-  null, // Q1 — image
-  null, // Q2 — image ("see the whole bed soaked")
-  null, // Q3 — image
-  null, // Q4 — image
-  null, // Q5 — image
-  null, // Q6 — image (não vídeo — vídeos ficam só no intro+result)
-  null, // Q7 — image
+  { type: 'video', sources: [{ src: 'assets/q1.mp4', type: 'video/mp4' }], poster: 'assets/q1-poster.webp' }, // Pornhub 66e989b7e9ace 4:50-5:00
+  { type: 'video', sources: [{ src: 'assets/q2.mp4', type: 'video/mp4' }], poster: 'assets/q2-poster.webp' }, // Drive 1Rip4WeGEpRuS (5s)
+  { type: 'image', src: 'assets/q3.webp' }, // Drive 1Dq48DXcj
+  { type: 'image', src: 'assets/q4.webp' }, // Drive 1_W0nFZRWb
+  { type: 'image', src: 'assets/q5.webp' }, // Drive 1AT506rJ45
+  null, // Q6: Diogo não postou mídia
+  { type: 'image', src: 'assets/q7.webp' }, // Drive 1gN0L638Qi
 ];
 
 // Drive folder com os arquivos do Diogo:
@@ -303,17 +329,17 @@ const mediaPerQuestion = [
 
 const questions = [
   {
-    q: "Would you like your woman to say you are the only man who has ever made her truly come — shaking, squirting, and begging for more?",
+    q: "Would you like your woman to say you are the only man who has ever made her truly come, shaking, squirting, and begging for more?",
     yes: "Yes, that is exactly what I want",
     no: "No, I would rather be just another guy she fakes it with so it ends faster"
   },
   {
-    q: "Would you like to activate a woman's most sensitive spot, called the V-Spot, which when stimulated the right way can make any woman squirt — even if she has never felt anything like it before in her life?",
+    q: "Would you like to activate a woman's most sensitive spot, called the V-Spot, which, when stimulated the right way, can make any woman squirt, even if she has never felt anything like it before in her life?",
     yes: "Yes, I want to activate it and see the whole bed soaked",
     no: "No, I would rather keep having no idea where it is"
   },
   {
-    q: "If I showed you a finger technique that can make your woman squirt — regardless of your size or how long you last — would you be willing to learn it?",
+    q: "If I showed you a finger technique that can make your woman squirt, regardless of your size or how long you last, would you be willing to learn it?",
     yes: "Yes, I want to learn this now",
     no: "No, I would rather keep doing the same things every other guy does"
   },
@@ -323,7 +349,7 @@ const questions = [
     no: "No, I am satisfied with the current frequency"
   },
   {
-    q: "If you could activate the V-Spot, make her have multiple orgasms in a row, and make her squirt for the first time in her life — would you use this technique?",
+    q: "If you could activate the V-Spot, make her have multiple orgasms in a row, and make her squirt for the first time in her life, would you use this technique?",
     yes: "Yes, I would use it tonight",
     no: "No, I would rather keep not knowing how to do it"
   },
@@ -333,7 +359,7 @@ const questions = [
     no: "No, I would rather keep the sex boring"
   },
   {
-    q: "There is an exclusive, 100% hands-on class recorded with real models, showing every technique you can use tonight to make any woman have the best orgasm of her life and soak everything. Would you like to watch this class until the end?",
+    q: "There is an exclusive, 100% hands-on class, recorded with real models, showing every technique you can use tonight to make any woman have the best orgasm of her life and soak everything. Would you like to watch this practical class until the end?",
     yes: "Yes, I want to watch this class now",
     no: "No, I do not care if I never make her squirt"
   }
@@ -355,38 +381,119 @@ function startQuiz() {
 }
 
 // Renderiza mídia genérica em qualquer slot (intro / result / questão)
-function renderMediaInto(el, slot) {
-  if (!el) return;
-  if (!slot) return; // mantém placeholder dashed
+function renderMediaInto(el, slot, opts = {}) {
+  if (!el) return null;
+  if (!slot) return null;
   el.classList.add('has-media');
   if (slot.type === 'image') {
     el.innerHTML = `<img src="${slot.src}" alt="" loading="lazy" decoding="async">`;
-  } else if (slot.type === 'video') {
+    const img = el.querySelector('img');
+    img.addEventListener('error', () => {
+      el.classList.remove('has-media');
+      el.innerHTML = `
+        <div class="q-media-inner">
+          <div class="q-media-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8102e" stroke-width="1.8">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M10 9l5 3-5 3V9z"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <div class="q-media-label">Image / Video</div>
+          <div class="q-media-sub">Replace with your media</div>
+        </div>
+        <div class="q-media-corner">Media</div>`;
+    });
+    return null;
+  }
+  if (slot.type === 'video') {
     const sources = (slot.sources || [{src: slot.src, type: 'video/mp4'}])
       .map(s => `<source src="${s.src}" type="${s.type}">`).join('');
+    const preload = opts.preload || 'metadata';
     el.innerHTML = `
-      <video preload="none" muted playsinline autoplay loop ${slot.poster ? `poster="${slot.poster}"` : ''}>
+      <video preload="${preload}" muted playsinline autoplay loop ${slot.poster ? `poster="${slot.poster}"` : ''}>
         ${sources}
       </video>`;
+    return el.querySelector('video');
   }
+  return null;
+}
+
+// Tap-to-unmute: vídeo autoplay muted (sempre permitido); botão liga som no clique
+function wireSoundToggle(video, toggleBtn, fallbackEl) {
+  if (!video || !toggleBtn) return;
+
+  let videoLoaded = false;
+
+  // Vídeo carregou (1º frame disponível): esconde fallback, mostra botão de som
+  video.addEventListener('loadeddata', () => {
+    videoLoaded = true;
+    if (fallbackEl) fallbackEl.style.display = 'none';
+    toggleBtn.hidden = false;
+  }, { once: true });
+
+  // Erro: vídeo some, fallback aparece, botão fica oculto
+  const onError = () => {
+    if (videoLoaded) return;
+    video.style.display = 'none';
+    toggleBtn.hidden = true;
+    if (fallbackEl) fallbackEl.style.display = '';
+  };
+  video.addEventListener('error', onError);
+  video.querySelectorAll('source').forEach(s => s.addEventListener('error', onError));
+
+  // Tenta autoplay muted (sempre permitido). Se browser bloquear, esconde botão.
+  video.play().catch(() => { toggleBtn.hidden = true; });
+
+  // Clique no botão = som ON (user gesture libera unmute)
+  toggleBtn.addEventListener('click', () => {
+    video.muted = false;
+    video.play().catch(() => {});
+    toggleBtn.hidden = true;
+    if (window.fbq) fbq('trackCustom', 'IntroSoundOn');
+  });
 }
 
 // Aplica intro + result no boot da página
 (function initStaticMedia() {
-  // Intro: substitui o conteúdo do video-wrap se houver mídia
+  // Intro: vídeo autoplay no topo
   if (mediaIntro) {
     const intro = document.getElementById('media-intro');
-    if (intro) {
+    const fallback = document.getElementById('intro-fallback');
+    const toggle = document.getElementById('sound-toggle');
+    if (intro && mediaIntro.type === 'video') {
+      // Mantém fallback SVG e botão sound — adiciona <video> antes deles
+      const video = renderVideoIntoWrap(intro, mediaIntro);
+      wireSoundToggle(video, toggle, fallback);
+    } else if (intro) {
       intro.innerHTML = '';
       renderMediaInto(intro, mediaIntro);
     }
   }
-  // Result: substitui o placeholder dashed
+  // Result: placeholder ou vídeo
   if (mediaResult) {
     const r = document.getElementById('media-result');
-    if (r) renderMediaInto(r, mediaResult);
+    if (r) {
+      r.innerHTML = '';
+      const v = renderMediaInto(r, mediaResult, { preload: 'none' });
+      if (v) v.muted = true;
+    }
   }
 })();
+
+// Insere <video> dentro do video-wrap mantendo overlay/sound-toggle/corner
+function renderVideoIntoWrap(wrap, slot) {
+  const sources = (slot.sources || [{src: slot.src, type: 'video/mp4'}])
+    .map(s => `<source src="${s.src}" type="${s.type}">`).join('');
+  const videoHtml = `<video preload="metadata" muted playsinline autoplay loop ${slot.poster ? `poster="${slot.poster}"` : ''}>${sources}</video>`;
+  const fallback = wrap.querySelector('.video-fallback');
+  if (fallback) {
+    fallback.insertAdjacentHTML('beforebegin', videoHtml);
+  } else {
+    wrap.insertAdjacentHTML('afterbegin', videoHtml);
+  }
+  return wrap.querySelector('video');
+}
 
 function renderMedia(slot) {
   const el = document.getElementById('q-media');
@@ -407,7 +514,8 @@ function renderMedia(slot) {
       <div class="q-media-corner">Media</div>`;
     return;
   }
-  renderMediaInto(el, slot);
+  // preload=none nos vídeos das questões (só baixa quando user chega)
+  renderMediaInto(el, slot, { preload: 'none' });
 }
 
 function renderQuestion() {
@@ -465,7 +573,7 @@ let secs = getSecsToMidnight();
 function tick() {
   if (secs < 0) secs = 0;
   const t = fmt(secs);
-  ['countdown-landing','countdown-result','countdown-result2'].forEach(id => { const e = document.getElementById(id); if(e) e.textContent = t; });
+  ['countdown-landing','countdown-result'].forEach(id => { const e = document.getElementById(id); if(e) e.textContent = t; });
   if (secs > 0) secs--;
 }
 tick();
