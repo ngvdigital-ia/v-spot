@@ -501,23 +501,14 @@ function renderVideoIntoWrap(wrap, slot) {
 
 function renderMedia(slot) {
   const el = document.getElementById('q-media');
+  el.classList.remove('has-media');
+  // Sem mídia (ex: Q6) → esconde o slot, deixa só pergunta + opções
   if (!slot) {
-    el.classList.remove('has-media');
-    el.innerHTML = `
-      <div class="q-media-inner">
-        <div class="q-media-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8102e" stroke-width="1.8">
-            <rect x="2" y="3" width="20" height="14" rx="2"/>
-            <path d="M10 9l5 3-5 3V9z"/>
-            <path d="M8 21h8M12 17v4"/>
-          </svg>
-        </div>
-        <div class="q-media-label">Image / Video</div>
-        <div class="q-media-sub">Replace with your media</div>
-      </div>
-      <div class="q-media-corner">Media</div>`;
+    el.style.display = 'none';
+    el.innerHTML = '';
     return;
   }
+  el.style.display = '';
   // preload=none nos vídeos das questões (só baixa quando user chega)
   renderMediaInto(el, slot, { preload: 'none' });
 }
