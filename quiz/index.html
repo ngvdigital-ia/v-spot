@@ -243,6 +243,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <div class="countdown-dot"></div>
       <div class="countdown-text">⚠ <strong>ATTENTION:</strong> This exclusive class goes offline in <strong id="countdown-result2">--:--:--</strong></div>
     </div>
+
+    <!-- VÍDEO RESULT (placeholder até receber arquivo) — vai aqui o "[sex squirting]" da copy -->
+    <div class="q-media" id="media-result" data-media-slot="result" style="margin-top:22px">
+      <div class="q-media-inner">
+        <div class="q-media-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8102e" stroke-width="1.8">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M10 9l5 3-5 3V9z"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="q-media-label">Video Preview</div>
+        <div class="q-media-sub">Replace with sex squirting video</div>
+      </div>
+      <div class="q-media-corner">Video</div>
+    </div>
+
     <p class="result-copy">
       The class you are about to watch features <strong>real models</strong>, no fluff, step by step.<br><br>
       You will learn how to stimulate any woman's <strong>V-Spot</strong> and make her have multiple squirting orgasms using only your fingertips.<br><br>
@@ -261,20 +278,28 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </div>
 
 <script>
-// === MEDIA POR QUESTÃO ===
-// Estratégia: 2 vídeos no total (intro + 1 questão de impacto). Resto WebP.
-// type: "video" | "image" | null (null = mantém placeholder)
-// src:  caminho relativo. Pra vídeo: usar webm + mp4 fallback. Pra imagem: webp.
-// poster: thumbnail webp pra video (preload="none" só baixa quando user rola até lá)
+// === MEDIA SLOTS ===
+// Estratégia (do Diogo): 2 vídeos (LANDING intro + RESULT antes do CTA pra VSL).
+// Questões = apenas imagens WebP. Pra não inflar mobile.
+// type: "video" | "image" | null (null = placeholder dashed)
+// src:  caminho relativo. Vídeo: webm + mp4 fallback. Imagem: webp.
+// poster: thumbnail webp pra video (preload="none" só baixa quando rola até lá)
+
+const mediaIntro = null; // landing — vídeo squirting principal (gancho)
+const mediaResult = null; // result screen — "[sex squirting]" antes do CTA pra VSL
+
 const mediaPerQuestion = [
-  null, // Q1 — TBD (image)
-  null, // Q2 — TBD (image — "ver a cama molhada")
-  null, // Q3 — TBD (image)
-  null, // Q4 — TBD (image)
-  null, // Q5 — TBD (image)
-  null, // Q6 — VÍDEO 5-10s (impacto: "esguichar/molhar tudo") — slot reservado pra vídeo
-  null, // Q7 — TBD (image)
+  null, // Q1 — image
+  null, // Q2 — image ("see the whole bed soaked")
+  null, // Q3 — image
+  null, // Q4 — image
+  null, // Q5 — image
+  null, // Q6 — image (não vídeo — vídeos ficam só no intro+result)
+  null, // Q7 — image
 ];
+
+// Drive folder com os arquivos do Diogo:
+// https://drive.google.com/drive/folders/140BEVnQ9d1CCCyMYhOyIM_zQ4FmiMgzK
 
 const questions = [
   {
@@ -329,6 +354,40 @@ function startQuiz() {
   renderQuestion();
 }
 
+// Renderiza mídia genérica em qualquer slot (intro / result / questão)
+function renderMediaInto(el, slot) {
+  if (!el) return;
+  if (!slot) return; // mantém placeholder dashed
+  el.classList.add('has-media');
+  if (slot.type === 'image') {
+    el.innerHTML = `<img src="${slot.src}" alt="" loading="lazy" decoding="async">`;
+  } else if (slot.type === 'video') {
+    const sources = (slot.sources || [{src: slot.src, type: 'video/mp4'}])
+      .map(s => `<source src="${s.src}" type="${s.type}">`).join('');
+    el.innerHTML = `
+      <video preload="none" muted playsinline autoplay loop ${slot.poster ? `poster="${slot.poster}"` : ''}>
+        ${sources}
+      </video>`;
+  }
+}
+
+// Aplica intro + result no boot da página
+(function initStaticMedia() {
+  // Intro: substitui o conteúdo do video-wrap se houver mídia
+  if (mediaIntro) {
+    const intro = document.getElementById('media-intro');
+    if (intro) {
+      intro.innerHTML = '';
+      renderMediaInto(intro, mediaIntro);
+    }
+  }
+  // Result: substitui o placeholder dashed
+  if (mediaResult) {
+    const r = document.getElementById('media-result');
+    if (r) renderMediaInto(r, mediaResult);
+  }
+})();
+
 function renderMedia(slot) {
   const el = document.getElementById('q-media');
   if (!slot) {
@@ -348,17 +407,7 @@ function renderMedia(slot) {
       <div class="q-media-corner">Media</div>`;
     return;
   }
-  el.classList.add('has-media');
-  if (slot.type === 'image') {
-    el.innerHTML = `<img src="${slot.src}" alt="" loading="lazy" decoding="async">`;
-  } else if (slot.type === 'video') {
-    const sources = (slot.sources || [{src: slot.src, type: 'video/mp4'}])
-      .map(s => `<source src="${s.src}" type="${s.type}">`).join('');
-    el.innerHTML = `
-      <video preload="none" muted playsinline autoplay loop ${slot.poster ? `poster="${slot.poster}"` : ''}>
-        ${sources}
-      </video>`;
-  }
+  renderMediaInto(el, slot);
 }
 
 function renderQuestion() {
