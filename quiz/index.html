@@ -368,8 +368,12 @@ const questions = [
 let current = 0;
 
 function showPage(id) {
+  // Pausa qualquer vídeo da página atual (senão áudio fica tocando em segundo plano)
+  document.querySelectorAll('.page video').forEach(v => { try { v.pause(); } catch(e){} });
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
+  // Tenta tocar o(s) vídeo(s) da nova página (muted = sempre permitido)
+  document.querySelectorAll(`#${id} video`).forEach(v => { v.currentTime = 0; v.play().catch(() => {}); });
   window.scrollTo(0,0);
 }
 
