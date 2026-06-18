@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consensual Connection Blueprint</title>
+  <meta name="description" content="A practical step-by-step digital guide designed to help men communicate more clearly, understand relationship boundaries, and approach honest conversations with emotional maturity and respect.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #141414;
+      --bg-card-hover: #1a1a1a;
+      --bg-subtle: #111111;
+      --accent: #e53935;
+      --accent-dark: #c62828;
+      --accent-glow: rgba(229, 57, 53, 0.25);
+      --accent-glow-strong: rgba(229, 57, 53, 0.4);
+      --green: #22c55e;
+      --green-soft: rgba(34, 197, 94, 0.15);
+      --white: #ffffff;
+      --text: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666666;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #ff5252; }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container--narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    section { padding: 80px 0; }
+
+    h1 { font-size: 48px; font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--white); }
+    h2 { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.5px; color: var(--white); margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    p { color: var(--text-secondary); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .text-center { text-align: center; }
+
+    /* ========== HERO ========== */
+    .hero {
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-content .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-soft);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero-content h1 { margin-bottom: 20px; }
+    .hero-content h1 span { color: var(--accent); }
+
+    .hero-content .lead {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .btn-accent {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--accent-glow-strong);
+      color: var(--white);
+    }
+
+    /* ========== BENEFIT BAR ========== */
+    .benefit-bar {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .benefit-bar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .benefit-bar-item { display: flex; align-items: center; gap: 12px; }
+
+    .benefit-bar-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .benefit-bar-icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .benefit-bar-text { font-size: 14px; font-weight: 600; color: var(--white); line-height: 1.3; }
+
+    /* ========== FEATURE LIST ========== */
+    .feature-list { list-style: none; padding: 0; margin: 24px 0 0; }
+
+    .feature-list li {
+      padding: 10px 0 10px 36px;
+      position: relative;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 12px;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--green);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z' fill='white'/%3E%3C/svg%3E");
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* ========== WHO GRID ========== */
+    .who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+
+    .who-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .who-card:hover {
+      border-color: rgba(229, 57, 53, 0.25);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .who-card .icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(229, 57, 53, 0.12);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; font-size: 20px;
+    }
+
+    .who-card h3 { font-size: 16px; margin-bottom: 6px; }
+    .who-card p { font-size: 14px; color: var(--text-muted); margin: 0; }
+
+    /* ========== CALLOUT BOX ========== */
+    .callout-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-top: 16px;
+    }
+
+    .callout-box p { font-size: 15px; color: var(--text); margin: 0; }
+    .callout-box h3 { font-size: 16px; color: var(--accent); margin-bottom: 10px; }
+
+    /* ========== CHAPTERS GRID ========== */
+    .chapters-grid { display: grid; gap: 16px; margin-top: 32px; }
+
+    /* ========== BENEFITS GRID ========== */
+    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 48px; }
+
+    .benefit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .benefit-card:hover {
+      border-color: rgba(229, 57, 53, 0.25);
+      box-shadow: 0 0 30px var(--accent-glow);
+    }
+
+    .benefit-card .icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(229, 57, 53, 0.12);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px; font-size: 20px;
+    }
+
+    .benefit-card h3 { font-size: 16px; margin-bottom: 6px; }
+    .benefit-card p { font-size: 14px; color: var(--text-muted); margin: 0; }
+
+    /* ========== GUARANTEE ========== */
+    .guarantee-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .guarantee-box .guarantee-icon { font-size: 56px; margin-bottom: 20px; }
+    .guarantee-box h2 { font-size: 28px; margin-bottom: 16px; color: var(--green); }
+    .guarantee-box p { max-width: 480px; margin: 0 auto; }
+
+    /* ========== PRICING CARD ========== */
+    .pricing-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
+
+    .pricing-wrapper::before {
+      content: "";
+      position: absolute; inset: -2px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #ff5252, var(--accent-dark));
+      z-index: 0;
+    }
+
+    .pricing-card {
+      position: relative; z-index: 1;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .pricing-card h2 { font-size: 24px; margin-bottom: 20px; }
+    .pricing-card .price { font-size: 68px; font-weight: 900; color: var(--white); line-height: 1; margin: 8px 0; letter-spacing: -2px; }
+    .pricing-card .price span { color: var(--accent); }
+    .pricing-card .price-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+    .cta-main {
+      display: block; width: 100%;
+      background: var(--accent); color: var(--white);
+      font-size: 17px; font-weight: 700;
+      padding: 18px; border-radius: 10px;
+      border: none; cursor: pointer;
+      transition: all 0.25s;
+      font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow);
+      text-align: center;
+    }
+
+    .cta-main:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--accent-glow-strong);
+      color: var(--white);
+    }
+
+    .trust-icons {
+      display: flex; align-items: center; justify-content: center;
+      gap: 24px; margin-top: 20px; font-size: 12px; color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .trust-icons span { display: flex; align-items: center; gap: 4px; }
+
+    /* ========== COMPLIANCE ========== */
+    .compliance { padding: 32px 0; border-top: 1px solid var(--border); }
+
+    .compliance p {
+      font-size: 11px; color: var(--text-muted);
+      line-height: 1.7; text-align: center;
+      max-width: 640px; margin: 0 auto 6px;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #050505;
+      padding: 36px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-links {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 8px 24px; margin-bottom: 12px;
+    }
+
+    .footer-links a { color: var(--text-muted); font-size: 14px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: #444; font-size: 13px; }
+
+    .section-alt { background: var(--bg-subtle); }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      h1 { font-size: 32px; }
+      h2 { font-size: 26px; }
+      section { padding: 56px 0; }
+      .hero { padding: 56px 0 40px; }
+      .benefit-bar-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .who-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .container--narrow { padding: 0 20px; }
+      .pricing-card { padding: 36px 24px; }
+      .pricing-card .price { font-size: 52px; }
+      .btn-accent { width: 100%; justify-content: center; }
+      .guarantee-box { padding: 36px 24px; }
+      .hero::before { width: 300px; height: 300px; right: -50px; top: -50px; }
+    }
+
+    @media (max-width: 480px) {
+      .benefit-bar-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="badge">Digital Guide &mdash; Instant Access</span>
+        <h1>What If You Could Finally Say What You Mean &mdash; Clearly, Confidently, and Respectfully &mdash; Even in the Most Difficult Relationship Conversations?</h1>
+        <p class="lead">Consensual Connection Blueprint is a practical step-by-step digital guide designed to help men communicate more clearly, understand relationship boundaries, and approach honest conversations with emotional maturity and respect &mdash; without pressure, manipulation, or guesswork.</p>
+        <a href="#offer" class="btn-accent">Buy Now &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFIT BAR ========== -->
+  <div class="benefit-bar">
+    <div class="container">
+      <div class="benefit-bar-grid">
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">10 structured chapters</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Instant digital access</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Self-paced PDF guide</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">60-day guarantee</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WHO THIS IS FOR ========== -->
+  <section>
+    <div class="container">
+      <h2 class="text-center">Who This Is For</h2>
+      <p class="text-center" style="max-width: 580px; margin: 0 auto 0;">This guide may be right for you if:</p>
+
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="icon">&#128172;</div>
+          <h3>You often avoid important conversations</h3>
+          <p>Because you're not sure how to start them.</p>
+        </div>
+        <div class="who-card">
+          <div class="icon">&#129504;</div>
+          <h3>You want to express your expectations</h3>
+          <p>Without sounding demanding or intense.</p>
+        </div>
+        <div class="who-card">
+          <div class="icon">&#128295;</div>
+          <h3>You want to recognize and respect boundaries</h3>
+          <p>And understand how to do that with another person.</p>
+        </div>
+        <div class="who-card">
+          <div class="icon">&#128170;</div>
+          <h3>You feel nervous before sensitive discussions</h3>
+          <p>And want to approach them with more confidence.</p>
+        </div>
+        <div class="who-card">
+          <div class="icon">&#10024;</div>
+          <h3>You've experienced rejection or misunderstanding</h3>
+          <p>And want to handle those moments with more maturity.</p>
+        </div>
+        <div class="who-card">
+          <div class="icon">&#127757;</div>
+          <h3>You want healthier communication habits</h3>
+          <p>That feel natural and authentic over time.</p>
+        </div>
+      </div>
+
+      <div class="callout-box" style="margin-top: 32px;">
+        <p>This guide is not intended for anyone looking for manipulation tactics, pressure-based scripts, or guaranteed romantic outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT IT IS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What It Is</h2>
+        <p>Consensual Connection Blueprint is a digital e-book delivered in PDF format.</p>
+        <p>After your purchase, you will receive instant access to the full guide via download link. There are no physical components &mdash; everything is delivered digitally and available immediately after checkout.</p>
+        <p>The guide contains 10 structured chapters, practical communication frameworks, reflection exercises, and a complete set of worksheets and checklists designed to be applied at your own pace.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT YOU'LL GET ACCESS TO ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What You'll Get Access To</h2>
+        <p class="text-center">Here is what you will find inside:</p>
+
+        <div class="chapters-grid">
+          <div class="callout-box">
+            <h3>Chapter 1 &mdash; The Foundation of Respectful Communication</h3>
+            <p>Understand why healthy relationship conversations start with clarity, emotional control, and genuine respect &mdash; and how to shift from a &ldquo;convincing&rdquo; mindset to one of honest, grounded expression.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 2 &mdash; Understanding Boundaries</h3>
+            <p>Learn how to recognize that every person has different comfort levels and expectations, how to avoid assuming what someone wants, and how to respond maturely when someone communicates hesitation or says no.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 3 &mdash; Preparing for Honest Conversations</h3>
+            <p>Discover how to organize your thoughts before a sensitive discussion, identify your real intention, and choose the right timing so the conversation can go as smoothly as possible.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 4 &mdash; How to Express Yourself Clearly</h3>
+            <p>Apply practical communication structures that may help you share your perspective without sounding demanding &mdash; including calm opening statements, respectful framing, and language that leaves space for the other person to respond.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 5 &mdash; Listening Without Defensiveness</h3>
+            <p>Learn how to listen without interrupting, avoid reactive responses, ask better follow-up questions, and show genuine understanding &mdash; even during disagreement.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 6 &mdash; Emotional Control During Sensitive Topics</h3>
+            <p>Understand how emotional reactions can affect the quality of a conversation, and explore practical approaches for staying calm, avoiding needy behavior, and responding with maturity under pressure.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 7 &mdash; Mutual Interest and Agreement</h3>
+            <p>Explore why healthy connection requires mutual comfort and genuine agreement, how to recognize uncertainty in another person, and how to avoid turning personal desire into pressure.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 8 &mdash; Building Trust Through Consistency</h3>
+            <p>See why trust is built through repeated behavior over time, and how consistency, patience, and honest communication may support healthier relationship dynamics.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 9 &mdash; Handling Rejection or Disagreement Maturely</h3>
+            <p>Learn how to accept another person's decision, avoid pushing after a clear boundary has been communicated, and move forward with dignity and emotional balance.</p>
+          </div>
+          <div class="callout-box">
+            <h3>Chapter 10 &mdash; Practical Reflection Pages and Communication Checklist</h3>
+            <p>Apply everything you've learned with a personal intention worksheet, boundary awareness checklist, sensitive conversation planner, emotional control reflection guide, listening practice prompts, relationship expectations worksheet, and a weekly communication improvement tracker.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY OTHER METHODS FAIL ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Why Other Methods Fail</h2>
+        <p>Most relationship communication methods focus on persuasion scripts, pressure techniques, or tactics designed to produce a specific reaction from another person.</p>
+        <p>These approaches often create discomfort, reduce trust, and make conversations feel forced and unnatural &mdash; for both people involved.</p>
+        <p>Consensual Connection Blueprint takes a more grounded approach. Instead of teaching you how to push for a specific outcome, it focuses on something more sustainable: communicating clearly, listening actively, understanding boundaries, and responding with genuine emotional maturity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFITS ========== -->
+  <section>
+    <div class="container">
+      <h2 class="text-center">Benefits</h2>
+      <p class="text-center" style="max-width: 520px; margin: 0 auto;">This guide may help you:</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="icon">&#128172;</div>
+          <h3>Communicate sensitive topics with more clarity and less anxiety</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#129504;</div>
+          <h3>Develop a more respectful and mature relationship mindset</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#128295;</div>
+          <h3>Recognize and understand boundaries more consistently</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#128065;</div>
+          <h3>Listen with more patience and genuine attention</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#128170;</div>
+          <h3>Reduce pressure-based patterns in your communication</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#9878;</div>
+          <h3>Handle rejection or disagreement with dignity and emotional balance</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#128203;</div>
+          <h3>Feel more prepared before having honest, important conversations</h3>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">&#127757;</div>
+          <h3>Build healthier communication habits over time</h3>
+        </div>
+      </div>
+
+      <p class="text-center" style="margin-top: 32px; font-size: 13px; color: var(--text-muted);"><em>Results vary by individual. No specific response, agreement, relationship outcome, or romantic result is guaranteed.</em></p>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">How It Works</h2>
+        <p>Consensual Connection Blueprint is built around one practical premise: that respectful, clear, and emotionally mature communication creates better outcomes than pressure or persuasion ever could.</p>
+        <p>The guide is structured as a progressive experience. Each chapter builds on the previous one &mdash; taking you from the foundational mindset shifts in Chapter 1 all the way through applied tools, reflection exercises, and real-world communication checklists in Chapter 10.</p>
+        <p>There are no scripts to memorize and no tactics to perform. The focus is on helping you understand yourself, your intentions, and the dynamics of respectful communication &mdash; so that when a sensitive conversation comes, you feel genuinely prepared.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GUARANTEE ========== -->
+  <section>
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="guarantee-icon">&#128737;</div>
+        <h2>60-Day Money-Back Guarantee</h2>
+        <p>Try Consensual Connection Blueprint for 60 days. If you feel it is not a helpful resource for your personal growth or communication journey, simply contact our support team within 60 days of your purchase and we'll issue a full refund &mdash; no questions asked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OFFER ========== -->
+  <section class="section-alt" id="offer">
+    <div class="container">
+      <div class="pricing-wrapper">
+        <div class="pricing-card">
+          <span class="pricing-badge">Special Offer &mdash; Instant Access</span>
+          <h2>Consensual Connection Blueprint</h2>
+          <div class="price"><span>$47</span></div>
+          <p class="price-sub">One-time payment &middot; Instant digital access &middot; 60-day guarantee</p>
+          <!-- TODO: link checkout Digistore24 pendente -->
+          <a href="#" class="cta-main">Buy Now</a>
+          <div class="trust-icons">
+            <span>&#128274; Secure payment</span>
+            <span>&#9989; Instant access</span>
+            <span>&#128737; 60-day guarantee</span>
+          </div>
+          <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">Payments processed securely by Digistore24.</p>
+          <p style="font-size: 12px; color: var(--text-muted);">&#128274; Compliance-friendly &bull; No medical claims &bull; Results may vary</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; padding: 32px 0 0;">
+        <script type="text/javascript" src="https://www.digistore24.com/trusted-badge/44515/IsTMGRlnqYpnh4k/salespage"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DISCLAIMER ========== -->
+  <div class="compliance">
+    <div class="container">
+      <p><em>The information provided in this guide is for educational and personal development purposes only. It is not intended to replace professional counseling, therapy, or relationship advice from a qualified professional. Individual results may vary. No specific relationship outcome, romantic result, agreement, or response from another person is guaranteed. Results depend on the individual's effort, personal circumstances, and situation.</em></p>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== */
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/refund-policy/">Refund Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Consensual Connection Blueprint. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
