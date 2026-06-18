@@ -1,64 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="A practical digital guide created to help men start better conversations, build social confidence, and create healthier dating momentum — without pressure,">
-<title>Ignition Protocol</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0e0f13;color:#dfe3ea;line-height:1.7;font-size:17px}
-.wrap{max-width:760px;margin:0 auto;padding:0 20px}
-.hero{padding:48px 0 28px;text-align:center;border-bottom:1px solid #20232b}
-.badge{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9aa3b2;border:1px solid #2a2e38;border-radius:999px;padding:6px 14px;margin-bottom:18px}
-h1{font-size:30px;line-height:1.25;color:#fff;font-weight:800;margin-bottom:16px}
-.lead{font-size:18px;color:#c3c9d4;max-width:640px;margin:0 auto}
-.compliance{margin-top:16px;font-size:13px;color:#7f8794}
-section{padding:30px 0;border-bottom:1px solid #1a1d24}
-h2{font-size:23px;color:#fff;font-weight:800;margin-bottom:14px}
-h3{font-size:18px;color:#eef1f6;font-weight:700;margin:20px 0 8px}
-p{margin-bottom:12px;color:#cfd4dd}
-ul{list-style:none;margin:6px 0 12px}
-ul li{position:relative;padding-left:24px;margin-bottom:8px;color:#cfd4dd}
-ul li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:50%;background:#c0392b}
-.disclaimer{font-size:14px;color:#9aa3b2;font-style:italic;border-left:3px solid #c0392b;padding-left:14px;margin-top:10px}
-.price-box{text-align:center;padding:40px 24px;background:#14161c;border:1px solid #262a33;border-radius:14px;margin:34px 0}
-.price-box .cta-h{font-size:22px;color:#fff;font-weight:800;margin-bottom:10px}
-.price{font-size:48px;font-weight:900;color:#fff;line-height:1;margin:8px 0 20px}
-.buy{display:inline-block;background:#c0392b;color:#fff;font-size:18px;font-weight:800;text-decoration:none;padding:16px 44px;border-radius:10px;letter-spacing:.02em}
-.buy:hover{background:#a93226}
-.secure{margin-top:16px;font-size:13px;color:#7f8794}
-.ds24{margin-top:18px}
-.ds24 img{height:42px;opacity:.9}
-footer{padding:34px 0 50px;text-align:center;font-size:13px;color:#7f8794}
-footer a{color:#9aa3b2;text-decoration:none;margin:0 6px}
-footer a:hover{text-decoration:underline}
-.copyright{margin-top:12px}
-@media(max-width:480px){h1{font-size:25px}.price{font-size:40px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignition Protocol</title>
+  <meta name="description" content="A practical step-by-step digital guide designed to help men feel more prepared before starting conversations, build genuine social confidence, and create early dating momentum.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #141414;
+      --bg-subtle: #111111;
+      --accent: #e53935;
+      --accent-dark: #c62828;
+      --accent-glow: rgba(229, 57, 53, 0.25);
+      --accent-glow-strong: rgba(229, 57, 53, 0.4);
+      --green: #22c55e;
+      --white: #ffffff;
+      --text: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666666;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #ff5252; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container--narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    h1 { font-size: 48px; font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--white); }
+    h2 { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.5px; color: var(--white); margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    p { color: var(--text-secondary); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .text-center { text-align: center; }
+
+    .hero { padding: 80px 0 60px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { max-width: 680px; margin: 0 auto; text-align: center; }
+    .hero-content h1 { margin-bottom: 20px; }
+    .hero-content .lead { font-size: 17px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 32px; }
+
+    .btn-accent {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent); color: var(--white); font-size: 16px; font-weight: 700;
+      padding: 16px 40px; border-radius: 10px; border: none; cursor: pointer;
+      transition: all 0.25s; font-family: inherit; text-transform: uppercase; letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+    .btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow-strong); color: var(--white); }
+
+    .benefit-bar { padding: 36px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .benefit-bar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .benefit-bar-item { display: flex; align-items: center; gap: 12px; }
+    .benefit-bar-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .benefit-bar-icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .benefit-bar-text { font-size: 14px; font-weight: 600; color: var(--white); line-height: 1.3; }
+
+    .feature-list { list-style: none; padding: 0; margin: 24px 0 0; }
+    .feature-list li { padding: 10px 0 10px 36px; position: relative; font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+    .feature-list li::before {
+      content: ""; position: absolute; left: 0; top: 12px; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z' fill='white'/%3E%3C/svg%3E");
+      background-size: 20px; background-repeat: no-repeat; background-position: center;
+    }
+
+    .callout-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: var(--radius);
+      padding: 28px 32px; margin-top: 16px;
+    }
+    .callout-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+
+    .pricing-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
+    .pricing-wrapper::before {
+      content: ""; position: absolute; inset: -2px; border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #ff5252, var(--accent-dark)); z-index: 0;
+    }
+    .pricing-card { position: relative; z-index: 1; background: var(--bg-card); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; }
+    .pricing-badge { display: inline-block; background: var(--accent); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px; margin-bottom: 24px; }
+    .pricing-card h2 { font-size: 24px; margin-bottom: 20px; }
+    .pricing-card .price { font-size: 68px; font-weight: 900; color: var(--white); line-height: 1; margin: 8px 0; letter-spacing: -2px; }
+    .pricing-card .price span { color: var(--accent); }
+    .pricing-card .price-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+    .cta-main {
+      display: block; width: 100%; background: var(--accent); color: var(--white);
+      font-size: 17px; font-weight: 700; padding: 18px; border-radius: 10px; border: none; cursor: pointer;
+      transition: all 0.25s; font-family: inherit; text-transform: uppercase; letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow); text-align: center;
+    }
+    .cta-main:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow-strong); color: var(--white); }
+
+    .trust-icons { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 20px; font-size: 12px; color: var(--text-muted); }
+
+    .compliance { padding: 32px 0; border-top: 1px solid var(--border); }
+    .compliance p { font-size: 11px; color: var(--text-muted); line-height: 1.7; text-align: center; max-width: 640px; margin: 0 auto 6px; }
+
+    footer { background: #050505; padding: 36px 0; text-align: center; border-top: 1px solid var(--border); }
+    .footer-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 12px; }
+    .footer-links a { color: var(--text-muted); font-size: 14px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: #444; font-size: 13px; }
+    .section-alt { background: var(--bg-subtle); }
+    .guarantee-section { text-align: center; }
+    .guarantee-section h2 { font-size: 28px; margin-bottom: 16px; }
+    .guarantee-section p { max-width: 540px; margin: 0 auto; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 34px; } h2 { font-size: 28px; }
+      section { padding: 56px 0; } .hero { padding: 56px 0 40px; }
+      .benefit-bar-grid { grid-template-columns: 1fr; gap: 16px; }
+      .benefit-bar-item { justify-content: center; }
+      .container { padding: 0 20px; } .container--narrow { padding: 0 20px; }
+      .pricing-card { padding: 36px 24px; } .pricing-card .price { font-size: 52px; }
+      .btn-accent { width: 100%; justify-content: center; }
+      .hero::before { width: 300px; height: 300px; right: -50px; top: -50px; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap"><div class="hero">
-<h1>Ignition Protocol</h1>
-<p class="lead">A practical digital guide created to help men start better conversations, build social confidence, and create healthier dating momentum — without pressure, manipulation, or unrealistic promises.</p>
-<p class="compliance">🔒 Compliance-friendly • No medical claims • Results vary</p>
-</div></div>
-<div class="wrap">
-<section><h2>Who This Is For</h2><p>Ignition Protocol is for men who want to feel more prepared when starting conversations and creating initial connection in dating situations.</p><p>It may be helpful for men who:</p><ul><li>Feel nervous before starting conversations</li><li>Want to communicate with more confidence</li><li>Want simple guidance for first impressions</li><li>Prefer respectful communication over pickup tactics</li><li>Want to understand how to create momentum without forcing outcomes</li></ul><p>This guide is not for anyone looking for guaranteed dates, guaranteed attraction, manipulation, or methods to pressure women into responding.</p></section><section><h2>What Is the Product?</h2><p>Ignition Protocol is a digital relationship guide delivered online as an eBook.</p><p>Inside, the reader will find practical chapters, examples, exercises, and communication principles designed to support better first interactions and early-stage dating conversations.</p><p>The guide focuses on realistic improvement in areas such as confidence, conversation starters, emotional control, body language, listening, and respectful follow-up.</p><p>It does not guarantee that any specific person will respond, feel attraction, agree to a date, or begin a relationship.</p></section><section><h2>What You Will See Inside the Guide</h2><h3>Chapter 1 — The Foundation of Social Confidence</h3><p>This chapter explains what social confidence can look like in real situations.</p><p>The reader will learn why confidence is not about being loud, aggressive, or perfect. It is more about staying calm, respectful, and present.</p><p>This chapter may help the reader understand how confidence can be developed through practice and self-awareness.</p><h3>Chapter 2 — Preparing Your Mind Before the Interaction</h3><p>This chapter helps men manage nervousness before starting a conversation.</p><p>It includes practical reflections on:</p><ul><li>Fear of rejection</li><li>Overthinking</li><li>Trying to impress</li><li>Expecting perfect outcomes</li><li>Staying calm before approaching</li></ul><p>The goal is to help the reader enter conversations with more balance.</p><h3>Chapter 3 — Starting Conversations Naturally</h3><p>This chapter gives simple principles for opening conversations respectfully.</p><p>It does not teach aggressive pickup lines. Instead, it explains how to use context, tone, and timing to start a conversation in a more natural way.</p><p>You will see examples of:</p><ul><li>Situational openers</li><li>Simple introductions</li><li>Low-pressure conversation starters</li><li>When not to approach</li><li>How to respect the other person's comfort</li></ul><h3>Chapter 4 — First Impression Basics</h3><p>This chapter explains small factors that may influence how a first interaction feels.</p><p>Topics include:</p><ul><li>Personal presentation</li><li>Posture</li><li>Eye contact</li><li>Voice tone</li><li>Calm pacing</li><li>Listening from the beginning</li></ul><p>The focus is not on perfection, but on showing up with awareness.</p><h3>Chapter 5 — Keeping the Conversation Alive</h3><p>This chapter explains how to move beyond the first sentence.</p><p>The reader will learn how to avoid awkward silence, forced topics, or interview-style conversations.</p><p>It includes guidance on:</p><ul><li>Asking open questions</li><li>Sharing short personal details</li><li>Not dominating the conversation</li><li>Not forcing humor</li><li>Not trying too hard to impress</li></ul><h3>Chapter 6 — Reading Comfort and Engagement</h3><p>This chapter helps the reader become more aware of social signals.</p><p>It explains that interest should not be assumed and that comfort matters.</p><p>Topics include:</p><ul><li>Noticing engagement</li><li>Respecting short answers</li><li>Understanding when to continue</li><li>Understanding when to step back</li><li>Avoiding pressure when the energy is not mutual</li></ul><h3>Chapter 7 — Turning a Good Conversation Into a Next Step</h3><p>This chapter explains how to suggest a next step in a respectful and simple way.</p><p>You will see examples of:</p><ul><li>Asking to continue the conversation</li><li>Suggesting a casual meeting</li><li>Keeping the invitation low-pressure</li><li>Accepting "no" or uncertainty maturely</li><li>Avoiding repeated pushing</li></ul><h3>Chapter 8 — Texting After the First Interaction</h3><p>This chapter covers what to do after an initial conversation.</p><p>It includes guidance on:</p><ul><li>Sending a simple first message</li><li>Avoiding over-texting</li><li>Keeping tone calm</li><li>Not demanding immediate replies</li><li>Letting communication develop naturally</li></ul><h3>Chapter 9 — Handling Rejection With Maturity</h3><p>This chapter helps men understand rejection in a healthier way.</p><p>It explains that rejection is not always personal and should not lead to anger, pressure, or loss of self-respect.</p><p>The focus is on responding with emotional control and moving forward with dignity.</p><h3>Chapter 10 — 7-Day Ignition Practice Plan</h3><p>The final chapter includes a practical short-term practice plan.</p><p>It may include:</p><ul><li>Daily confidence reflection</li><li>Conversation starter practice</li><li>Body language awareness checklist</li><li>Texting habit review</li><li>Rejection resilience exercise</li><li>Social confidence tracker</li></ul><p>The goal is to help the reader take small, realistic steps toward better communication.</p></section><section><h2>Why Other Methods May Not Work</h2><p>Many dating methods focus on memorized lines, performance, or pressure.</p><p>These methods may feel unnatural and can make conversations more stressful.</p><p>Ignition Protocol takes a more realistic approach. It focuses on preparation, social awareness, respectful communication, and emotional control instead of promising guaranteed dating results.</p></section><section><h2>Possible Benefits</h2><p>This guide may help you:</p><ul><li>Feel more prepared before starting conversations</li><li>Improve your first impression awareness</li><li>Communicate with more calmness and clarity</li><li>Avoid common early-stage dating mistakes</li><li>Reduce dependence on memorized lines</li><li>Understand when to continue or step back</li><li>Handle rejection with more maturity</li></ul><p class="disclaimer">Results vary by individual. No specific romantic outcome, attraction, response, date, or relationship is guaranteed.</p></section><section><h2>Your 60-Day Guarantee</h2><p>Try Ignition Protocol for 60 days.</p><p>If you feel it is not a helpful resource for your personal growth or communication journey, you may request a refund within 60 days according to the refund process provided after purchase.</p></section>
-<div class="price-box">
-<div class="cta-h">Offer</div>
-<div class="price">$147</div>
-<!-- TODO: link de checkout Digistore24 (produto) pendente -->
-<a class="buy" href="#">Buy Now</a>
-<p class="secure">Payments processed securely by Digistore24.</p>
-<div class="ds24"><img src="https://www.digistore24.com/trusted-badge/44515/dark/seal.png" alt="Digistore24"></div>
-</div>
-<p class="compliance" style="text-align:center">🔒 Compliance-friendly • No medical claims • Results vary</p>
-</div>
-<footer><div class="wrap">
-<a href="/privacy-policy/">Privacy Policy</a> • <a href="/refund-policy/">Refund Policy</a> • <a href="/terms-of-use/">Terms of Use</a> • <a href="/contact/">Contact</a>
-<div class="copyright">© 2026 Ignition Protocol. All rights reserved.</div>
-</div></footer>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>What If Starting a Conversation Felt Less Like a Risk and More Like Something You Were Actually Ready For?</h1>
+        <p class="lead">Ignition Protocol is a practical step-by-step digital guide designed to help men feel more prepared before starting conversations, build genuine social confidence, and create early dating momentum &mdash; without pressure, memorized lines, or unrealistic promises.</p>
+        <a href="#offer" class="btn-accent">Buy Now &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFIT BAR ========== -->
+  <div class="benefit-bar">
+    <div class="container">
+      <div class="benefit-bar-grid">
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">10 structured chapters</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">7-day practice plan</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Instant digital access</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">60-day guarantee</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WHO THIS IS FOR ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Who This Is For</h2>
+        <p class="text-center">This guide may be right for you if:</p>
+        <ul class="feature-list">
+          <li>You feel nervous or stuck before starting a conversation with someone you're interested in</li>
+          <li>You want to communicate with more confidence and less overthinking</li>
+          <li>You're tired of memorized pickup lines that feel unnatural and forced</li>
+          <li>You want simple, realistic guidance for first impressions and early interactions</li>
+          <li>You want to understand how to create momentum without pressuring anyone</li>
+          <li>You've struggled with rejection and want to handle it with more maturity and self-respect</li>
+        </ul>
+        <p style="margin-top: 24px; font-size: 14px; color: var(--text-muted);">This guide is not intended for anyone looking for guaranteed dates, guaranteed attraction, manipulation tactics, or methods to pressure someone into responding.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT IT IS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What It Is</h2>
+        <p>Ignition Protocol is a digital e-book delivered in PDF format.</p>
+        <p>After your purchase, you will receive instant access to the full guide via download link. There are no physical components &mdash; everything is delivered digitally and available immediately after checkout.</p>
+        <p>The guide contains 10 structured chapters, practical communication principles, real-world examples, reflection exercises, and a 7-day practice plan &mdash; all designed to be applied at your own pace, in real situations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT YOU'LL GET ACCESS TO ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What You'll Get Access To</h2>
+        <p class="text-center">Here is what you will find inside:</p>
+        <div style="display: grid; gap: 16px; margin-top: 32px;">
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 1 &mdash; The Foundation of Social Confidence</h3>
+            <p>Understand what social confidence can actually look like in real situations &mdash; and why it has nothing to do with being loud, aggressive, or perfect. This chapter explores how confidence may be developed through practice and genuine self-awareness.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 2 &mdash; Preparing Your Mind Before the Interaction</h3>
+            <p>Learn how to manage nervousness before starting a conversation. This chapter includes practical reflections on fear of rejection, overthinking, and how to enter an interaction with more calm and emotional balance.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 3 &mdash; Starting Conversations Naturally</h3>
+            <p>Discover how to use context, tone, and timing to open a conversation in a natural, respectful way &mdash; without aggressive openers or rehearsed scripts. Includes situational examples, simple introductions, and low-pressure conversation starters.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 4 &mdash; First Impression Basics</h3>
+            <p>Explore the small factors that may influence how a first interaction feels &mdash; including personal presentation, posture, eye contact, voice tone, and calm pacing. The focus is not on perfection, but on showing up with more awareness.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 5 &mdash; Keeping the Conversation Alive</h3>
+            <p>Learn how to move beyond the first sentence without forcing topics or dominating the conversation. This chapter covers open questions, short personal sharing, and how to keep early interactions feeling natural and unhurried.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 6 &mdash; Reading Comfort and Engagement</h3>
+            <p>Develop more awareness of social signals. This chapter explains how to notice engagement, respect short or hesitant answers, understand when to continue, and recognize when to step back &mdash; without assumption or pressure.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 7 &mdash; Turning a Good Conversation Into a Next Step</h3>
+            <p>See how to suggest a next step in a simple, low-pressure way &mdash; including how to extend an invitation, accept a "no" or uncertainty maturely, and avoid the common mistake of pushing after the moment has passed.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 8 &mdash; Texting After the First Interaction</h3>
+            <p>Understand what to do after an initial conversation. This chapter covers sending a simple first message, avoiding over-texting, keeping your tone calm, and letting communication develop at a natural pace.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 9 &mdash; Handling Rejection With Maturity</h3>
+            <p>Learn how to understand rejection in a healthier way &mdash; why it isn't always personal, how to respond with emotional control, and how to move forward with dignity rather than pressure or resentment.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 10 &mdash; 7-Day Ignition Practice Plan</h3>
+            <p>Apply everything you've learned with a structured short-term practice plan &mdash; including daily confidence reflection, conversation starter practice, body language awareness checklist, texting habit review, rejection resilience exercise, and a social confidence tracker.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY OTHER METHODS FAIL ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Why Other Methods Fail</h2>
+        <p>Most dating methods focus on memorized lines, performance tactics, or scripted behavior designed to force a specific reaction from another person.</p>
+        <p>These approaches often feel unnatural &mdash; for both sides &mdash; and can make conversations more stressful, not less.</p>
+        <p>Ignition Protocol takes a more realistic approach. Instead of giving you a script to perform, it focuses on preparation, social awareness, respectful communication, and emotional control &mdash; the areas where real improvement is actually possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFITS ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Benefits</h2>
+        <p class="text-center">This guide may help you:</p>
+        <ul class="feature-list">
+          <li>Feel more prepared before starting a conversation</li>
+          <li>Improve your awareness of first impressions</li>
+          <li>Communicate with more calmness and clarity</li>
+          <li>Avoid common early-stage dating mistakes</li>
+          <li>Reduce dependence on memorized lines or performance tactics</li>
+          <li>Recognize when to continue a conversation and when to step back</li>
+          <li>Handle rejection with more maturity and less emotional charge</li>
+          <li>Build more realistic and sustainable social confidence over time</li>
+        </ul>
+        <p style="margin-top: 24px; font-size: 13px; color: var(--text-muted);"><em>Results vary by individual. No specific romantic outcome, attraction response, date, or relationship is guaranteed.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">How It Works</h2>
+        <p>Ignition Protocol is built on one straightforward idea: that genuine social confidence is something you can prepare for &mdash; and that preparation, not performance, is what makes conversations feel more natural.</p>
+        <p>The guide is structured as a progressive experience. Each chapter builds on the previous one &mdash; starting with mindset and emotional preparation, moving through practical conversation skills, and finishing with a 7-day action plan you can apply immediately.</p>
+        <p>There are no scripts to memorize and no lines to rehearse. The focus is on helping you understand your own patterns, develop genuine social awareness, and show up to conversations feeling more grounded &mdash; one step at a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GUARANTEE ========== -->
+  <section>
+    <div class="container--narrow">
+      <div class="guarantee-section">
+        <h2>60-Day Money-Back Guarantee</h2>
+        <p>Try Ignition Protocol for 60 days. If you feel it is not a helpful resource for your personal growth or communication journey, simply contact our support team within 60 days of your purchase and we'll issue a full refund &mdash; no questions asked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OFFER ========== -->
+  <section class="section-alt" id="offer">
+    <div class="container">
+      <div class="pricing-wrapper">
+        <div class="pricing-card">
+          <span class="pricing-badge">Special Offer &mdash; Instant Access</span>
+          <h2>Ignition Protocol</h2>
+          <div class="price"><span>$147</span></div>
+          <p class="price-sub">One-time payment &middot; Instant digital access &middot; 60-day guarantee</p>
+          <!-- TODO: link checkout Digistore24 pendente -->
+          <a href="#" class="cta-main">Buy Now</a>
+          <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">Payments processed securely by Digistore24.</p>
+          <div class="trust-icons">
+            <span>&#128274; Compliance-friendly</span>
+            <span>&bull; No medical claims</span>
+            <span>&bull; Results may vary</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DISCLAIMER ========== -->
+  <div class="compliance">
+    <div class="container">
+      <p><em>The information provided in this guide is for educational and personal development purposes only. It is not intended to replace professional counseling, therapy, or relationship advice from a qualified professional. Individual results may vary. No specific romantic outcome, attraction, response, date, or relationship is guaranteed. Results depend on the individual's effort, personal circumstances, and situation.</em></p>
+    </div>
+  </div>
+
+  <!-- ========== DIGISTORE24 BADGE ========== -->
+  <div style="text-align: center; padding: 24px 0;">
+    <script type="text/javascript" src="https://www.digistore24.com/trusted-badge/44515/IsTMGRlnqYpnh4k/salespage"></script>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/refund-policy/">Refund Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Ignition Protocol. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    window.pixelId = "69a9806c140f4a4bef96ae68";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 </body>
 </html>

@@ -1,64 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="A practical digital guide designed to help men approach reconnection with more clarity, emotional control, and respectful communication — without pressure,">
-<title>Reconnection Code</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0e0f13;color:#dfe3ea;line-height:1.7;font-size:17px}
-.wrap{max-width:760px;margin:0 auto;padding:0 20px}
-.hero{padding:48px 0 28px;text-align:center;border-bottom:1px solid #20232b}
-.badge{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9aa3b2;border:1px solid #2a2e38;border-radius:999px;padding:6px 14px;margin-bottom:18px}
-h1{font-size:30px;line-height:1.25;color:#fff;font-weight:800;margin-bottom:16px}
-.lead{font-size:18px;color:#c3c9d4;max-width:640px;margin:0 auto}
-.compliance{margin-top:16px;font-size:13px;color:#7f8794}
-section{padding:30px 0;border-bottom:1px solid #1a1d24}
-h2{font-size:23px;color:#fff;font-weight:800;margin-bottom:14px}
-h3{font-size:18px;color:#eef1f6;font-weight:700;margin:20px 0 8px}
-p{margin-bottom:12px;color:#cfd4dd}
-ul{list-style:none;margin:6px 0 12px}
-ul li{position:relative;padding-left:24px;margin-bottom:8px;color:#cfd4dd}
-ul li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:50%;background:#c0392b}
-.disclaimer{font-size:14px;color:#9aa3b2;font-style:italic;border-left:3px solid #c0392b;padding-left:14px;margin-top:10px}
-.price-box{text-align:center;padding:40px 24px;background:#14161c;border:1px solid #262a33;border-radius:14px;margin:34px 0}
-.price-box .cta-h{font-size:22px;color:#fff;font-weight:800;margin-bottom:10px}
-.price{font-size:48px;font-weight:900;color:#fff;line-height:1;margin:8px 0 20px}
-.buy{display:inline-block;background:#c0392b;color:#fff;font-size:18px;font-weight:800;text-decoration:none;padding:16px 44px;border-radius:10px;letter-spacing:.02em}
-.buy:hover{background:#a93226}
-.secure{margin-top:16px;font-size:13px;color:#7f8794}
-.ds24{margin-top:18px}
-.ds24 img{height:42px;opacity:.9}
-footer{padding:34px 0 50px;text-align:center;font-size:13px;color:#7f8794}
-footer a{color:#9aa3b2;text-decoration:none;margin:0 6px}
-footer a:hover{text-decoration:underline}
-.copyright{margin-top:12px}
-@media(max-width:480px){h1{font-size:25px}.price{font-size:40px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reconnection Code</title>
+  <meta name="description" content="A practical step-by-step digital guide designed to help men approach reconnection with more clarity, emotional control, and respectful communication — without pressure, manipulation, or unrealistic promises.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #141414;
+      --bg-subtle: #111111;
+      --accent: #e53935;
+      --accent-dark: #c62828;
+      --accent-glow: rgba(229, 57, 53, 0.25);
+      --accent-glow-strong: rgba(229, 57, 53, 0.4);
+      --green: #22c55e;
+      --white: #ffffff;
+      --text: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666666;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #ff5252; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container--narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    h1 { font-size: 48px; font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--white); }
+    h2 { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.5px; color: var(--white); margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    p { color: var(--text-secondary); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .text-center { text-align: center; }
+
+    .hero { padding: 80px 0 60px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { max-width: 680px; margin: 0 auto; text-align: center; }
+    .hero-content h1 { margin-bottom: 20px; }
+    .hero-content .lead { font-size: 17px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 32px; }
+
+    .btn-accent {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent); color: var(--white); font-size: 16px; font-weight: 700;
+      padding: 16px 40px; border-radius: 10px; border: none; cursor: pointer;
+      transition: all 0.25s; font-family: inherit; text-transform: uppercase; letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+    .btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow-strong); color: var(--white); }
+
+    .benefit-bar { padding: 36px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .benefit-bar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .benefit-bar-item { display: flex; align-items: center; gap: 12px; }
+    .benefit-bar-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .benefit-bar-icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .benefit-bar-text { font-size: 14px; font-weight: 600; color: var(--white); line-height: 1.3; }
+
+    .feature-list { list-style: none; padding: 0; margin: 24px 0 0; }
+    .feature-list li { padding: 10px 0 10px 36px; position: relative; font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+    .feature-list li::before {
+      content: ""; position: absolute; left: 0; top: 12px; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z' fill='white'/%3E%3C/svg%3E");
+      background-size: 20px; background-repeat: no-repeat; background-position: center;
+    }
+
+    .callout-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: var(--radius);
+      padding: 28px 32px; margin-top: 16px;
+    }
+    .callout-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+
+    .pricing-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
+    .pricing-wrapper::before {
+      content: ""; position: absolute; inset: -2px; border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #ff5252, var(--accent-dark)); z-index: 0;
+    }
+    .pricing-card { position: relative; z-index: 1; background: var(--bg-card); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; }
+    .pricing-badge { display: inline-block; background: var(--accent); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px; margin-bottom: 24px; }
+    .pricing-card h2 { font-size: 24px; margin-bottom: 20px; }
+    .pricing-card .price { font-size: 68px; font-weight: 900; color: var(--white); line-height: 1; margin: 8px 0; letter-spacing: -2px; }
+    .pricing-card .price span { color: var(--accent); }
+    .pricing-card .price-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+    .cta-main {
+      display: block; width: 100%; background: var(--accent); color: var(--white);
+      font-size: 17px; font-weight: 700; padding: 18px; border-radius: 10px; border: none; cursor: pointer;
+      transition: all 0.25s; font-family: inherit; text-transform: uppercase; letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow); text-align: center;
+    }
+    .cta-main:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow-strong); color: var(--white); }
+
+    .trust-icons { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 20px; font-size: 12px; color: var(--text-muted); }
+
+    .compliance { padding: 32px 0; border-top: 1px solid var(--border); }
+    .compliance p { font-size: 11px; color: var(--text-muted); line-height: 1.7; text-align: center; max-width: 640px; margin: 0 auto 6px; }
+
+    footer { background: #050505; padding: 36px 0; text-align: center; border-top: 1px solid var(--border); }
+    .footer-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 12px; }
+    .footer-links a { color: var(--text-muted); font-size: 14px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: #444; font-size: 13px; }
+    .section-alt { background: var(--bg-subtle); }
+    .guarantee-section { text-align: center; }
+    .guarantee-section h2 { font-size: 28px; margin-bottom: 16px; }
+    .guarantee-section p { max-width: 540px; margin: 0 auto; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 34px; } h2 { font-size: 28px; }
+      section { padding: 56px 0; } .hero { padding: 56px 0 40px; }
+      .benefit-bar-grid { grid-template-columns: 1fr; gap: 16px; }
+      .benefit-bar-item { justify-content: center; }
+      .container { padding: 0 20px; } .container--narrow { padding: 0 20px; }
+      .pricing-card { padding: 36px 24px; } .pricing-card .price { font-size: 52px; }
+      .btn-accent { width: 100%; justify-content: center; }
+      .hero::before { width: 300px; height: 300px; right: -50px; top: -50px; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap"><div class="hero">
-<h1>Reconnection Code</h1>
-<p class="lead">A practical digital guide designed to help men approach reconnection with more clarity, emotional control, and respectful communication — without pressure, manipulation, or unrealistic promises.</p>
-<p class="compliance">🔒 Compliance-friendly • No medical claims • Results vary</p>
-</div></div>
-<div class="wrap">
-<section><h2>Who This Is For</h2><p>Reconnection Code is for men who want to better understand how to communicate after distance, silence, conflict, or emotional disconnection.</p><p>It may be helpful for men who:</p><ul><li>Want to reconnect with someone in a more mature way</li><li>Feel unsure about what to say after a period of distance</li><li>Want to avoid needy, reactive, or pressure-based communication</li><li>Want to understand how timing, tone, and respect can affect conversations</li><li>Prefer a calm and realistic approach instead of aggressive dating tactics</li></ul><p>This guide is not for anyone looking for guaranteed reconciliation, emotional manipulation, or methods to control another person's choices.</p></section><section><h2>What Is the Product?</h2><p>Reconnection Code is a digital relationship guide delivered online as an eBook.</p><p>Inside, the reader will find practical chapters, reflection exercises, communication examples, and simple frameworks that may help him approach reconnection with more self-awareness and emotional balance.</p><p>The guide focuses on what a man can realistically control: his communication, emotional reactions, timing, respect for boundaries, and ability to show maturity.</p><p>It does not guarantee that any specific person will respond, return, forgive, reconnect, or start a relationship.</p></section><section><h2>What You Will See Inside the Guide</h2><h3>Chapter 1 — Understanding Emotional Distance</h3><p>This chapter explains why distance can happen in dating or relationships.</p><p>You will learn how miscommunication, pressure, emotional reactions, unresolved tension, or life circumstances may contribute to disconnection.</p><p>This chapter may help you look at the situation with more clarity instead of acting from panic or fear.</p><h3>Chapter 2 — What Not to Do When You Want to Reconnect</h3><p>This chapter explains common behaviors that may make reconnection harder.</p><p>Inside, you will see examples such as:</p><ul><li>Sending too many messages</li><li>Asking for immediate answers</li><li>Trying to force a serious conversation too soon</li><li>Apologizing without reflection</li><li>Reacting emotionally to silence</li></ul><p>The goal is to help the reader avoid pressure-based communication.</p><h3>Chapter 3 — Emotional Reset Before Contact</h3><p>Before reaching out, it may be helpful to understand your emotional state.</p><p>This chapter includes reflection prompts to help the reader slow down, think clearly, and avoid acting from insecurity.</p><p>You will see exercises about:</p><ul><li>Why you want to reconnect</li><li>What you may need to take responsibility for</li><li>What outcome you should not try to force</li><li>How to prepare for different possible responses</li></ul><h3>Chapter 4 — The Respectful Reconnection Message</h3><p>This chapter explains how to write a calm and respectful first message.</p><p>It does not give "magic texts." Instead, it offers principles that may help the message feel simple, honest, and low-pressure.</p><p>You will learn about:</p><ul><li>Keeping the message short</li><li>Avoiding guilt or emotional pressure</li><li>Showing maturity without overexplaining</li><li>Leaving space for the other person to respond freely</li></ul><h3>Chapter 5 — Timing and Patience</h3><p>This chapter explains why timing matters.</p><p>The reader will learn why rushing can create more resistance and why patience may support a healthier communication process.</p><p>Topics include:</p><ul><li>When it may be better to wait</li><li>Why silence should not always be chased</li><li>How to avoid impulsive follow-ups</li><li>How to respect another person's space</li></ul><h3>Chapter 6 — Handling Different Responses</h3><p>Not every message receives the same type of answer.</p><p>This chapter helps the reader think through different possible responses with maturity.</p><p>It covers:</p><ul><li>Positive replies</li><li>Neutral replies</li><li>Short or cold replies</li><li>No response</li><li>Clear rejection</li></ul><p>The focus is on responding with dignity and respect, regardless of the outcome.</p><h3>Chapter 7 — Rebuilding Trust Through Behavior</h3><p>This chapter explains that reconnection is not only about words.</p><p>The reader will learn why consistency, patience, accountability, and emotional control may be important over time.</p><p>It includes practical examples of behavior that may support healthier communication.</p><h3>Chapter 8 — Boundaries and Acceptance</h3><p>This chapter explains why respecting boundaries is essential.</p><p>The guide encourages the reader to understand that reconnection must be mutual and that another person's decision should be respected.</p><p>It may help men avoid chasing, pressuring, or turning rejection into conflict.</p><h3>Chapter 9 — Moving Forward With Clarity</h3><p>This chapter helps the reader evaluate what to do after attempting reconnection.</p><p>It includes questions to reflect on whether the situation feels healthy, mutual, and emotionally balanced.</p><p>The goal is to support clearer decisions instead of emotional dependency.</p><h3>Chapter 10 — Reflection Pages and Communication Checklist</h3><p>The final chapter includes practical tools such as:</p><ul><li>Reconnection readiness checklist</li><li>Message review prompts</li><li>Emotional control exercises</li><li>Post-response reflection questions</li><li>Personal accountability worksheet</li></ul><p>These tools are designed to help the reader apply the guide in a calm and realistic way.</p></section><section><h2>Why Other Methods May Not Work</h2><p>Many reconnection methods focus on tricks, pressure, or trying to create jealousy.</p><p>These approaches may feel appealing, but they can also create more tension, damage trust, or make communication feel unnatural.</p><p>Reconnection Code takes a different approach. It focuses on emotional maturity, respectful timing, personal accountability, and communication that does not pressure the other person.</p></section><section><h2>Possible Benefits</h2><p>This guide may help you:</p><ul><li>Communicate with more calmness and clarity</li><li>Avoid common mistakes after emotional distance</li><li>Prepare a respectful message without pressure</li><li>Understand when patience may be more helpful than chasing</li><li>Respond more maturely to silence or rejection</li><li>Reflect on your own role in the situation</li><li>Approach reconnection with more emotional balance</li></ul><p class="disclaimer">Results vary by individual. No specific response, reconciliation, relationship, or timeframe is guaranteed.</p></section><section><h2>Your 60-Day Guarantee</h2><p>Try Reconnection Code for 60 days.</p><p>If you feel it is not a helpful resource for your personal growth or communication journey, you may request a refund within 60 days according to the refund process provided after purchase.</p></section>
-<div class="price-box">
-<div class="cta-h">Offer</div>
-<div class="price">$27</div>
-<!-- TODO: link de checkout Digistore24 (produto) pendente -->
-<a class="buy" href="#">Buy Now</a>
-<p class="secure">Payments processed securely by Digistore24.</p>
-<div class="ds24"><img src="https://www.digistore24.com/trusted-badge/44515/dark/seal.png" alt="Digistore24"></div>
-</div>
-<p class="compliance" style="text-align:center">🔒 Compliance-friendly • No medical claims • Results vary</p>
-</div>
-<footer><div class="wrap">
-<a href="/privacy-policy/">Privacy Policy</a> • <a href="/refund-policy/">Refund Policy</a> • <a href="/terms-of-use/">Terms of Use</a> • <a href="/contact/">Contact</a>
-<div class="copyright">© 2026 Reconnection Code. All rights reserved.</div>
-</div></footer>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>What If You Could Reach Out Again &mdash; Without the Fear of Saying the Wrong Thing?</h1>
+        <p class="lead">Reconnection Code is a practical step-by-step digital guide designed to help men approach reconnection with more clarity, emotional control, and respectful communication &mdash; without pressure, manipulation, or unrealistic promises.</p>
+        <a href="#offer" class="btn-accent">Buy Now &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFIT BAR ========== -->
+  <div class="benefit-bar">
+    <div class="container">
+      <div class="benefit-bar-grid">
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">10 structured chapters</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Checklists and worksheets</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Instant digital access</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">60-day guarantee</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WHO THIS IS FOR ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Who This Is For</h2>
+        <p class="text-center">This guide may be right for you if:</p>
+        <ul class="feature-list">
+          <li>You want to reconnect with someone after distance, silence, or conflict &mdash; but you're not sure how to start</li>
+          <li>You feel unsure about what to say or when to say it</li>
+          <li>You want to avoid coming across as needy, reactive, or pressure-based</li>
+          <li>You want to understand how timing, tone, and emotional maturity may affect a reconnection attempt</li>
+          <li>You prefer a calm, realistic approach instead of tricks or pressure tactics</li>
+          <li>You've already made mistakes and want to move forward with more self-awareness</li>
+        </ul>
+        <p style="margin-top: 24px; font-size: 14px; color: var(--text-muted);">This guide is not intended for anyone looking for guaranteed reconciliation, emotional manipulation, or methods to control another person's choices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT IT IS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What It Is</h2>
+        <p>Reconnection Code is a digital e-book delivered in PDF format.</p>
+        <p>After your purchase, you will receive instant access to the full guide via download link. There are no physical components &mdash; everything is delivered digitally and available immediately after checkout.</p>
+        <p>The guide contains 10 structured chapters, practical communication frameworks, reflection exercises, and a complete set of checklists and worksheets &mdash; all designed to help you approach reconnection with more emotional balance and self-awareness.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT YOU'LL GET ACCESS TO ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What You'll Get Access To</h2>
+        <p class="text-center">Here is what you will find inside:</p>
+        <div style="display: grid; gap: 16px; margin-top: 32px;">
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 1 &mdash; Understanding Emotional Distance</h3>
+            <p>Understand why distance can happen in dating or relationships &mdash; and how miscommunication, pressure, emotional reactions, or unresolved tension may contribute to disconnection. This chapter helps you look at the situation with more clarity instead of acting from panic or fear.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 2 &mdash; What Not to Do When You Want to Reconnect</h3>
+            <p>Learn the most common behaviors that may make reconnection harder &mdash; including sending too many messages, asking for immediate answers, forcing serious conversations too soon, and reacting emotionally to silence.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 3 &mdash; Emotional Reset Before Contact</h3>
+            <p>Explore a series of reflection prompts designed to help you slow down, think clearly, and avoid reaching out from a place of insecurity. This chapter helps you understand your real intention before making any move.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 4 &mdash; The Respectful Reconnection Message</h3>
+            <p>Discover the principles behind writing a calm, honest, and low-pressure first message. This chapter does not offer magic texts &mdash; instead, it explains what makes a message feel mature, simple, and respectful of the other person's space.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 5 &mdash; Timing and Patience</h3>
+            <p>Learn why timing matters and how rushing can create more resistance. This chapter explains when it may be better to wait, how to avoid impulsive follow-ups, and how to respect another person's space without losing your own emotional footing.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 6 &mdash; Handling Different Responses</h3>
+            <p>Prepare for the full range of possible replies &mdash; positive, neutral, cold, no response, or clear rejection. This chapter helps you think through each scenario in advance and respond with dignity and emotional control, regardless of the outcome.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 7 &mdash; Rebuilding Trust Through Behavior</h3>
+            <p>Understand why reconnection is not only about words. This chapter explores how consistency, patience, accountability, and emotional control may support healthier communication over time &mdash; beyond the first message.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 8 &mdash; Boundaries and Acceptance</h3>
+            <p>Learn why respecting another person's decision is not a sign of weakness &mdash; and how chasing, pressuring, or turning rejection into conflict may push people further away. This chapter encourages mutual respect as the foundation of any genuine reconnection.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 9 &mdash; Moving Forward With Clarity</h3>
+            <p>Reflect on what to do after attempting reconnection &mdash; whether the response was positive, uncertain, or absent. This chapter includes questions to help you evaluate whether the situation feels healthy, mutual, and worth continuing.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 10 &mdash; Reflection Pages and Communication Checklist</h3>
+            <p>Apply everything you've learned with a reconnection readiness checklist, message review prompts, emotional control exercises, post-response reflection questions, and a personal accountability worksheet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY OTHER METHODS FAIL ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Why Other Methods Fail</h2>
+        <p>Most reconnection methods focus on tricks, jealousy tactics, or pressure-based scripts designed to manufacture a specific emotional reaction.</p>
+        <p>These approaches may feel tempting in the moment, but they often create more tension, damage trust, and make communication feel forced and unnatural.</p>
+        <p>Reconnection Code takes a different approach. Instead of trying to manipulate an outcome, it focuses on emotional maturity, respectful timing, personal accountability, and communication that genuinely leaves space for the other person &mdash; which is where real reconnection, if it happens, is more likely to begin.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFITS ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Benefits</h2>
+        <p class="text-center">This guide may help you:</p>
+        <ul class="feature-list">
+          <li>Communicate with more calmness and clarity after a period of distance</li>
+          <li>Avoid the most common mistakes men make when trying to reconnect</li>
+          <li>Prepare a respectful, low-pressure message without overthinking it</li>
+          <li>Understand when patience may be more effective than chasing</li>
+          <li>Respond more maturely to silence, uncertainty, or rejection</li>
+          <li>Reflect honestly on your own role in the situation</li>
+          <li>Approach reconnection with more emotional balance and self-awareness</li>
+        </ul>
+        <p style="margin-top: 24px; font-size: 13px; color: var(--text-muted);"><em>Results vary by individual. No specific response, reconciliation, relationship, or timeframe is guaranteed.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">How It Works</h2>
+        <p>Reconnection Code is built on one core idea: that the way you approach reconnection matters more than the words you choose &mdash; and that emotional maturity, timing, and genuine respect give any attempt its best realistic chance.</p>
+        <p>The guide is structured as a progressive experience. Each chapter builds on the previous one &mdash; beginning with emotional awareness and self-reflection, moving through practical communication principles, and finishing with hands-on tools and checklists you can use before, during, and after reaching out.</p>
+        <p>There are no manipulation scripts and no pressure tactics. The focus is on helping you show up to the situation as your most grounded, clear-headed self &mdash; and then respect whatever response follows.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GUARANTEE ========== -->
+  <section>
+    <div class="container--narrow">
+      <div class="guarantee-section">
+        <h2>60-Day Money-Back Guarantee</h2>
+        <p>Try Reconnection Code for 60 days. If you feel it is not a helpful resource for your personal growth or communication journey, simply contact our support team within 60 days of your purchase and we'll issue a full refund &mdash; no questions asked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OFFER ========== -->
+  <section class="section-alt" id="offer">
+    <div class="container">
+      <div class="pricing-wrapper">
+        <div class="pricing-card">
+          <span class="pricing-badge">Special Offer &mdash; Instant Access</span>
+          <h2>Reconnection Code</h2>
+          <div class="price"><span>$27</span></div>
+          <p class="price-sub">One-time payment &middot; Instant digital access &middot; 60-day guarantee</p>
+          <!-- TODO: link checkout Digistore24 pendente -->
+          <a href="#" class="cta-main">Buy Now</a>
+          <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">Payments processed securely by Digistore24.</p>
+          <div class="trust-icons">
+            <span>&#128274; Compliance-friendly</span>
+            <span>&bull; No medical claims</span>
+            <span>&bull; Results may vary</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DISCLAIMER ========== -->
+  <div class="compliance">
+    <div class="container">
+      <p><em>The information provided in this guide is for educational and personal development purposes only. It is not intended to replace professional counseling, therapy, or relationship advice from a qualified professional. Individual results may vary. No specific response, reconciliation, romantic outcome, or relationship is guaranteed. Results depend on the individual's effort, personal circumstances, and situation.</em></p>
+    </div>
+  </div>
+
+  <!-- ========== DIGISTORE24 BADGE ========== -->
+  <div style="text-align: center; padding: 24px 0;">
+    <script type="text/javascript" src="https://www.digistore24.com/trusted-badge/44515/IsTMGRlnqYpnh4k/salespage"></script>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/refund-policy/">Refund Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Reconnection Code. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    window.pixelId = "69a9806c140f4a4bef96ae68";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 </body>
 </html>

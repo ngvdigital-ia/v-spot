@@ -1,64 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="A practical digital guide created to help men improve communication, confidence, and emotional awareness in dating and relationships — using respectful, re">
-<title>Confident Connection Guide</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0e0f13;color:#dfe3ea;line-height:1.7;font-size:17px}
-.wrap{max-width:760px;margin:0 auto;padding:0 20px}
-.hero{padding:48px 0 28px;text-align:center;border-bottom:1px solid #20232b}
-.badge{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9aa3b2;border:1px solid #2a2e38;border-radius:999px;padding:6px 14px;margin-bottom:18px}
-h1{font-size:30px;line-height:1.25;color:#fff;font-weight:800;margin-bottom:16px}
-.lead{font-size:18px;color:#c3c9d4;max-width:640px;margin:0 auto}
-.compliance{margin-top:16px;font-size:13px;color:#7f8794}
-section{padding:30px 0;border-bottom:1px solid #1a1d24}
-h2{font-size:23px;color:#fff;font-weight:800;margin-bottom:14px}
-h3{font-size:18px;color:#eef1f6;font-weight:700;margin:20px 0 8px}
-p{margin-bottom:12px;color:#cfd4dd}
-ul{list-style:none;margin:6px 0 12px}
-ul li{position:relative;padding-left:24px;margin-bottom:8px;color:#cfd4dd}
-ul li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:50%;background:#c0392b}
-.disclaimer{font-size:14px;color:#9aa3b2;font-style:italic;border-left:3px solid #c0392b;padding-left:14px;margin-top:10px}
-.price-box{text-align:center;padding:40px 24px;background:#14161c;border:1px solid #262a33;border-radius:14px;margin:34px 0}
-.price-box .cta-h{font-size:22px;color:#fff;font-weight:800;margin-bottom:10px}
-.price{font-size:48px;font-weight:900;color:#fff;line-height:1;margin:8px 0 20px}
-.buy{display:inline-block;background:#c0392b;color:#fff;font-size:18px;font-weight:800;text-decoration:none;padding:16px 44px;border-radius:10px;letter-spacing:.02em}
-.buy:hover{background:#a93226}
-.secure{margin-top:16px;font-size:13px;color:#7f8794}
-.ds24{margin-top:18px}
-.ds24 img{height:42px;opacity:.9}
-footer{padding:34px 0 50px;text-align:center;font-size:13px;color:#7f8794}
-footer a{color:#9aa3b2;text-decoration:none;margin:0 6px}
-footer a:hover{text-decoration:underline}
-.copyright{margin-top:12px}
-@media(max-width:480px){h1{font-size:25px}.price{font-size:40px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confident Connection Guide</title>
+  <meta name="description" content="A practical step-by-step digital guide designed to help men improve communication, emotional awareness, and genuine confidence in dating and relationship situations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #141414;
+      --bg-subtle: #111111;
+      --accent: #e53935;
+      --accent-dark: #c62828;
+      --accent-glow: rgba(229, 57, 53, 0.25);
+      --accent-glow-strong: rgba(229, 57, 53, 0.4);
+      --green: #22c55e;
+      --green-soft: rgba(34, 197, 94, 0.15);
+      --white: #ffffff;
+      --text: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666666;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #ff5252; }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container--narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    section { padding: 80px 0; }
+
+    h1 { font-size: 48px; font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--white); }
+    h2 { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.5px; color: var(--white); margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    p { color: var(--text-secondary); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .text-center { text-align: center; }
+
+    .hero {
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { max-width: 680px; margin: 0 auto; text-align: center; }
+    .hero-content h1 { margin-bottom: 20px; }
+    .hero-content .lead { font-size: 17px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 32px; }
+
+    .btn-accent {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent); color: var(--white);
+      font-size: 16px; font-weight: 700;
+      padding: 16px 40px; border-radius: 10px; border: none; cursor: pointer;
+      transition: all 0.25s; font-family: inherit;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+    .btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow-strong); color: var(--white); }
+
+    .benefit-bar { padding: 36px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .benefit-bar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .benefit-bar-item { display: flex; align-items: center; gap: 12px; }
+    .benefit-bar-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .benefit-bar-icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .benefit-bar-text { font-size: 14px; font-weight: 600; color: var(--white); line-height: 1.3; }
+
+    .feature-list { list-style: none; padding: 0; margin: 24px 0 0; }
+    .feature-list li { padding: 10px 0 10px 36px; position: relative; font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+    .feature-list li::before {
+      content: ""; position: absolute; left: 0; top: 12px;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z' fill='white'/%3E%3C/svg%3E");
+      background-size: 20px; background-repeat: no-repeat; background-position: center;
+    }
+
+    .callout-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: var(--radius);
+      padding: 28px 32px; margin-top: 16px;
+    }
+    .callout-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+
+    .pricing-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
+    .pricing-wrapper::before {
+      content: ""; position: absolute; inset: -2px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #ff5252, var(--accent-dark));
+      z-index: 0;
+    }
+    .pricing-card { position: relative; z-index: 1; background: var(--bg-card); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; }
+    .pricing-badge { display: inline-block; background: var(--accent); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px; margin-bottom: 24px; }
+    .pricing-card h2 { font-size: 24px; margin-bottom: 20px; }
+    .pricing-card .price { font-size: 68px; font-weight: 900; color: var(--white); line-height: 1; margin: 8px 0; letter-spacing: -2px; }
+    .pricing-card .price span { color: var(--accent); }
+    .pricing-card .price-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+    .cta-main {
+      display: block; width: 100%; background: var(--accent); color: var(--white);
+      font-size: 17px; font-weight: 700; padding: 18px; border-radius: 10px; border: none; cursor: pointer;
+      transition: all 0.25s; font-family: inherit; text-transform: uppercase; letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow); text-align: center;
+    }
+    .cta-main:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow-strong); color: var(--white); }
+
+    .trust-icons { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 20px; font-size: 12px; color: var(--text-muted); }
+
+    .compliance { padding: 32px 0; border-top: 1px solid var(--border); }
+    .compliance p { font-size: 11px; color: var(--text-muted); line-height: 1.7; text-align: center; max-width: 640px; margin: 0 auto 6px; }
+
+    footer { background: #050505; padding: 36px 0; text-align: center; border-top: 1px solid var(--border); }
+    .footer-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 12px; }
+    .footer-links a { color: var(--text-muted); font-size: 14px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: #444; font-size: 13px; }
+
+    .section-alt { background: var(--bg-subtle); }
+    .guarantee-section { text-align: center; }
+    .guarantee-section h2 { font-size: 28px; margin-bottom: 16px; }
+    .guarantee-section p { max-width: 540px; margin: 0 auto; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 34px; } h2 { font-size: 28px; }
+      section { padding: 56px 0; } .hero { padding: 56px 0 40px; }
+      .benefit-bar-grid { grid-template-columns: 1fr; gap: 16px; }
+      .benefit-bar-item { justify-content: center; }
+      .container { padding: 0 20px; } .container--narrow { padding: 0 20px; }
+      .pricing-card { padding: 36px 24px; } .pricing-card .price { font-size: 52px; }
+      .btn-accent { width: 100%; justify-content: center; }
+      .hero::before { width: 300px; height: 300px; right: -50px; top: -50px; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap"><div class="hero">
-<h1>Confident Connection Guide</h1>
-<p class="lead">A practical digital guide created to help men improve communication, confidence, and emotional awareness in dating and relationships — using respectful, realistic, and easy-to-apply principles.</p>
-<p class="compliance">🔒 Compliance-friendly • No medical claims • Results vary</p>
-</div></div>
-<div class="wrap">
-<section><h2>Who This Is For</h2><p>The Confident Connection Guide is for men who want to improve the way they communicate, connect, and show up in dating or relationship situations.</p><p>It may be helpful for men who:</p><ul><li>Want to feel more comfortable starting conversations</li><li>Want to avoid awkward or forced interactions</li><li>Prefer respectful communication instead of pressure-based dating tactics</li><li>Want to understand common mistakes that may affect attraction and connection</li><li>Want a simple, practical guide they can read and apply at their own pace</li></ul><p>This product is not for anyone looking for manipulation, guaranteed romantic results, or shortcuts to control another person's decisions.</p></section><section><h2>What Is the Product?</h2><p>The Confident Connection Guide is a digital eBook delivered online after purchase.</p><p>Inside, the reader will find practical chapters, reflection exercises, communication examples, and simple action steps designed to support healthier interactions with women.</p><p>The guide focuses on what a man can realistically improve: his mindset, communication style, emotional control, confidence, listening skills, and ability to build respectful connection.</p><p>It does not promise that any specific person will respond in a certain way, and it does not guarantee dates, relationships, attraction, or romantic outcomes.</p></section><section><h2>What You Will See Inside the Guide</h2><h3>Chapter 1 — Understanding Real Confidence</h3><p>This chapter explains the difference between natural confidence and forced behavior.</p><p>You will learn why confidence is not about pretending to be someone else, but about becoming more comfortable with how you communicate, make decisions, and handle social situations.</p><p>This chapter may help you:</p><ul><li>Understand what confidence looks like in real interactions</li><li>Identify behaviors that may seem insecure or forced</li><li>Build a calmer approach to dating situations</li><li>Avoid trying too hard to impress</li></ul><h3>Chapter 2 — Common Communication Mistakes Men Make</h3><p>This chapter covers simple mistakes that can make conversations feel uncomfortable, rushed, or disconnected.</p><p>The goal is not to criticize, but to help the reader become more aware of habits that may affect communication.</p><p>Inside this chapter, you will see examples such as:</p><ul><li>Talking too much without listening</li><li>Trying to impress instead of connecting</li><li>Moving too fast emotionally</li><li>Ignoring boundaries or signals</li><li>Using memorized lines that feel unnatural</li></ul><h3>Chapter 3 — How to Start Conversations Respectfully</h3><p>This chapter offers practical guidance on starting conversations in a natural and respectful way.</p><p>It does not teach aggressive pickup tactics. Instead, it explains how to open a conversation with calmness, awareness, and appropriate timing.</p><p>You will see:</p><ul><li>Simple conversation openers</li><li>When it may be better not to approach</li><li>How to read the context of a situation</li><li>How to avoid making the other person feel pressured</li></ul><h3>Chapter 4 — Building Better Conversations</h3><p>This chapter explains how to keep a conversation balanced and more engaging.</p><p>The focus is on listening, asking better questions, and avoiding conversations that feel like an interview or performance.</p><p>This chapter may help you:</p><ul><li>Ask more natural questions</li><li>Share about yourself without oversharing</li><li>Notice when a conversation is flowing</li><li>Avoid forcing topics</li><li>Create more comfortable interactions</li></ul><h3>Chapter 5 — Emotional Awareness and Self-Control</h3><p>Dating can sometimes create anxiety, insecurity, or overthinking.</p><p>This chapter helps the reader understand how emotional reactions may affect communication and behavior.</p><p>You will learn about:</p><ul><li>Staying calm when you feel nervous</li><li>Avoiding needy or reactive behavior</li><li>Handling silence or delayed responses more maturely</li><li>Not depending on one person's reaction for your self-worth</li></ul><h3>Chapter 6 — Understanding Boundaries and Respect</h3><p>This chapter explains why boundaries are important in dating and relationships.</p><p>It helps the reader understand that healthy connection requires respect, patience, and mutual interest.</p><p>This chapter includes:</p><ul><li>How to recognize when someone is not interested</li><li>Why pressure can damage trust</li><li>How to communicate with respect</li><li>Why mutual comfort matters</li><li>How to avoid manipulative behavior</li></ul><h3>Chapter 7 — Creating a Better Personal Presence</h3><p>This chapter focuses on the way a man presents himself in daily life.</p><p>It does not promise that appearance or lifestyle changes will create guaranteed attraction. Instead, it explains how small improvements may support confidence and self-respect.</p><p>Topics include:</p><ul><li>Personal hygiene and presentation</li><li>Body language basics</li><li>Tone of voice and eye contact</li><li>Being more intentional with habits</li><li>Showing up with more self-respect</li></ul><h3>Chapter 8 — Moving From Conversation to Connection</h3><p>This chapter explains how connection may develop gradually through consistency, respect, and communication.</p><p>It avoids promises or formulas. Instead, it gives the reader a clearer understanding of how to move with patience and awareness.</p><p>You will see:</p><ul><li>How to recognize mutual interest</li><li>How to suggest a next step respectfully</li><li>How to avoid rushing the process</li><li>How to handle rejection with maturity</li><li>How to keep communication balanced</li></ul><h3>Chapter 9 — Relationship Mindset</h3><p>This chapter focuses on long-term thinking.</p><p>Instead of chasing validation, the reader is encouraged to develop emotional maturity, realistic expectations, and healthier standards.</p><p>This chapter may help with:</p><ul><li>Understanding what you actually want</li><li>Avoiding desperation-based decisions</li><li>Building patience in dating</li><li>Recognizing unhealthy patterns</li><li>Developing a more stable relationship mindset</li></ul><h3>Chapter 10 — Practical Exercises and Reflection Pages</h3><p>The final chapter includes simple exercises designed to help the reader apply what he learned.</p><p>These exercises may include:</p><ul><li>Self-awareness questions</li><li>Conversation review prompts</li><li>Confidence-building reflections</li><li>Personal communication checklist</li><li>Weekly improvement tracker</li></ul><p>The goal is to help the reader think more clearly about his behavior, communication, and dating habits.</p></section><section><h2>Why Other Methods May Not Work</h2><p>Many dating methods focus too much on scripts, pressure, or unrealistic promises.</p><p>Some advice teaches men to act in a way that feels unnatural, aggressive, or manipulative. Other methods focus only on confidence without explaining communication, boundaries, emotional control, or respect.</p><p>The Confident Connection Guide takes a more balanced approach. It focuses on practical self-improvement and respectful communication instead of trying to guarantee a specific romantic outcome.</p></section><section><h2>Possible Benefits</h2><p>The guide may help you:</p><ul><li>Improve your awareness in dating conversations</li><li>Feel more prepared when talking to women</li><li>Communicate with more calmness and clarity</li><li>Avoid common mistakes that may create distance</li><li>Develop a more respectful and mature dating approach</li><li>Reduce dependence on memorized lines or fake confidence</li><li>Build habits that may support healthier connections over time</li></ul><p class="disclaimer">Results vary by individual. No specific romantic outcome, relationship, response, or timeframe is guaranteed.</p></section><section><h2>Your 60-Day Guarantee</h2><p>Try the Confident Connection Guide for 60 days.</p><p>If you feel it is not a helpful resource for your personal development or communication journey, you may request a refund within 60 days according to the refund process provided after purchase.</p></section>
-<div class="price-box">
-<div class="cta-h">Get Started Today</div>
-<div class="price">$49</div>
-<!-- TODO: link de checkout Digistore24 (produto) pendente -->
-<a class="buy" href="#">Buy Now</a>
-<p class="secure">Payments processed securely by Digistore24.</p>
-<div class="ds24"><img src="https://www.digistore24.com/trusted-badge/44515/dark/seal.png" alt="Digistore24"></div>
-</div>
-<p class="compliance" style="text-align:center">🔒 Compliance-friendly • No medical claims • Results vary</p>
-</div>
-<footer><div class="wrap">
-<a href="/privacy-policy/">Privacy Policy</a> • <a href="/refund-policy/">Refund Policy</a> • <a href="/terms-of-use/">Terms of Use</a> • <a href="/contact/">Contact</a>
-<div class="copyright">© 2026 Confident Connection Guide. All rights reserved.</div>
-</div></footer>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>What If You Could Show Up to Every Conversation With More Confidence, More Clarity, and Less of the Pressure You've Been Putting on Yourself?</h1>
+        <p class="lead">Confident Connection Guide is a practical step-by-step digital guide designed to help men improve communication, emotional awareness, and genuine confidence in dating and relationship situations &mdash; using respectful, realistic, and easy-to-apply principles.</p>
+        <a href="#offer" class="btn-accent">Buy Now &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFIT BAR ========== -->
+  <div class="benefit-bar">
+    <div class="container">
+      <div class="benefit-bar-grid">
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">10 structured chapters</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Instant digital access</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Private, self-paced learning</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">60-day guarantee</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WHO THIS IS FOR ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Who This Is For</h2>
+        <p class="text-center">This guide may be right for you if:</p>
+        <ul class="feature-list">
+          <li>You want to feel more comfortable starting conversations without overthinking every word</li>
+          <li>You often feel like interactions come across as awkward, forced, or too intense</li>
+          <li>You prefer respectful communication over pressure-based dating tactics</li>
+          <li>You want to understand common habits that may be getting in the way of real connection</li>
+          <li>You're tired of memorized lines that feel unnatural and don't reflect who you actually are</li>
+          <li>You want a simple, practical guide you can read and apply at your own pace</li>
+        </ul>
+        <p style="margin-top: 24px; font-size: 14px; color: var(--text-muted);">This guide is not intended for anyone looking for manipulation tactics, guaranteed romantic outcomes, or shortcuts to control another person's decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT IT IS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What It Is</h2>
+        <p>Confident Connection Guide is a digital e-book delivered in PDF format.</p>
+        <p>After your purchase, you will receive instant access to the full guide via download link. There are no physical components &mdash; everything is delivered digitally and available immediately after checkout.</p>
+        <p>The guide contains 10 structured chapters, practical communication examples, reflection exercises, and a complete set of action steps and checklists &mdash; all designed to support more confident, respectful, and self-aware interactions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT YOU'LL GET ACCESS TO ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What You'll Get Access To</h2>
+        <p class="text-center">Here is what you will find inside:</p>
+        <div style="display: grid; gap: 16px; margin-top: 32px;">
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 1 &mdash; Understanding Real Confidence</h3>
+            <p>Understand the difference between natural confidence and forced behavior &mdash; and why genuine confidence is not about pretending to be someone else, but about becoming more comfortable with how you communicate, make decisions, and handle social situations.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 2 &mdash; Common Communication Mistakes Men Make</h3>
+            <p>Discover the simple habits that can make conversations feel uncomfortable, rushed, or disconnected &mdash; including talking too much without listening, moving too fast emotionally, using memorized lines that feel unnatural, and ignoring social signals.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 3 &mdash; How to Start Conversations Respectfully</h3>
+            <p>Learn how to open a conversation with calmness, awareness, and appropriate timing &mdash; without aggressive tactics or forced openers. This chapter includes simple conversation starters, how to read the context of a situation, and when it may be better not to approach.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 4 &mdash; Building Better Conversations</h3>
+            <p>Explore how to keep a conversation balanced and engaging &mdash; including how to ask more natural questions, share about yourself without oversharing, notice when a conversation is flowing, and avoid making an interaction feel like an interview or performance.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 5 &mdash; Emotional Awareness and Self-Control</h3>
+            <p>Understand how emotional reactions may affect your communication and behavior in dating situations. This chapter covers staying calm when nervous, handling silence or delayed responses more maturely, and avoiding needy or reactive patterns.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 6 &mdash; Understanding Boundaries and Respect</h3>
+            <p>Learn why healthy connection requires mutual respect, patience, and genuine interest &mdash; including how to recognize when someone is not interested, why pressure can damage trust, and how to communicate in a way that feels honest and respectful.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 7 &mdash; Creating a Better Personal Presence</h3>
+            <p>Explore how small, intentional improvements in personal presentation, body language, tone of voice, and daily habits may support more confidence and self-respect &mdash; without unrealistic promises about appearance or guaranteed results.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 8 &mdash; Moving From Conversation to Connection</h3>
+            <p>See how connection may develop gradually through consistency, respect, and patient communication &mdash; including how to recognize mutual interest, suggest a next step respectfully, handle rejection with maturity, and avoid rushing the process.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 9 &mdash; Relationship Mindset</h3>
+            <p>Develop a more emotionally mature and realistic approach to dating &mdash; including how to understand what you actually want, avoid desperation-based decisions, recognize unhealthy patterns, and build a more stable and grounded relationship mindset over time.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 10 &mdash; Practical Exercises and Reflection Pages</h3>
+            <p>Apply everything you've learned with a set of self-awareness questions, conversation review prompts, confidence-building reflections, a personal communication checklist, and a weekly improvement tracker.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY OTHER METHODS FAIL ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Why Other Methods Fail</h2>
+        <p>Most dating advice focuses too heavily on scripts, pressure tactics, or promises that don't hold up in real situations.</p>
+        <p>Some methods teach men to perform a version of confidence that feels unnatural and exhausting to maintain. Others focus only on surface-level tips without addressing communication, emotional control, boundaries, or self-awareness.</p>
+        <p>Confident Connection Guide takes a more balanced approach. Instead of teaching you how to act differently, it focuses on helping you think more clearly &mdash; about your communication, your habits, and the kind of interactions you actually want to create.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFITS ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Benefits</h2>
+        <p class="text-center">This guide may help you:</p>
+        <ul class="feature-list">
+          <li>Improve your awareness and presence in dating conversations</li>
+          <li>Feel more prepared and less anxious when talking to women</li>
+          <li>Communicate with more calmness, clarity, and genuine confidence</li>
+          <li>Avoid common habits that may be creating unnecessary distance</li>
+          <li>Develop a more respectful and emotionally mature dating approach</li>
+          <li>Reduce dependence on memorized lines or forced performance</li>
+          <li>Build communication habits that may support healthier connections over time</li>
+        </ul>
+        <p style="margin-top: 24px; font-size: 13px; color: var(--text-muted);"><em>Results vary by individual. No specific romantic outcome, relationship, response, or timeframe is guaranteed.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">How It Works</h2>
+        <p>Confident Connection Guide is built around one straightforward idea: that real improvement in dating and communication starts with self-awareness &mdash; not with scripts, tactics, or trying to become someone you're not.</p>
+        <p>The guide is structured as a progressive experience. Each chapter builds on the previous one &mdash; beginning with mindset and confidence fundamentals, moving through practical communication and emotional awareness skills, and finishing with hands-on reflection exercises and a personal checklist you can revisit regularly.</p>
+        <p>There is nothing to memorize and no performance required. The focus is on helping you show up to interactions as a more grounded, self-aware, and respectful version of yourself &mdash; and letting connection develop from there.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GUARANTEE ========== -->
+  <section>
+    <div class="container--narrow">
+      <div class="guarantee-section">
+        <h2>60-Day Money-Back Guarantee</h2>
+        <p>Try Confident Connection Guide for 60 days. If you feel it is not a helpful resource for your personal development or communication journey, simply contact our support team within 60 days of your purchase and we'll issue a full refund &mdash; no questions asked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OFFER ========== -->
+  <section class="section-alt" id="offer">
+    <div class="container">
+      <div class="pricing-wrapper">
+        <div class="pricing-card">
+          <span class="pricing-badge">Special Offer &mdash; Instant Access</span>
+          <h2>Confident Connection Guide</h2>
+          <div class="price"><span>$49</span></div>
+          <p class="price-sub">One-time payment &middot; Instant digital access &middot; 60-day guarantee</p>
+          <!-- TODO: link checkout Digistore24 pendente -->
+          <a href="#" class="cta-main">Buy Now</a>
+          <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">Payments processed securely by Digistore24.</p>
+          <div class="trust-icons">
+            <span>&#128274; Compliance-friendly</span>
+            <span>&bull; No medical claims</span>
+            <span>&bull; Results may vary</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DISCLAIMER ========== -->
+  <div class="compliance">
+    <div class="container">
+      <p><em>The information provided in this guide is for educational and personal development purposes only. It is not intended to replace professional counseling, therapy, or relationship advice from a qualified professional. Individual results may vary. No specific romantic outcome, attraction, response, date, or relationship is guaranteed. Results depend on the individual's effort, personal circumstances, and situation.</em></p>
+    </div>
+  </div>
+
+  <!-- ========== DIGISTORE24 BADGE ========== -->
+  <div style="text-align: center; padding: 24px 0;">
+    <script type="text/javascript" src="https://www.digistore24.com/trusted-badge/44515/IsTMGRlnqYpnh4k/salespage"></script>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/refund-policy/">Refund Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Confident Connection Guide. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    window.pixelId = "69a9806c140f4a4bef96ae68";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 </body>
 </html>

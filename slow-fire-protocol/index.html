@@ -1,64 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="A practical digital guide for men who want to build connection with more patience, confidence, and emotional awareness — without rushing, pressure, or unre">
-<title>Slow Fire Protocol</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#0e0f13;color:#dfe3ea;line-height:1.7;font-size:17px}
-.wrap{max-width:760px;margin:0 auto;padding:0 20px}
-.hero{padding:48px 0 28px;text-align:center;border-bottom:1px solid #20232b}
-.badge{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9aa3b2;border:1px solid #2a2e38;border-radius:999px;padding:6px 14px;margin-bottom:18px}
-h1{font-size:30px;line-height:1.25;color:#fff;font-weight:800;margin-bottom:16px}
-.lead{font-size:18px;color:#c3c9d4;max-width:640px;margin:0 auto}
-.compliance{margin-top:16px;font-size:13px;color:#7f8794}
-section{padding:30px 0;border-bottom:1px solid #1a1d24}
-h2{font-size:23px;color:#fff;font-weight:800;margin-bottom:14px}
-h3{font-size:18px;color:#eef1f6;font-weight:700;margin:20px 0 8px}
-p{margin-bottom:12px;color:#cfd4dd}
-ul{list-style:none;margin:6px 0 12px}
-ul li{position:relative;padding-left:24px;margin-bottom:8px;color:#cfd4dd}
-ul li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;border-radius:50%;background:#c0392b}
-.disclaimer{font-size:14px;color:#9aa3b2;font-style:italic;border-left:3px solid #c0392b;padding-left:14px;margin-top:10px}
-.price-box{text-align:center;padding:40px 24px;background:#14161c;border:1px solid #262a33;border-radius:14px;margin:34px 0}
-.price-box .cta-h{font-size:22px;color:#fff;font-weight:800;margin-bottom:10px}
-.price{font-size:48px;font-weight:900;color:#fff;line-height:1;margin:8px 0 20px}
-.buy{display:inline-block;background:#c0392b;color:#fff;font-size:18px;font-weight:800;text-decoration:none;padding:16px 44px;border-radius:10px;letter-spacing:.02em}
-.buy:hover{background:#a93226}
-.secure{margin-top:16px;font-size:13px;color:#7f8794}
-.ds24{margin-top:18px}
-.ds24 img{height:42px;opacity:.9}
-footer{padding:34px 0 50px;text-align:center;font-size:13px;color:#7f8794}
-footer a{color:#9aa3b2;text-decoration:none;margin:0 6px}
-footer a:hover{text-decoration:underline}
-.copyright{margin-top:12px}
-@media(max-width:480px){h1{font-size:25px}.price{font-size:40px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slow Fire Protocol</title>
+  <meta name="description" content="A practical step-by-step digital guide designed to help men build connection with more patience, emotional awareness, and genuine confidence — without rushing, pressure tactics, or unrealistic dating promises.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #141414;
+      --bg-subtle: #111111;
+      --accent: #e53935;
+      --accent-dark: #c62828;
+      --accent-glow: rgba(229, 57, 53, 0.25);
+      --accent-glow-strong: rgba(229, 57, 53, 0.4);
+      --green: #22c55e;
+      --white: #ffffff;
+      --text: #e0e0e0;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666666;
+      --border: rgba(255,255,255,0.08);
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #ff5252; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container--narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+    h1 { font-size: 48px; font-weight: 900; line-height: 1.08; letter-spacing: -1.5px; color: var(--white); }
+    h2 { font-size: 36px; font-weight: 800; line-height: 1.12; letter-spacing: -0.5px; color: var(--white); margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    p { color: var(--text-secondary); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+    .text-center { text-align: center; }
+
+    .hero { padding: 80px 0 60px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { max-width: 680px; margin: 0 auto; text-align: center; }
+    .hero-content h1 { margin-bottom: 20px; }
+    .hero-content .lead { font-size: 17px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 32px; }
+
+    .btn-accent {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--accent); color: var(--white); font-size: 16px; font-weight: 700;
+      padding: 16px 40px; border-radius: 10px; border: none; cursor: pointer;
+      transition: all 0.25s; font-family: inherit; text-transform: uppercase; letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+    .btn-accent:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow-strong); color: var(--white); }
+
+    .benefit-bar { padding: 36px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .benefit-bar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .benefit-bar-item { display: flex; align-items: center; gap: 12px; }
+    .benefit-bar-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .benefit-bar-icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .benefit-bar-text { font-size: 14px; font-weight: 600; color: var(--white); line-height: 1.3; }
+
+    .feature-list { list-style: none; padding: 0; margin: 24px 0 0; }
+    .feature-list li { padding: 10px 0 10px 36px; position: relative; font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+    .feature-list li::before {
+      content: ""; position: absolute; left: 0; top: 12px; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z' fill='white'/%3E%3C/svg%3E");
+      background-size: 20px; background-repeat: no-repeat; background-position: center;
+    }
+
+    .callout-box {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: var(--radius);
+      padding: 28px 32px; margin-top: 16px;
+    }
+    .callout-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+
+    .pricing-wrapper { position: relative; max-width: 500px; margin: 0 auto; }
+    .pricing-wrapper::before {
+      content: ""; position: absolute; inset: -2px; border-radius: 18px;
+      background: linear-gradient(135deg, var(--accent), #ff5252, var(--accent-dark)); z-index: 0;
+    }
+    .pricing-card { position: relative; z-index: 1; background: var(--bg-card); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; }
+    .pricing-badge { display: inline-block; background: var(--accent); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 20px; border-radius: 100px; margin-bottom: 24px; }
+    .pricing-card h2 { font-size: 24px; margin-bottom: 20px; }
+    .pricing-card .price { font-size: 68px; font-weight: 900; color: var(--white); line-height: 1; margin: 8px 0; letter-spacing: -2px; }
+    .pricing-card .price span { color: var(--accent); }
+    .pricing-card .price-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+    .cta-main {
+      display: block; width: 100%; background: var(--accent); color: var(--white);
+      font-size: 17px; font-weight: 700; padding: 18px; border-radius: 10px; border: none; cursor: pointer;
+      transition: all 0.25s; font-family: inherit; text-transform: uppercase; letter-spacing: 0.8px;
+      box-shadow: 0 4px 24px var(--accent-glow); text-align: center;
+    }
+    .cta-main:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 32px var(--accent-glow-strong); color: var(--white); }
+
+    .trust-icons { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 20px; font-size: 12px; color: var(--text-muted); }
+
+    .compliance { padding: 32px 0; border-top: 1px solid var(--border); }
+    .compliance p { font-size: 11px; color: var(--text-muted); line-height: 1.7; text-align: center; max-width: 640px; margin: 0 auto 6px; }
+
+    footer { background: #050505; padding: 36px 0; text-align: center; border-top: 1px solid var(--border); }
+    .footer-links { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 12px; }
+    .footer-links a { color: var(--text-muted); font-size: 14px; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { color: #444; font-size: 13px; }
+    .section-alt { background: var(--bg-subtle); }
+    .guarantee-section { text-align: center; }
+    .guarantee-section h2 { font-size: 28px; margin-bottom: 16px; }
+    .guarantee-section p { max-width: 540px; margin: 0 auto; }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 34px; } h2 { font-size: 28px; }
+      section { padding: 56px 0; } .hero { padding: 56px 0 40px; }
+      .benefit-bar-grid { grid-template-columns: 1fr; gap: 16px; }
+      .benefit-bar-item { justify-content: center; }
+      .container { padding: 0 20px; } .container--narrow { padding: 0 20px; }
+      .pricing-card { padding: 36px 24px; } .pricing-card .price { font-size: 52px; }
+      .btn-accent { width: 100%; justify-content: center; }
+      .hero::before { width: 300px; height: 300px; right: -50px; top: -50px; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap"><div class="hero">
-<h1>Slow Fire Protocol</h1>
-<p class="lead">A practical digital guide for men who want to build connection with more patience, confidence, and emotional awareness — without rushing, pressure, or unrealistic dating promises.</p>
-<p class="compliance">🔒 Compliance-friendly • No medical claims • Results vary</p>
-</div></div>
-<div class="wrap">
-<section><h2>Who This Is For</h2><p>Slow Fire Protocol is for men who want a calmer and more thoughtful approach to dating, attraction, and relationship-building.</p><p>It may be helpful for men who:</p><ul><li>Feel they often rush interactions too quickly</li><li>Want to build better conversations over time</li><li>Prefer natural connection instead of aggressive dating tactics</li><li>Want to understand how patience and consistency may support attraction</li><li>Want to improve the way they communicate with women respectfully</li></ul><p>This guide is not for anyone looking for guaranteed attraction, manipulation, pressure tactics, or quick romantic outcomes.</p></section><section><h2>What Is the Product?</h2><p>Slow Fire Protocol is a digital relationship guide delivered online as an eBook.</p><p>Inside, the reader will find practical chapters, mindset lessons, communication examples, and reflection exercises designed to help men build connection gradually and respectfully.</p><p>The guide is based on a simple idea: meaningful connection often develops through patience, emotional control, presence, communication, and mutual interest.</p><p>It does not promise that any woman will feel attraction, agree to a date, start a relationship, or respond in a specific way.</p></section><section><h2>What You Will See Inside the Guide</h2><h3>Chapter 1 — The Slow Fire Mindset</h3><p>This chapter explains the core idea behind the product: connection does not always need to be rushed.</p><p>You will learn why patience, calmness, and emotional steadiness may create better interactions than pressure or overpursuing.</p><p>The focus is on developing a more grounded dating mindset.</p><h3>Chapter 2 — Why Rushing Can Create Distance</h3><p>This chapter explains how moving too fast may make conversations feel uncomfortable.</p><p>Inside, you will see examples such as:</p><ul><li>Over-texting too early</li><li>Trying to define the relationship too soon</li><li>Sharing too much too quickly</li><li>Looking for constant reassurance</li><li>Pushing for attention before trust is built</li></ul><p>The goal is to help the reader slow down and communicate with more awareness.</p><h3>Chapter 3 — Creating Natural Conversation Flow</h3><p>This chapter teaches simple communication principles that may help conversations feel more balanced.</p><p>You will learn how to:</p><ul><li>Ask better questions</li><li>Avoid interview-style conversations</li><li>Share about yourself naturally</li><li>Listen with attention</li><li>Notice when a topic is working or not working</li></ul><h3>Chapter 4 — Building Presence Without Performing</h3><p>This chapter explains how to show up with more confidence without pretending to be someone else.</p><p>Topics include:</p><ul><li>Calm body language</li><li>Relaxed eye contact</li><li>Speaking with clarity</li><li>Avoiding approval-seeking behavior</li><li>Staying comfortable in pauses</li></ul><p>The focus is on natural presence, not fake confidence.</p><h3>Chapter 5 — Understanding Mutual Interest</h3><p>This chapter explains that connection should be mutual.</p><p>The reader will learn how to look for signs of comfort, engagement, and interest without assuming or forcing anything.</p><p>It also explains why respectful uncertainty is healthier than trying to control the outcome.</p><h3>Chapter 6 — Texting With Patience</h3><p>This chapter covers texting habits that may support better communication.</p><p>It includes guidance on:</p><ul><li>Avoiding excessive follow-ups</li><li>Keeping messages simple</li><li>Not reading too much into every delay</li><li>Knowing when to pause</li><li>Using texting to support connection, not force it</li></ul><h3>Chapter 7 — Creating Emotional Safety</h3><p>This chapter explains why respect and emotional safety matter in dating.</p><p>It helps the reader understand how pressure, judgment, or intensity can make people pull away.</p><p>You will learn how to communicate in a way that may feel more calm, respectful, and comfortable.</p><h3>Chapter 8 — Moving Forward Without Pressure</h3><p>This chapter explains how to suggest a next step respectfully.</p><p>It includes examples of simple invitations, how to handle uncertainty, and how to accept different responses with maturity.</p><p>The focus is on clarity without pressure.</p><h3>Chapter 9 — Staying Grounded When You Like Someone</h3><p>This chapter helps men avoid losing emotional balance when they feel attracted to someone.</p><p>It includes reflections on:</p><ul><li>Overthinking</li><li>Emotional dependency</li><li>Fear of rejection</li><li>Trying too hard</li><li>Maintaining your own routine and self-respect</li></ul><h3>Chapter 10 — Slow Fire Practice Plan</h3><p>The final chapter includes practical exercises and checklists.</p><p>You will see:</p><ul><li>Conversation awareness checklist</li><li>Texting review worksheet</li><li>Weekly patience tracker</li><li>Self-respect reflection prompts</li><li>Connection-building action steps</li></ul><p>These tools are designed to help the reader apply the guide gradually.</p></section><section><h2>Why Other Methods May Not Work</h2><p>Many dating methods encourage men to rush, chase, impress, or use memorized lines.</p><p>These approaches may create pressure and make interactions feel unnatural.</p><p>Slow Fire Protocol takes a calmer approach. It focuses on patience, communication, emotional steadiness, and mutual comfort instead of trying to force attraction or guarantee results.</p></section><section><h2>Possible Benefits</h2><p>This guide may help you:</p><ul><li>Slow down and avoid pressure-based behavior</li><li>Communicate with more patience and clarity</li><li>Build more natural conversations</li><li>Improve awareness of mutual interest</li><li>Reduce overthinking in dating situations</li><li>Handle texting with more emotional balance</li><li>Develop a more respectful dating approach</li></ul><p class="disclaimer">Results vary by individual. No specific romantic outcome, attraction, response, date, or relationship is guaranteed.</p></section><section><h2>Your 60-Day Guarantee</h2><p>Try Slow Fire Protocol for 60 days.</p><p>If you feel it is not a helpful resource for your personal development or communication journey, you may request a refund within 60 days according to the refund process provided after purchase.</p></section>
-<div class="price-box">
-<div class="cta-h">Offer</div>
-<div class="price">$67</div>
-<!-- TODO: link de checkout Digistore24 (produto) pendente -->
-<a class="buy" href="#">Buy Now</a>
-<p class="secure">Payments processed securely by Digistore24.</p>
-<div class="ds24"><img src="https://www.digistore24.com/trusted-badge/44515/dark/seal.png" alt="Digistore24"></div>
-</div>
-<p class="compliance" style="text-align:center">🔒 Compliance-friendly • No medical claims • Results vary</p>
-</div>
-<footer><div class="wrap">
-<a href="/privacy-policy/">Privacy Policy</a> • <a href="/refund-policy/">Refund Policy</a> • <a href="/terms-of-use/">Terms of Use</a> • <a href="/contact/">Contact</a>
-<div class="copyright">© 2026 Slow Fire Protocol. All rights reserved.</div>
-</div></footer>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>What If the Key to Better Connection Was Slowing Down &mdash; Not Trying Harder?</h1>
+        <p class="lead">Slow Fire Protocol is a practical step-by-step digital guide designed to help men build connection with more patience, emotional awareness, and genuine confidence &mdash; without rushing, pressure tactics, or unrealistic dating promises.</p>
+        <a href="#offer" class="btn-accent">Buy Now &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFIT BAR ========== -->
+  <div class="benefit-bar">
+    <div class="container">
+      <div class="benefit-bar-grid">
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">10 structured chapters</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Practice plan included</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">Instant digital access</span>
+        </div>
+        <div class="benefit-bar-item">
+          <div class="benefit-bar-icon"><svg viewBox="0 0 20 20"><path d="M8.5 13.3L5.7 10.5l1.1-1.1 1.7 1.7 4.2-4.2 1.1 1.1L8.5 13.3z"/></svg></div>
+          <span class="benefit-bar-text">60-day guarantee</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WHO THIS IS FOR ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Who This Is For</h2>
+        <p class="text-center">This guide may be right for you if:</p>
+        <ul class="feature-list">
+          <li>You often feel like you rush interactions before real connection has a chance to develop</li>
+          <li>You want to build better conversations over time instead of forcing outcomes</li>
+          <li>You prefer a natural, respectful approach over aggressive dating tactics</li>
+          <li>You want to understand how patience and consistency may support genuine attraction</li>
+          <li>You find yourself overthinking or losing emotional balance when you like someone</li>
+          <li>You want to improve the way you communicate with women in a way that feels honest and grounded</li>
+        </ul>
+        <p style="margin-top: 24px; font-size: 14px; color: var(--text-muted);">This guide is not intended for anyone looking for guaranteed attraction, manipulation tactics, pressure-based methods, or quick romantic outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT IT IS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What It Is</h2>
+        <p>Slow Fire Protocol is a digital e-book delivered in PDF format.</p>
+        <p>After your purchase, you will receive instant access to the full guide via download link. There are no physical components &mdash; everything is delivered digitally and available immediately after checkout.</p>
+        <p>The guide contains 10 structured chapters, mindset lessons, practical communication principles, reflection exercises, and a complete practice plan &mdash; all designed to be applied gradually, at your own pace, in real situations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT YOU'LL GET ACCESS TO ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">What You'll Get Access To</h2>
+        <p class="text-center">Here is what you will find inside:</p>
+        <div style="display: grid; gap: 16px; margin-top: 32px;">
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 1 &mdash; The Slow Fire Mindset</h3>
+            <p>Understand the core idea behind this guide: that connection does not always need to be rushed. This chapter explores why patience, calmness, and emotional steadiness may create better interactions than pressure or overpursuing ever could.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 2 &mdash; Why Rushing Can Create Distance</h3>
+            <p>Learn how moving too fast may make conversations feel uncomfortable &mdash; including patterns like over-texting too early, sharing too much too soon, seeking constant reassurance, and pushing for attention before trust has been built.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 3 &mdash; Creating Natural Conversation Flow</h3>
+            <p>Discover simple communication principles that may help conversations feel more balanced and engaging &mdash; including how to ask better questions, listen with genuine attention, share about yourself naturally, and notice when a topic is working or not.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 4 &mdash; Building Presence Without Performing</h3>
+            <p>Explore how to show up with more confidence without pretending to be someone you're not. This chapter covers calm body language, relaxed eye contact, speaking with clarity, and staying comfortable in pauses &mdash; natural presence, not performed confidence.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 5 &mdash; Understanding Mutual Interest</h3>
+            <p>Learn how to look for signs of comfort, engagement, and genuine interest without assuming or forcing anything. This chapter explains why respectful uncertainty is healthier than trying to control the outcome of an interaction.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 6 &mdash; Texting With Patience</h3>
+            <p>Develop texting habits that may support better communication &mdash; including how to avoid excessive follow-ups, keep messages simple, not read too much into every delay, and use texting to support connection rather than force it.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 7 &mdash; Creating Emotional Safety</h3>
+            <p>Understand why respect and emotional safety matter in dating, and how pressure, judgment, or intensity can cause people to pull away. This chapter helps you communicate in a way that may feel more calm, respectful, and comfortable for both sides.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 8 &mdash; Moving Forward Without Pressure</h3>
+            <p>See how to suggest a next step in a clear, respectful way &mdash; including simple invitation examples, how to handle uncertainty, and how to accept different responses with emotional maturity and dignity.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 9 &mdash; Staying Grounded When You Like Someone</h3>
+            <p>Learn how to maintain emotional balance when attraction is strong. This chapter includes reflections on overthinking, emotional dependency, fear of rejection, trying too hard, and how to keep your own routine and self-respect intact.</p>
+          </div>
+          <div class="callout-box">
+            <h3 style="color: var(--accent); margin-bottom: 8px;">Chapter 10 &mdash; Slow Fire Practice Plan</h3>
+            <p>Apply everything you've learned with a structured practice plan &mdash; including a conversation awareness checklist, texting review worksheet, weekly patience tracker, self-respect reflection prompts, and connection-building action steps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY OTHER METHODS FAIL ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Why Other Methods Fail</h2>
+        <p>Most dating methods encourage men to rush, chase, impress, or rely on memorized lines and scripted behavior.</p>
+        <p>These approaches often create unnecessary pressure and make interactions feel unnatural &mdash; for both people involved.</p>
+        <p>Slow Fire Protocol takes a calmer, more sustainable approach. Instead of trying to force attraction or guarantee a specific result, it focuses on patience, emotional steadiness, respectful communication, and mutual comfort &mdash; the areas where genuine connection is actually more likely to develop.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFITS ========== -->
+  <section>
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">Benefits</h2>
+        <p class="text-center">This guide may help you:</p>
+        <ul class="feature-list">
+          <li>Slow down and reduce pressure-based behavior in dating situations</li>
+          <li>Communicate with more patience, clarity, and emotional awareness</li>
+          <li>Build more natural and balanced conversations over time</li>
+          <li>Improve your awareness of mutual interest and genuine engagement</li>
+          <li>Reduce overthinking and emotional imbalance when you like someone</li>
+          <li>Handle texting with more confidence and less anxiety</li>
+          <li>Develop a more respectful and sustainable approach to dating</li>
+        </ul>
+        <p style="margin-top: 24px; font-size: 13px; color: var(--text-muted);"><em>Results vary by individual. No specific romantic outcome, attraction, response, date, or relationship is guaranteed.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="container--narrow" style="padding: 0;">
+        <h2 class="text-center">How It Works</h2>
+        <p>Slow Fire Protocol is built on one simple idea: that meaningful connection tends to develop through patience, presence, and emotional steadiness &mdash; not through pressure, performance, or trying harder.</p>
+        <p>The guide is structured as a progressive experience. Each chapter builds on the previous one &mdash; beginning with mindset and emotional grounding, moving through practical communication and social awareness skills, and finishing with a hands-on practice plan you can start applying immediately.</p>
+        <p>There are no scripts to memorize and no tactics to perform. The focus is on helping you develop a calmer, more grounded way of showing up in dating situations &mdash; one step at a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GUARANTEE ========== -->
+  <section>
+    <div class="container--narrow">
+      <div class="guarantee-section">
+        <h2>60-Day Money-Back Guarantee</h2>
+        <p>Try Slow Fire Protocol for 60 days. If you feel it is not a helpful resource for your personal development or communication journey, simply contact our support team within 60 days of your purchase and we'll issue a full refund &mdash; no questions asked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OFFER ========== -->
+  <section class="section-alt" id="offer">
+    <div class="container">
+      <div class="pricing-wrapper">
+        <div class="pricing-card">
+          <span class="pricing-badge">Special Offer &mdash; Instant Access</span>
+          <h2>Slow Fire Protocol</h2>
+          <div class="price"><span>$67</span></div>
+          <p class="price-sub">One-time payment &middot; Instant digital access &middot; 60-day guarantee</p>
+          <!-- TODO: link checkout Digistore24 pendente -->
+          <a href="#" class="cta-main">Buy Now</a>
+          <p style="margin-top: 16px; font-size: 13px; color: var(--text-muted);">Payments processed securely by Digistore24.</p>
+          <div class="trust-icons">
+            <span>&#128274; Compliance-friendly</span>
+            <span>&bull; No medical claims</span>
+            <span>&bull; Results may vary</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DISCLAIMER ========== -->
+  <div class="compliance">
+    <div class="container">
+      <p><em>The information provided in this guide is for educational and personal development purposes only. It is not intended to replace professional counseling, therapy, or relationship advice from a qualified professional. Individual results may vary. No specific romantic outcome, attraction, response, date, or relationship is guaranteed. Results depend on the individual's effort, personal circumstances, and situation.</em></p>
+    </div>
+  </div>
+
+  <!-- ========== DIGISTORE24 BADGE ========== -->
+  <div style="text-align: center; padding: 24px 0;">
+    <script type="text/javascript" src="https://www.digistore24.com/trusted-badge/44515/IsTMGRlnqYpnh4k/salespage"></script>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/refund-policy/">Refund Policy</a>
+        <a href="/terms-of-use/">Terms of Use</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Slow Fire Protocol. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    window.pixelId = "69a9806c140f4a4bef96ae68";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 </body>
 </html>
