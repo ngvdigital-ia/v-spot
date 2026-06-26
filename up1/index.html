@@ -743,10 +743,8 @@
       </div>
       <p class="price-note">That's about $0.40 a day.</p>
 
-      <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="cta-btn">
-        🔥 Yes — Secure My Access to the Ignition Protocol Now
-      </a>
-      <a href="https://www.checkout-ds24.com/answer/no" class="skip-link">No, I'd rather keep guessing the right moment</a>
+      <!-- Vendepay Upsell widget (substitui botões sim/recusa) -->
+      <div id="vendepay-upsell-container" style="max-width:480px;margin:0 auto 16px;"></div>
 
       <div class="badges" style="margin-top:28px;">
         <div class="badge-item"><span>🔒</span> Secure Checkout</div>
@@ -795,11 +793,11 @@
     </div>
 
     <div style="margin-top:36px;" class="fade-up">
-      <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="cta-btn">
-        🔥 Yes — Secure My Access to the Ignition Protocol Now
-      </a>
-      <a href="https://www.checkout-ds24.com/answer/no" class="skip-link">No, I'd rather keep guessing the right moment</a>
+      <div id="vendepay-upsell-container-2" style="max-width:480px;margin:0 auto;"></div>
     </div>
+    <!-- Widget Vendepay Upsell — renderiza o iframe de checkout nos 2 containers -->
+    <script src="https://widget.vendepay.com/upsell-widget/v1/vendepay-upsell-widget-1.0.16.js?upsellId=34c987ef-88c0-4d59-bcae-397da00fedf0"
+            onload="window.VendepayUpsellWidget && (window.VendepayUpsellWidget.showIframe('vendepay-upsell-container'), window.VendepayUpsellWidget.showIframe('vendepay-upsell-container-2'))"></script>
 
   </div>
 </section>
