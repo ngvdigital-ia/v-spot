@@ -17,14 +17,14 @@
   <link
     rel="preload"
     as="style"
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
     onload="this.onload=null;this.rel='stylesheet'"
   >
 
   <noscript>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
     >
   </noscript>
 
@@ -39,11 +39,13 @@
       --bg:#080808;
       --text:#ffffff;
       --white:#ffffff;
+      --muted:#c9c9c9;
       --red:#d7001f;
       --red-strong:#ff1236;
       --gold:#c9a84c;
       --serif:'Playfair Display', Georgia, serif;
       --sans:'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --col:520px;
     }
 
     html,body{
@@ -72,9 +74,13 @@
       z-index:1;
     }
 
+    /* ---------- STICKY URGENCY BAR ---------- */
     .timer-strip{
+      position:sticky;
+      top:0;
+      z-index:50;
       background:linear-gradient(90deg,#1a0008,#240009,#1a0008);
-      border-bottom:1px solid rgba(215,0,31,0.25);
+      border-bottom:1px solid rgba(215,0,31,0.3);
       padding:12px 20px;
       display:flex;
       align-items:center;
@@ -84,12 +90,13 @@
       color:#fff;
       letter-spacing:.02em;
       text-align:center;
+      box-shadow:0 4px 18px rgba(0,0,0,0.45);
     }
 
     .timer-strip .dot{
       width:7px;
       height:7px;
-      background:var(--red);
+      background:var(--red-strong);
       border-radius:50%;
       animation:pulse 1.4s infinite;
       flex-shrink:0;
@@ -101,46 +108,82 @@
     }
 
     @keyframes pulse{
-      0%,100%{
-        opacity:1;
-        transform:scale(1);
-      }
-
-      50%{
-        opacity:.45;
-        transform:scale(.82);
-      }
+      0%,100%{ opacity:1; transform:scale(1); }
+      50%{ opacity:.45; transform:scale(.82); }
     }
 
     .content{
       width:100%;
-      max-width:520px;
+      max-width:var(--col);
       margin:0 auto;
-      padding:28px 20px 44px;
+      padding:0 20px 40px;
     }
 
+    /* ---------- DOBRAS ---------- */
+    .dobra{
+      padding:30px 0;
+    }
+
+    .dobra--first{
+      padding-top:28px;
+    }
+
+    .divider{
+      width:100%;
+      max-width:var(--col);
+      margin:0 auto;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(215,0,31,0.45),transparent);
+    }
+
+    /* ---------- HEADLINE ---------- */
     .headline{
       font-family:var(--serif);
       font-size:34px;
-      line-height:1.2;
-      font-weight:700;
+      line-height:1.18;
+      font-weight:800;
       color:#fff;
       text-align:center;
-      margin-bottom:24px;
+      margin-bottom:22px;
       letter-spacing:-.02em;
     }
 
-    .headline .highlight-red{
+    .highlight-red{
       color:var(--red-strong);
+      font-weight:800;
+    }
+
+    .subhead{
+      font-family:var(--serif);
+      font-size:27px;
+      line-height:1.25;
+      font-weight:700;
+      color:#fff;
+      text-align:center;
+      margin-bottom:18px;
+      letter-spacing:-.01em;
+    }
+
+    .subhead .highlight-red{ font-weight:700; }
+
+    .eyebrow{
+      display:block;
+      text-align:center;
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--gold);
+      margin-bottom:12px;
       font-weight:700;
     }
 
+    /* ---------- VIDEO ---------- */
     .video-wrap{
-      margin-top:8px;
+      margin-top:6px;
       position:relative;
       border-radius:8px;
       overflow:hidden;
-      border:1px solid rgba(215,0,31,0.2);
+      border:1px solid rgba(215,0,31,0.22);
       background:#0a0a0a;
       aspect-ratio:16/9;
     }
@@ -205,104 +248,116 @@
       z-index:3;
     }
 
-    .sound-toggle[hidden]{
-      display:none;
-    }
+    .sound-toggle[hidden]{ display:none; }
 
     @keyframes soundPulse{
-      0%,100%{
-        box-shadow:0 0 0 0 rgba(215,0,31,0.55);
-      }
-
-      50%{
-        box-shadow:0 0 0 8px rgba(215,0,31,0);
-      }
+      0%,100%{ box-shadow:0 0 0 0 rgba(215,0,31,0.55); }
+      50%{ box-shadow:0 0 0 8px rgba(215,0,31,0); }
     }
 
+    /* ---------- COPY ---------- */
     .copy{
-      margin-top:26px;
-      font-size:16px;
+      margin-top:24px;
+      font-size:16.5px;
       line-height:1.75;
-      color:#fff;
+      color:#f1f1f1;
       text-align:left;
     }
+
+    .copy p{ margin-bottom:16px; }
+    .copy p:last-child{ margin-bottom:0; }
 
     .copy strong{
       color:#fff;
       font-weight:700;
     }
 
-    .normal-note{
-      margin-top:22px;
-      font-size:16px;
-      line-height:1.7;
-      color:#fff;
-      font-weight:400;
+    .copy .hl-red{
+      color:var(--red-strong);
+      font-weight:700;
     }
 
+    /* ---------- CTA ---------- */
     .cta-btn{
+      position:relative;
+      isolation:isolate;
       display:flex;
       align-items:center;
       justify-content:center;
       width:100%;
-      margin-top:28px;
+      margin-top:26px;
       padding:22px 20px;
-      background:linear-gradient(135deg,#d7001f,#b1001a);
+      background:linear-gradient(135deg,#ff1236,#b1001a);
       color:#fff;
       font-family:var(--sans);
-      font-size:17px;
+      font-size:16.5px;
       font-weight:700;
+      line-height:1.3;
       letter-spacing:.02em;
       text-transform:uppercase;
       text-align:center;
       border:none;
-      border-radius:6px;
+      border-radius:8px;
       cursor:pointer;
       text-decoration:none;
-      transition:transform .15s ease, opacity .2s ease;
+      box-shadow:0 8px 26px rgba(215,0,31,0.32);
+      transition:filter .2s ease, box-shadow .2s ease;
+    }
+
+    /* PULSE RING only — the button body never moves */
+    .cta-btn::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      z-index:-1;
+      box-shadow:0 0 0 0 rgba(255,18,54,0.55);
+      animation:ctaPing 2s ease-out infinite;
+    }
+
+    @keyframes ctaPing{
+      0%{ box-shadow:0 0 0 0 rgba(255,18,54,0.55); }
+      70%{ box-shadow:0 0 0 18px rgba(255,18,54,0); }
+      100%{ box-shadow:0 0 0 0 rgba(255,18,54,0); }
     }
 
     .cta-btn:hover{
-      opacity:.95;
-      transform:translateY(-1px);
+      filter:brightness(1.06);
+      box-shadow:0 10px 30px rgba(215,0,31,0.45);
     }
 
     .cta-btn:active{
-      transform:translateY(0);
-      opacity:1;
+      filter:brightness(1);
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .cta-btn::before{ animation:none; }
     }
 
     .cta-secondary{
-      margin-top:16px;
+      margin-top:14px;
       text-align:center;
-      font-size:14px;
-      color:#fff;
+      font-size:13.5px;
+      color:var(--muted);
       letter-spacing:.02em;
     }
 
     .page-footer{
-      margin-top:26px;
-      padding-top:20px;
+      margin-top:8px;
+      padding:24px 0 8px;
       border-top:1px solid rgba(255,255,255,0.06);
       text-align:center;
       font-size:13px;
-      color:#fff;
+      color:var(--muted);
     }
 
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width:520px){
-      .headline{
-        font-size:28px;
-      }
-
-      .copy,
-      .normal-note{
-        font-size:15px;
-      }
-
-      .cta-btn{
-        font-size:15px;
-        padding:20px 18px;
-      }
+      .headline{ font-size:27px; }
+      .subhead{ font-size:22px; }
+      .copy{ font-size:15.5px; }
+      .cta-btn{ font-size:14.5px; padding:20px 16px; }
+      .timer-strip{ font-size:13px; }
     }
   </style>
 </head>
@@ -311,86 +366,127 @@
 
   <div class="page">
 
+    <!-- STICKY URGENCY BAR -->
     <div class="timer-strip">
       <span class="dot"></span>
       <span>
-        ⚠ <strong>ATTENTION:</strong> This exclusive class goes offline in
+        ⚠ <strong>WARNING:</strong> This uncensored class goes offline in
         <strong id="countdown">--:--:--</strong>
       </span>
     </div>
 
     <main class="content">
 
-      <h1 class="headline">
-        How to make any woman
-        <span class="highlight-red">soak the whole bed</span>
-        and have the
-        <span class="highlight-red">best orgasm of her life</span>
-        using only your fingertips
-      </h1>
+      <!-- ================= DOBRA 1 — PROMISE + LOOP ================= -->
+      <section class="dobra dobra--first">
 
-      <div class="video-wrap" id="media-result">
+        <h1 class="headline">
+          How to make any woman
+          <span class="highlight-red">soak the bed</span>
+          in <span class="highlight-red">20 seconds</span>
+          using only three fingers
+        </h1>
 
-        <div class="video-fallback" id="video-fallback">
-          <svg width="100%" height="100%" viewBox="0 0 360 200" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <radialGradient id="vg" cx="50%" cy="50%" r="55%">
-                <stop offset="0%" stop-color="#3d001a" stop-opacity="0.6"/>
-                <stop offset="100%" stop-color="#050003" stop-opacity="1"/>
-              </radialGradient>
-            </defs>
-            <rect width="360" height="200" fill="url(#vg)"/>
-          </svg>
+        <div class="video-wrap" id="media-result">
+
+          <div class="video-fallback" id="video-fallback">
+            <svg width="100%" height="100%" viewBox="0 0 360 200" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="vg" cx="50%" cy="50%" r="55%">
+                  <stop offset="0%" stop-color="#3d001a" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#050003" stop-opacity="1"/>
+                </radialGradient>
+              </defs>
+              <rect width="360" height="200" fill="url(#vg)"/>
+            </svg>
+          </div>
+
+          <video
+            id="result-video"
+            preload="metadata"
+            muted
+            playsinline
+            autoplay
+            loop
+            poster="/quiz/assets/result-poster.webp"
+          >
+            <source src="/quiz/assets/result.mp4" type="video/mp4">
+          </video>
+
+          <div class="video-corner">Exclusive</div>
+
+          <button class="sound-toggle" id="sound-toggle" hidden>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <span>Tap for sound</span>
+          </button>
+
         </div>
 
-        <video
-          id="result-video"
-          preload="metadata"
-          muted
-          playsinline
-          autoplay
-          loop
-          poster="/quiz/assets/result-poster.webp"
-        >
-          <source src="/quiz/assets/result.mp4" type="video/mp4">
-        </video>
+        <div class="copy">
+          <p>This is the exact finger trigger from the video you just saw, filmed live on a <strong>real model</strong>. No animations, no theory, no filler.</p>
+          <p>You will see the one hidden spot she has, the <strong>V-spot</strong>, and the exact zones around it you press to make her <strong>squirt over and over</strong>.</p>
+          <p>Watch every second with the sound on and do not skip a single part. The men who learn this stop being the one she forgets.</p>
+          <p>Do it tonight and she ends up <strong>soaked, shaking, and telling her friends your name</strong>.</p>
+        </div>
 
-        <div class="video-corner">Exclusive</div>
+        <a href="https://roxyfox.online/vsl" class="cta-btn" onclick="trackClick()">
+          I want to make her squirt in seconds tonight
+        </a>
 
-        <button class="sound-toggle" id="sound-toggle" hidden>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-            <line x1="23" y1="9" x2="17" y2="15"></line>
-            <line x1="17" y1="9" x2="23" y2="15"></line>
-          </svg>
-          <span>Tap for sound</span>
-        </button>
+        <p class="cta-secondary">🔒 18+ Content · Private Access · Unlocks now</p>
 
-      </div>
+      </section>
 
-      <div class="copy">
-        The class you are about to watch features <strong>real models</strong>, no fluff, step by step.
-        <br><br>
-        You will learn how to stimulate any woman's <strong>U-Spot</strong> and make her have multiple squirting orgasms using only your fingertips.
-        <br><br>
-        This is not theory. It is an explicit class, recorded live.
-      </div>
+      <div class="divider"></div>
 
-      <p class="normal-note">
-        Do not skip any part. Pay attention, take everything in, and tonight, make your woman never forget you.
-      </p>
+      <!-- ================= DOBRA 2 — CURIOSITY + REWARD ================= -->
+      <section class="dobra">
 
-      <a
-        href="https://roxyfox.online/vsl"
-        class="cta-btn"
-        onclick="trackClick()"
-      >
-        I WANT TO MAKE MY WOMAN SQUIRT FOR THE FIRST TIME TODAY
-      </a>
+        <span class="eyebrow">What's inside</span>
 
-      <p class="cta-secondary">
-        🔒 18+ Content · Private Access · Unlocks now
-      </p>
+        <h2 class="subhead">
+          There is a lot more waiting inside this <span class="highlight-red">free class</span>
+        </h2>
+
+        <div class="copy">
+          <p>Inside, the camera gets close on a real woman and shows you the <strong>V-spot</strong> that most men go their whole life without ever finding.</p>
+          <p>You will see why the <strong>G-spot is for amateurs</strong> and what to target instead. You will learn how to tell when she is really squirting and when she is <strong>faking it</strong> just to get you to finish.</p>
+          <p>And there is one more thing. At the very end of this class, the woman who trains the actors in adult films reveals <strong>a surprise reserved for the men who stay until the last second</strong>. Do not close it early.</p>
+        </div>
+
+        <a href="https://roxyfox.online/vsl" class="cta-btn" onclick="trackClick()">
+          I want the V-spot and the surprise tonight
+        </a>
+
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- ================= DOBRA 3 — STAKES + SCARCITY ================= -->
+      <section class="dobra">
+
+        <span class="eyebrow">Before you go</span>
+
+        <h2 class="subhead">One last thing before you decide</h2>
+
+        <div class="copy">
+          <p>Right now, while you sit here thinking, <strong>other men are already inside watching this class</strong>. They are learning the exact trigger you are still hesitating on, and they will use it this week.</p>
+          <p>Women do not stay quiet about this. The second she feels it, <strong>she tells her friends</strong>, and your name is the one she repeats. The man who learns this becomes the one she cannot stop thinking about. The man who does not gets <strong>replaced and forgotten</strong>.</p>
+          <p><span class="hl-red">This class is free only until the timer hits zero.</span> <span class="hl-red">After that the video comes down, and the only way to watch it is to pay.</span></p>
+          <p>Do not be the man who pays later for what he could watch free right now. Tap below while it is still here.</p>
+        </div>
+
+        <a href="https://roxyfox.online/vsl" class="cta-btn" onclick="trackClick()">
+          I want to watch it free before the timer ends
+        </a>
+
+        <p class="cta-secondary">🔒 18+ Content · Private Access · Unlocks now</p>
+
+      </section>
 
       <div class="page-footer">
         For adults 18 and over only
@@ -424,13 +520,8 @@
 
     function tick() {
       if (secs < 0) secs = 0;
-
       const countdown = document.getElementById('countdown');
-
-      if (countdown) {
-        countdown.textContent = fmt(secs);
-      }
-
+      if (countdown) countdown.textContent = fmt(secs);
       if (secs > 0) secs--;
     }
 
@@ -446,30 +537,20 @@
 
       video.addEventListener('loadeddata', () => {
         loaded = true;
-
-        if (fallback) {
-          fallback.style.display = 'none';
-        }
-
+        if (fallback) fallback.style.display = 'none';
         toggle.hidden = false;
       }, { once: true });
 
       const onError = () => {
         if (loaded) return;
-
         video.style.display = 'none';
         toggle.hidden = true;
-
-        if (fallback) {
-          fallback.style.display = '';
-        }
+        if (fallback) fallback.style.display = '';
       };
 
       video.addEventListener('error', onError);
 
-      video.play().catch(() => {
-        toggle.hidden = true;
-      });
+      video.play().catch(() => { toggle.hidden = true; });
 
       toggle.addEventListener('click', () => {
         video.muted = false;
