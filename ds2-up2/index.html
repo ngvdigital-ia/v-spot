@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Horse Tonic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black:    #080808;
+    --deep:     #0e0e0e;
+    --card:     #141414;
+    --border:   #222222;
+    --gold:     #cc2222;
+    --gold-lt:  #e84444;
+    --gold-dim: #7a1515;
+    --red:      #cc2222;
+    --red-bg:   #b81c1c;
+    --yellow:   #f5d300;
+    --white:    #f0ece4;
+    --muted:    #888880;
+    --radius:   12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── ALERT BAR ─────────────────────────────── */
+  .alert-bar {
+    background: var(--red-bg);
+    color: var(--yellow);
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .02em;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 2px solid #ff3a3a;
+    animation: pulse-bar 3s ease-in-out infinite;
+  }
+  .alert-bar span { margin-right: 6px; }
+  @keyframes pulse-bar {
+    0%,100% { opacity: 1; }
+    50%      { opacity: .85; }
+  }
+
+  /* ─── WRAPPER ───────────────────────────────── */
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  /* ─── HERO ──────────────────────────────────── */
+  .hero {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, #1e1208 0%, var(--black) 70%);
+    padding: 64px 20px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 40px,
+      rgba(201,151,74,.03) 40px, rgba(201,151,74,.03) 41px
+    );
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold-dim);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+    border: 1px solid var(--gold-dim);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 7vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    font-weight: 300;
+  }
+
+  /* ─── DIVIDER ───────────────────────────────── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 56px auto;
+    max-width: 200px;
+    opacity: .4;
+  }
+
+  /* ─── SECTION LABEL ─────────────────────────── */
+  .section-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  /* ─── SECTION HEADINGS ──────────────────────── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .section-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  p { margin-bottom: 18px; color: #ccc8be; font-size: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ─── BULLET LIST ───────────────────────────── */
+  ul.bullet-list {
+    list-style: none;
+    margin: 32px 0;
+  }
+  .bullet-list li {
+    margin-bottom: 14px;
+    color: #ccc8be;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-left: 0;
+  }
+
+  /* ─── HIGHLIGHT BOX ─────────────────────────── */
+  .highlight-box {
+    background: linear-gradient(135deg, #1a1000 0%, #120c00 100%);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, rgba(201,151,74,.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .highlight-box .big-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .highlight-box p { color: #ccc; font-size: .97rem; margin: 0; }
+
+  /* ─── PRICE SECTION ─────────────────────────── */
+  .price-section {
+    scroll-margin-top: 90px;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, #1a1000 0%, var(--deep) 70%);
+    border: 1px solid var(--gold-dim);
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 100% 50% at 50% 100%, rgba(201,151,74,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .price-label {
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .price-old {
+    font-size: 1rem;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .price-sup { font-size: 1.8rem; vertical-align: super; }
+  .price-note { font-size: .88rem; color: var(--muted); margin-bottom: 32px; }
+
+  /* ─── CTA BUTTON ────────────────────────────── */
+  .cta-btn {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, #22a84a 0%, #168a38 100%);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 32px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 32px rgba(34,168,74,.35), 0 2px 8px rgba(0,0,0,.4);
+    transition: transform .2s, box-shadow .2s, filter .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+    transition: left .5s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 48px rgba(34,168,74,.5); filter: brightness(1.05); }
+  .cta-btn:hover::before { left: 160%; }
+  .cta-btn:active { transform: translateY(0); }
+
+  /* ─── SECURITY BADGES ───────────────────────── */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px 0;
+  }
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .8rem;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+  }
+  .badge-item span { font-size: 14px; }
+
+  /* ─── GUARANTEE ─────────────────────────────── */
+  .guarantee-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    margin: 32px 0;
+  }
+  @media(max-width:480px){ .guarantee-box { flex-direction: column; text-align: center; } }
+  .guarantee-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .guarantee-seal {
+    width: 88px; height: 88px;
+    background: linear-gradient(135deg, #1a1000, #0e0800);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 0 24px rgba(201,151,74,.2), inset 0 0 16px rgba(201,151,74,.05);
+    position: relative;
+  }
+  .guarantee-seal::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(201,151,74,.3);
+    border-radius: 50%;
+  }
+  .guarantee-seal .seal-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .guarantee-seal .seal-days {
+    font-size: .55rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-top: 2px;
+  }
+  .guarantee-box strong { display: block; color: var(--white); font-size: 1rem; margin-bottom: 4px; }
+  .guarantee-box p { font-size: .9rem; margin: 0; }
+
+  /* ─── FADE-IN ANIMATION ─────────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 20px;
+    text-align: center;
+  }
+  footer p { font-size: .78rem; color: var(--muted); margin: 0; }
+
+  /* ─── SCROLL INDICATOR ──────────────────────── */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+    z-index: 1000;
+    transition: width .1s linear;
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ALERT BAR -->
+<div class="alert-bar">
+  <span>⚠️</span> Don't go yet — there's a credit sitting on your account that you haven't used.
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badge">Exclusive — Member Discount</div>
+    <h1>
+      BECAUSE YOU ALREADY OWN<br>
+      <em>THE SQUIRTING SYSTEM,<br>A CREDIT JUST CAME OFF.</em>
+    </h1>
+    <p class="hero-sub">You're not buying this from zero. You're covering the residual after the credit. That's the whole story.</p>
+  </div>
+</section>
+
+<!-- MAIN SECTION -->
+<section style="padding: 56px 0;">
+  <div class="wrap">
+
+    <div class="fade-up">
+      <p>New reason, and I'll only say it once.</p>
+      <p>The system saw your account is already tied to the Squirting System. Members don't pay the full operating fee — they pay what's left after their member credit lands.</p>
+      <p>That credit is already applied. The number on the button is what remains.</p>
+    </div>
+
+    <div class="highlight-box fade-up">
+      <div class="big-text">The line between a man a woman enjoys<br>and a man she genuinely can't replace<br>is whether you're still there, still solid.</div>
+      <p>The Tonic is what keeps you on the right side of that line.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>And why it's worth covering that residual, put plainly: the line between a man a woman enjoys and a man she genuinely can't replace is whether you're still there, still solid, when her own hand stops being enough. The Tonic is what keeps you on the right side of that line.</p>
+    </div>
+
+    <ul class="bullet-list fade-up">
+      <li>• Stay present and hard long after most men have already tapped out</li>
+      <li>• Hold control while her body keeps demanding — no crash, no slow fade</li>
+      <li>• Let the app run the math so the only thing you're managing is her</li>
+      <li>• One profile, recalibrated anytime your body changes</li>
+    </ul>
+
+    <div class="fade-up">
+      <p>Full operating fee was $97. The earlier rate was $67. After your member credit, what's left is $37.</p>
+      <p>One time. Same app. Same personalization down to your body. The credit is the only reason it's this low — and it only exists while you're on this page, logged against your purchase.</p>
+      <p>Walk away, and the credit doesn't follow you out the door.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PRICE + CTA SECTION -->
+<section style="padding: 0 0 64px;">
+  <div class="wrap">
+
+    <div class="price-section fade-up" id="oferta">
+      <p class="price-label">The Squirting System — Members Only</p>
+      <p class="price-old">Full operating fee: $97</p>
+      <div class="price-main">
+        <span class="price-sup">$</span>37
+      </div>
+      <p class="price-note">Member credit applied.</p>
+
+      <!-- Vendepay Upsell widget -->
+      <div id="vendepay-upsell-container" style="max-width:480px;margin:0 auto 16px;"></div>
+
+      <div class="badges" style="margin-top:28px;">
+        <div class="badge-item"><span>🔒</span> Secure Checkout</div>
+        <div class="badge-item"><span>⚡</span> Instant Access</div>
+        <div class="badge-item"><span>🛡️</span> 90-Day Guarantee</div>
+        <div class="badge-item"><span>🔐</span> 256-bit SSL</div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <p>Don't think of this as a price. Think of it as a signal of trust.</p>
+      <p>The system reads your account. The credit is real. And it only sits on this page, logged against your purchase. Walk away, and it doesn't follow you out the door.</p>
+    </div>
+
+    <div class="guarantee-box fade-up">
+      <div class="guarantee-icon">
+        <div class="guarantee-seal">
+          <span class="seal-num">90</span>
+          <span class="seal-days">Days</span>
+        </div>
+      </div>
+      <div>
+        <strong>90-Day Money-Back Guarantee</strong>
+        <p>If for any reason this doesn't work for you, we refund 100% of your money. No questions. No hassle.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box fade-up" style="border-color: var(--red); background: linear-gradient(135deg, #1a0000 0%, #0e0000 100%);">
+      <div class="big-text" style="color:#ff6b6b; font-size:clamp(1.1rem,4vw,1.5rem);">This credit expires when you close this page.</div>
+      <p>The member rate doesn't get offered again. When you leave, the credit returns to the pool.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>So the decision is simple. Claim the credit that's already applied to your account, or watch it release back into the member pool when this page closes.</p>
+      <p style="color:var(--white); font-weight:600; text-align:center; font-size:1.1rem; margin-top:8px;">The math is already settled. All that's left is the choice.</p>
+    </div>
+
+    <div style="margin-top:36px;" class="fade-up">
+      <a href="#oferta" class="cta-btn">✓ Apply My Member Credit — $37</a>
+    </div>
+
+    <!-- Widget Vendepay Upsell -->
+    <script src="https://widget.vendepay.com/upsell-widget/v1/vendepay-upsell-widget-1.0.16.js?upsellId=8f6189ba-e023-4b87-b4e1-5df83764f344"
+            onload="window.VendepayUpsellWidget && window.VendepayUpsellWidget.showIframe('vendepay-upsell-container')"></script>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>© 2026 · All rights reserved · This offer is exclusive and time-sensitive.</p>
+  </div>
+</footer>
+
+<script>
+  // ─── Scroll progress bar ───
+  const bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // ─── Fade-up on scroll ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
