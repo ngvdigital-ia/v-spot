@@ -277,6 +277,60 @@
       font-weight:700;
     }
 
+    /* ---------- BULLETS GRID (columns) ---------- */
+    .bullets{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:8px;
+    }
+
+    .bullet{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.008));
+      border:1px solid rgba(215,0,31,0.2);
+      border-radius:8px;
+      padding:16px 14px;
+      transition:border-color .2s ease;
+    }
+
+    .bullet:hover{
+      border-color:rgba(255,18,54,0.45);
+    }
+
+    .bullet-title{
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      font-family:var(--sans);
+      font-size:15px;
+      font-weight:700;
+      color:#fff;
+      line-height:1.25;
+      margin-bottom:8px;
+    }
+
+    .bullet-title .mark{
+      color:var(--red-strong);
+      font-size:14px;
+      line-height:1.35;
+      flex-shrink:0;
+    }
+
+    .bullet-text{
+      font-size:13.5px;
+      line-height:1.55;
+      color:var(--muted);
+    }
+
+    @media (max-width:520px){
+      .bullet-title{ font-size:14px; }
+      .bullet-text{ font-size:12.5px; }
+    }
+
+    @media (max-width:359px){
+      .bullets{ grid-template-columns:1fr; }
+    }
+
     /* ---------- CTA ---------- */
     .cta-btn{
       position:relative;
@@ -448,14 +502,37 @@
 
         <span class="eyebrow">What's inside</span>
 
-        <h2 class="subhead">
-          There is a lot more waiting inside this <span class="highlight-red">free class</span>
-        </h2>
+        <h2 class="subhead">Just a glimpse of what is waiting in this <span class="highlight-red">free class</span></h2>
+
+        <div class="bullets">
+          <div class="bullet">
+            <div class="bullet-title"><span class="mark">&#9656;</span>The V-Spot Map</div>
+            <div class="bullet-text">The hidden spot almost no man ever finds, and exactly where it sits on her.</div>
+          </div>
+          <div class="bullet">
+            <div class="bullet-title"><span class="mark">&#9656;</span>G-Spot Is For Amateurs</div>
+            <div class="bullet-text">Why it only gives a weak orgasm, and what to target instead.</div>
+          </div>
+          <div class="bullet">
+            <div class="bullet-title"><span class="mark">&#9656;</span>Real Or Faking</div>
+            <div class="bullet-text">The dead giveaway that she is faking it just to end things early.</div>
+          </div>
+          <div class="bullet">
+            <div class="bullet-title"><span class="mark">&#9656;</span>The 20-Second Trigger</div>
+            <div class="bullet-text">The finger move that soaks her fast, with no foreplay needed.</div>
+          </div>
+          <div class="bullet">
+            <div class="bullet-title"><span class="mark">&#9656;</span>The Over-40 Secret</div>
+            <div class="bullet-text">Why older women crave it even more once a man knows this.</div>
+          </div>
+          <div class="bullet">
+            <div class="bullet-title"><span class="mark">&#9656;</span>The #1 Mistake</div>
+            <div class="bullet-text">The error that quietly makes her start looking for another man.</div>
+          </div>
+        </div>
 
         <div class="copy">
-          <p>Inside, the camera gets close on a real woman and shows you the <strong>V-spot</strong> that most men go their whole life without ever finding.</p>
-          <p>You will see why the <strong>G-spot is for amateurs</strong> and what to target instead. You will learn how to tell when she is really squirting and when she is <strong>faking it</strong> just to get you to finish.</p>
-          <p>And there is one more thing. At the very end of this class, the woman who trains the actors in adult films reveals <strong>a surprise reserved for the men who stay until the last second</strong>. Do not close it early.</p>
+          <p>And at the very end, the woman who trains the actors in adult films reveals <strong>a surprise reserved for the men who stay until the last second</strong>. Do not close it early.</p>
         </div>
 
         <a href="https://roxyfox.online/vsl" class="cta-btn" onclick="trackClick()">
