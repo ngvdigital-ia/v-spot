@@ -1,407 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#080808" />
-  <title>Exclusive Class 18+ — Quiz</title>
-  <meta name="description" content="Adults 18+ only. Answer 5 quick questions and unlock the class." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d0709">
+  <title>God Mode — Restricted Access</title>
+  <meta name="description" content="A private presentation. Adults 18+ only. Access expires soon.">
 
+
+  <!-- VTurb V4 single-player (player C — onde Diogo configurou creme/dourado) -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/ab-test/69f251751ade356ee6a00b8d/player.js" as="script" fetchpriority="high">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
   <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="video" href="/quiz/assets/result.mp4" type="video/mp4">
-  <link rel="preload" as="image" href="/quiz/assets/result-poster.webp">
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap">
-  </noscript>
+  <link rel="dns-prefetch" href="https://connect.facebook.net">
+
+  <!-- Favicon dourado (TODO: substituir por SVG real com cadeado dourado) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d0709'/%3E%3Cpath d='M22 28v-4a10 10 0 0 1 20 0v4M18 28h28v22H18z' fill='none' stroke='%23c9a96e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
   <style>
-    *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
-
-    :root{
-      --bg:#080808;
-      --text:#fff;
-      --muted:#c9c9c9;
-      --red:#d7001f;
-      --red-strong:#ff1236;
-      --gold:#c9a84c;
-      --serif:'Playfair Display', Georgia, serif;
-      --sans:'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --col:520px;
-    }
-
-    html,body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:var(--sans);
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html,body{background:#0d0709}
+    body{
       min-height:100vh;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:#ede4d3;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.55;
+      background:radial-gradient(ellipse at center,#1a0f12 0%,#0a0708 80%);
+      background-attachment:scroll;
+      position:relative;
       overflow-x:hidden;
     }
+    /* Vinheta sutil */
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.4) 100%);z-index:0}
+    /* Grão sutil (pseudo-noise via SVG inline) */
+    body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.025;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-    body::before{
-      content:'';
-      position:fixed; inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events:none; z-index:0; opacity:.35;
-    }
+    .container{max-width:720px;margin:0 auto;padding:0 16px;position:relative;z-index:1}
 
-    .page{ min-height:100vh; position:relative; z-index:1; display:flex; flex-direction:column; }
+    /* Wordmark GOD MODE */
+    .wordmark{padding:36px 16px 0;text-align:center}
+    .wordmark .name{font-size:18px;font-weight:300;letter-spacing:.3em;color:#c9a96e;text-transform:uppercase;font-family:Georgia,"Times New Roman",serif}
+    .wordmark .divider{display:block;width:40px;height:1px;background:#c9a96e;margin:14px auto 0;opacity:.7}
 
-    /* ---- TOP BAR ---- */
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      background:rgba(8,8,8,0.92);
-      backdrop-filter:blur(6px);
-      border-bottom:1px solid rgba(255,255,255,0.06);
-      padding:12px 20px 10px;
-    }
-    .topbar-inner{ max-width:var(--col); margin:0 auto; }
-    .brand{
-      text-align:center; font-size:11px; letter-spacing:.2em;
-      text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:8px;
-    }
-    .progress{ height:6px; background:rgba(255,255,255,0.08); border-radius:99px; overflow:hidden; }
-    .progress-fill{
-      height:100%; width:20%;
-      background:linear-gradient(90deg,var(--red),var(--red-strong));
-      border-radius:99px; transition:width .35s ease;
-    }
-    .progress-label{ text-align:center; font-size:11px; color:var(--muted); margin-top:6px; }
+    /* Badge RESTRICTED ACCESS */
+    .restricted-badge{display:inline-flex;align-items:center;gap:8px;margin:28px auto 18px;padding:9px 18px;border:1px solid #c9a96e;border-radius:99px;background:rgba(0,0,0,.4);font-size:11px;font-weight:600;letter-spacing:.25em;color:#c9a96e;text-transform:uppercase;text-align:center}
+    .restricted-badge svg{width:13px;height:13px;flex-shrink:0;stroke:#c9a96e;stroke-width:1.5;fill:none}
+    .badge-wrap{text-align:center}
 
-    /* ---- SCREENS ---- */
-    .content{ width:100%; max-width:var(--col); margin:0 auto; padding:24px 20px 48px; flex:1; }
-    .screen{ display:none; }
-    .screen.active{ display:block; animation:fade .35s ease; }
-    @keyframes fade{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
+    /* Headline serif elegante */
+    .headline{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:22px;font-weight:400;color:#d4b896;text-align:center;line-height:1.4;margin:8px auto 16px;max-width:600px;letter-spacing:.01em}
 
-    /* ---- HERO VIDEO ---- */
-    .hero{
-      position:relative; width:100%; aspect-ratio:16/9;
-      border-radius:10px; overflow:hidden;
-      border:1px solid rgba(215,0,31,0.22);
-      margin-bottom:22px;
-      background:linear-gradient(135deg,#1a0008,#0d0008,#05000f);
-    }
-    .hero video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
-    .hero-fallback{
-      position:absolute; inset:0; z-index:0;
-      background:radial-gradient(120% 90% at 50% 0%,rgba(255,18,54,0.28),rgba(8,8,8,0) 60%),
-                 linear-gradient(135deg,#1a0008,#0d0008,#05000f);
-    }
-    .hero-badge{
-      position:absolute; top:12px; right:12px; z-index:2;
-      font-size:10px; letter-spacing:.1em; text-transform:uppercase;
-      color:var(--gold); background:rgba(0,0,0,.7);
-      padding:5px 9px; border-radius:3px; border:1px solid rgba(201,168,76,0.3);
-    }
-    .sound-toggle{
-      position:absolute; left:50%; bottom:14px; transform:translateX(-50%); z-index:3;
-      display:inline-flex; align-items:center; gap:7px;
-      padding:10px 18px; background:rgba(0,0,0,0.82);
-      border:1px solid rgba(215,0,31,0.55); border-radius:26px;
-      color:#fff; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
-      font-weight:600; cursor:pointer; backdrop-filter:blur(6px);
-      animation:soundPulse 2.4s infinite;
-    }
-    .sound-toggle[hidden]{ display:none; }
-    @keyframes soundPulse{
-      0%,100%{ box-shadow:0 0 0 0 rgba(215,0,31,0.55); }
-      50%{ box-shadow:0 0 0 8px rgba(215,0,31,0); }
-    }
+    /* Countdown line */
+    .countdown-line{display:flex;align-items:center;justify-content:center;gap:8px;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:14px;color:#fff;margin-bottom:14px}
+    .countdown-line svg{width:14px;height:14px;stroke:#fff;stroke-width:1.5;fill:none}
+    .countdown-line .timer{color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
 
-    /* ---- TYPE ---- */
-    .headline{
-      font-family:var(--serif); font-size:30px; line-height:1.18;
-      font-weight:800; text-align:center; letter-spacing:-.02em; margin-bottom:14px;
-    }
-    .highlight-red{ color:var(--red-strong); }
-    .hl{ color:var(--red-strong); font-weight:700; }
-    .sub{ text-align:center; font-size:15.5px; line-height:1.6; color:var(--muted); margin-bottom:22px; }
-    .question{
-      font-family:var(--serif); font-size:25px; line-height:1.25;
-      font-weight:700; text-align:center; letter-spacing:-.01em; margin-bottom:22px;
-    }
-    .prompt{ text-align:center; font-size:14px; color:var(--muted); margin-bottom:14px; font-weight:500; }
+    /* Microcopy de áudio */
+    .audio-cue{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:14px;font-weight:500;margin-bottom:22px;letter-spacing:.02em}
+    .audio-cue svg{width:18px;height:18px;stroke:#fff;stroke-width:1.5;fill:none}
 
-    /* ---- OPTIONS ---- */
-    .options{ display:flex; flex-direction:column; gap:12px; }
-    .option{
-      width:100%; text-align:left;
-      background:linear-gradient(180deg,rgba(255,255,255,0.035),rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.12); border-radius:10px;
-      padding:18px; color:#fff; font-family:var(--sans); font-size:16px;
-      font-weight:500; line-height:1.35; cursor:pointer;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      transition:border-color .15s, background .15s, transform .1s;
-    }
-    .option:hover{ border-color:rgba(255,18,54,0.55); }
-    .option:active{ transform:scale(.99); }
-    .option .arrow{
-      flex-shrink:0; width:22px; height:22px; border-radius:50%;
-      border:1px solid rgba(255,255,255,0.25);
-      display:flex; align-items:center; justify-content:center;
-      font-size:12px; color:var(--muted); transition:all .15s;
-    }
-    .option.selected{
-      border-color:var(--red-strong);
-      background:linear-gradient(180deg,rgba(255,18,54,0.14),rgba(255,18,54,0.05));
-    }
-    .option.selected .arrow{ background:var(--red-strong); border-color:var(--red-strong); color:#fff; }
+    /* Vídeo — wrapper com borda dourada visivel + glow */
+    .video-frame{position:relative;max-width:420px;margin:0 auto;padding:6px;border:2px solid #c9a96e;border-radius:14px;background:#0d0709;box-shadow:0 0 0 1px rgba(201,169,110,.25),0 8px 40px rgba(201,169,110,.18);animation:glow 3s ease-in-out infinite;overflow:hidden}
+    .video-frame vturb-smartplayer{display:block;margin:0 auto;border-radius:8px;overflow:hidden}
+    @keyframes glow{0%,100%{box-shadow:0 0 0 1px rgba(201,169,110,.25),0 8px 40px rgba(201,169,110,.18)}50%{box-shadow:0 0 0 1px rgba(201,169,110,.45),0 8px 60px rgba(201,169,110,.35)}}
 
-    /* ---- Q5 REVEAL (text + button appear after selection) ---- */
-    .q5-reveal{ display:none; margin-top:28px; animation:fade .4s ease; }
-    .q5-reveal.visible{ display:block; }
+    /* Aviso pós-vídeo — branco */
+    .warn-line{text-align:center;font-size:13px;color:#fff;margin:22px auto 12px;letter-spacing:.02em;font-style:italic}
 
-    .reveal-line{
-      font-size:16px; line-height:1.7; color:#f1f1f1;
-      text-align:center; margin-bottom:6px;
-    }
-    .reveal-line strong{ color:#fff; font-weight:700; }
-    .reveal-line .hl{ color:var(--red-strong); font-weight:700; }
+    /* Micro-selos — branco */
+    .seals{text-align:center;font-size:11px;color:#fff;letter-spacing:.15em;text-transform:uppercase;margin-bottom:48px;opacity:.9}
 
-    .reveal-urgency{
-      text-align:center; font-size:14px;
-      color:var(--red-strong); font-weight:700;
-      margin-bottom:20px; letter-spacing:.01em;
-    }
+    /* Footer dourado claro pequeno */
+    .site-footer{padding:24px 20px 32px;text-align:center;max-width:680px;margin:0 auto;position:relative;z-index:1}
+    .site-footer .disclaimer{font-size:10px;color:rgba(201,169,110,.55);line-height:1.6;margin-bottom:10px;letter-spacing:.02em}
+    .site-footer .copy{font-size:10px;color:rgba(201,169,110,.4);letter-spacing:.05em}
 
-    /* ---- CTA (pulse RING only — button stays still) ---- */
-    .cta-btn{
-      position:relative; isolation:isolate;
-      display:flex; align-items:center; justify-content:center;
-      width:100%; margin-top:0;
-      padding:22px 20px;
-      background:linear-gradient(135deg,#ff1236,#b1001a);
-      color:#fff; font-family:var(--sans); font-size:16.5px;
-      font-weight:700; line-height:1.3; letter-spacing:.02em;
-      text-transform:uppercase; text-align:center;
-      border:none; border-radius:8px; cursor:pointer;
-      text-decoration:none;
-      box-shadow:0 8px 26px rgba(215,0,31,0.32);
-      transition:filter .2s, box-shadow .2s;
-    }
-    .cta-btn::before{
-      content:''; position:absolute; inset:0; border-radius:inherit; z-index:-1;
-      box-shadow:0 0 0 0 rgba(255,18,54,0.55);
-      animation:ctaPing 2s ease-out infinite;
-    }
-    @keyframes ctaPing{
-      0%{ box-shadow:0 0 0 0 rgba(255,18,54,0.55); }
-      70%{ box-shadow:0 0 0 18px rgba(255,18,54,0); }
-      100%{ box-shadow:0 0 0 0 rgba(255,18,54,0); }
-    }
-    .cta-btn:hover{ filter:brightness(1.06); box-shadow:0 10px 30px rgba(215,0,31,0.45); }
-    .cta-btn:active{ filter:brightness(1); }
-    @media (prefers-reduced-motion:reduce){ .cta-btn::before{ animation:none; } }
+    /* Footer */
+    .site-footer{padding:30px 20px 36px;text-align:center;border-top:1px solid rgba(201,169,110,.1);margin-top:24px}
+    .site-footer .brand{font-family:Georgia,"Times New Roman",serif;font-size:13px;letter-spacing:.25em;color:#c9a96e;text-transform:uppercase;margin-bottom:14px}
+    .site-footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:12px;font-size:12px}
+    .site-footer .links a{color:rgba(237,228,211,.55);text-decoration:none;letter-spacing:.05em;transition:color .2s}
+    .site-footer .links a:hover{color:#c9a96e}
+    .site-footer .disclaimer{max-width:680px;margin:14px auto 12px;font-size:11px;color:rgba(237,228,211,.35);line-height:1.6}
+    .site-footer .copy{font-size:11px;color:rgba(237,228,211,.3)}
 
-    .cta-sub{ margin-top:13px; text-align:center; font-size:13px; color:var(--muted); }
-
-    /* ---- FOOTER ---- */
-    .footer{ margin-top:26px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.06); text-align:center; font-size:12.5px; color:var(--muted); }
-
-    /* ---- RESPONSIVE ---- */
-    @media(max-width:520px){
-      .headline{ font-size:25px; }
-      .question{ font-size:21px; }
-      .sub{ font-size:14.5px; }
-      .option{ font-size:15px; padding:16px; }
-      .cta-btn{ font-size:14.5px; padding:20px 16px; }
+    @media(max-width:640px){
+      .container{padding:0 12px}
+      .wordmark{padding:24px 12px 0}
+      .wordmark .name{font-size:14px;letter-spacing:.25em}
+      .restricted-badge{font-size:10px;padding:7px 14px;letter-spacing:.2em}
+      .headline{font-size:17px;line-height:1.45}
+      .countdown-line{font-size:12px}
+      .audio-cue{font-size:13px}
+      .video-frame{padding:4px}
+      .warn-line{font-size:12px}
+      .seals{font-size:10px;letter-spacing:.12em;padding:0 12px}
     }
   </style>
 </head>
-
 <body>
-<div class="page">
 
-  <!-- TOP BAR -->
-  <div class="topbar" id="topbar">
-    <div class="topbar-inner">
-      <div class="brand">Private Class · 18+</div>
-      <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">Question 1 of 5</div>
+  <main class="container">
+
+    <div class="badge-wrap">
+      <div class="restricted-badge">
+        <svg viewBox="0 0 24 24"><path d="M5 11h14v10H5z"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        Restricted Access
+      </div>
     </div>
-  </div>
 
-  <main class="content">
+    <div class="countdown-line">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <span>Access expires in&nbsp;<span class="timer" id="countdown">03:00:00</span></span>
+    </div>
 
-    <!-- ===== SCREEN 1 — COVER + Q1 ===== -->
-    <section class="screen active" data-step="1">
+    <div class="audio-cue">
+      <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg>
+      Click play and turn your sound ON
+    </div>
 
-      <div class="hero">
-        <div class="hero-fallback"></div>
-        <video id="heroVideo" preload="metadata" muted playsinline autoplay loop poster="/quiz/assets/result-poster.webp">
-          <source src="/quiz/assets/result.mp4" type="video/mp4">
-        </video>
-        <div class="hero-badge">Exclusive</div>
-        <button class="sound-toggle" id="soundToggle" hidden>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
-          </svg>
-          <span>Tap for sound</span>
-        </button>
-      </div>
+    <div class="video-frame">
+      <vturb-smartplayer id="ab-69f251751ade356ee6a00b8d" style="display:block;margin:0 auto;width:100%;max-width:400px"></vturb-smartplayer>
+      <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/ab-test/69f251751ade356ee6a00b8d/player.js", s.async=!0,document.head.appendChild(s); </script>
+    </div>
 
-      <h1 class="headline">Discover the hidden trigger that makes any woman <span class="highlight-red">squirt in 20 seconds</span> using only your fingers</h1>
-      <p class="sub">Answer 5 quick questions to <span class="hl">unlock the Exclusive class</span> that shows the exact move live, on a real woman.</p>
-      <p class="prompt">Answer honestly to start &#128071;</p>
+    <p class="warn-line">Do not close this page — your private access will be revoked.</p>
 
-      <h2 class="question">Have you ever made a woman soak the entire bed with pleasure?</h2>
-      <div class="options">
-        <button class="option" onclick="answer(this,2)">Yes, more than once <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,2)">Once, but I couldn't do it again on purpose <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,2)">Never, but I want to <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,2)">I didn't even know that was possible <span class="arrow">&#8250;</span></button>
-      </div>
-    </section>
-
-    <!-- ===== SCREEN 2 — Q2 ===== -->
-    <section class="screen" data-step="2">
-      <h2 class="question">Be honest: does she finish every single time, the way you always do?</h2>
-      <div class="options">
-        <button class="option" onclick="answer(this,3)">Every time <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,3)">Only sometimes <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,3)">Rarely… or she might be faking it <span class="arrow">&#8250;</span></button>
-      </div>
-    </section>
-
-    <!-- ===== SCREEN 3 — Q3 ===== -->
-    <section class="screen" data-step="3">
-      <h2 class="question">Forget the G-spot. There is one hidden spot, the <span class="highlight-red">V-spot</span>, that makes any woman squirt on command. Do you know where it is?</h2>
-      <div class="options">
-        <button class="option" onclick="answer(this,4)">Yes, I know it <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,4)">No, I don't <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,4)">I've heard of it but never found it <span class="arrow">&#8250;</span></button>
-      </div>
-    </section>
-
-    <!-- ===== SCREEN 4 — Q4 ===== -->
-    <section class="screen" data-step="4">
-      <h2 class="question">Right now, what do you rely on most to get her there?</h2>
-      <div class="options">
-        <button class="option" onclick="answer(this,5)">My tongue <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,5)">My hands <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,5)">Toys or a vibrator <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,5)">Just pounding away like a jackhammer <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="answer(this,5)">Nothing really works the way I want <span class="arrow">&#8250;</span></button>
-      </div>
-    </section>
-
-    <!-- ===== SCREEN 5 — Q5 + REVEAL (button on same screen) ===== -->
-    <section class="screen" data-step="5">
-      <h2 class="question">If you could make her squirt in 20 seconds tonight, what would you want first?</h2>
-      <div class="options" id="q5options">
-        <button class="option" onclick="revealCTA(this)">Her obsessed with me <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="revealCTA(this)">Her never looking at another man <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="revealCTA(this)">Her telling her friends what I did <span class="arrow">&#8250;</span></button>
-        <button class="option" onclick="revealCTA(this)">Her craving more sex with me <span class="arrow">&#8250;</span></button>
-      </div>
-
-      <!-- Appears after selection -->
-      <div class="q5-reveal" id="q5reveal">
-        <p class="reveal-line">The <strong>V-spot</strong> Exclusive class is unlocked and <span class="hl">still free until <span id="inlineCountdown">--:--:--</span></span> — tap below before it comes down.</p>
-        <a href="https://roxyfox.online/vsl" class="cta-btn" onclick="trackClick()">
-          Show me how to make any woman squirt tonight
-        </a>
-        <p class="cta-sub">🔒 18+ Content · Private Access · Unlocks now</p>
-        <div class="footer">For adults 18 and over only</div>
-      </div>
-    </section>
+    <p class="seals">Encrypted Session &nbsp;•&nbsp; Adults 18+ Only &nbsp;•&nbsp; Limited Viewing Window</p>
 
   </main>
-</div>
 
-<script>
-  function trackClick(){ return true; }
+  <footer class="site-footer">
+    <p class="disclaimer">This presentation is intended for adults 18+. This site is not affiliated with, endorsed by, or sponsored by Facebook or Google. Facebook and Google are registered trademarks of their respective owners. All testimonials are from real people, but results may vary.</p>
+    <p class="copy">&copy; 2026 The Squirting System. All rights reserved.</p>
+  </footer>
 
-  var totalQuestions = 5;
+  <!-- Live countdown HH:MM:SS — 3h fixos por sessão -->
+  <script>
+  (function(){
+    var el = document.getElementById('countdown');
+    if(!el) return;
+    var totalSec = 3*60*60; // 03:00:00
+    var key = 'vspot_countdown_start';
+    var start = parseInt(sessionStorage.getItem(key) || '0', 10);
+    if(!start){ start = Date.now(); sessionStorage.setItem(key, start.toString()); }
+    function pad(n){ return (n<10?'0':'')+n; }
+    function tick(){
+      var elapsed = Math.floor((Date.now() - start)/1000);
+      var rem = Math.max(0, totalSec - elapsed);
+      var h = Math.floor(rem/3600);
+      var m = Math.floor((rem%3600)/60);
+      var s = rem%60;
+      el.textContent = pad(h)+':'+pad(m)+':'+pad(s);
+      if(rem > 0) setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+  </script>
 
-  function showStep(step){
-    document.querySelectorAll('.screen').forEach(function(s){
-      s.classList.toggle('active', Number(s.dataset.step) === step);
-    });
-    window.scrollTo({ top:0, behavior:'smooth' });
-    var pct = (step / totalQuestions) * 100;
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressLabel').textContent = 'Question ' + step + ' of ' + totalQuestions;
-  }
+ <script>
+    window.pixelId = "69efdffacac1704e8c46d56b";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
 
-  /* Q1–Q4: select → auto-advance */
-  function answer(btn, next){
-    var group = btn.parentElement;
-    group.querySelectorAll('.option').forEach(function(o){ o.classList.remove('selected'); });
-    btn.classList.add('selected');
-    setTimeout(function(){ showStep(next); }, 320);
-  }
-
-  /* Q5: select → reveal CTA on same screen, scroll into view */
-  function revealCTA(btn){
-    var group = document.getElementById('q5options');
-    group.querySelectorAll('.option').forEach(function(o){ o.classList.remove('selected'); });
-    btn.classList.add('selected');
-    setTimeout(function(){
-      var reveal = document.getElementById('q5reveal');
-      reveal.classList.add('visible');
-      reveal.scrollIntoView({ behavior:'smooth', block:'start' });
-    }, 320);
-  }
-
-  /* inline countdown to local midnight */
-  function getSecsToMidnight(){
-    var now = new Date();
-    var midnight = new Date(now);
-    midnight.setHours(24,0,0,0);
-    return Math.floor((midnight - now) / 1000);
-  }
-  function fmt(s){
-    return [Math.floor(s/3600), Math.floor((s%3600)/60), s%60]
-      .map(function(n){ return String(n).padStart(2,'0'); }).join(':');
-  }
-  var secs = getSecsToMidnight();
-  function tick(){
-    if(secs < 0) secs = 0;
-    var el = document.getElementById('inlineCountdown');
-    if(el) el.textContent = fmt(secs);
-    if(secs > 0) secs--;
-  }
-  tick();
-  setInterval(tick, 1000);
-
-  /* hero video */
-  var hv = document.getElementById('heroVideo');
-  var st = document.getElementById('soundToggle');
-  var hf = document.querySelector('.hero-fallback');
-  if(hv && st){
-    var loaded = false;
-    hv.addEventListener('loadeddata', function(){
-      loaded = true;
-      if(hf) hf.style.display='none';
-      st.hidden = false;
-    }, { once:true });
-    hv.addEventListener('error', function(){
-      if(loaded) return;
-      hv.style.display='none';
-      st.hidden=true;
-      if(hf) hf.style.display='';
-    });
-    hv.play().catch(function(){ st.hidden=true; });
-    st.addEventListener('click', function(){
-      hv.muted=false; hv.play().catch(function(){}); st.hidden=true;
-    });
-  }
-</script>
-
-<script>
-  window.pixelId = "69efdffacac1704e8c46d56b";
-  var a = document.createElement("script");
-  a.setAttribute("async",""); a.setAttribute("defer","");
-  a.setAttribute("src","https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-<script src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
 
 </body>
 </html>
