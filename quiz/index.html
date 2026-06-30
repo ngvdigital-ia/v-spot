@@ -1,485 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#080808" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d0709">
+  <title>God Mode — Restricted Access</title>
+  <meta name="description" content="A private presentation. Adults 18+ only. Access expires soon.">
 
-  <title>Exclusive Class 18+</title>
-  <meta name="description" content="Adults 18+ only. Unlock the exclusive class now." />
 
+  <!-- VTurb V4 single-player (player C — onde Diogo configurou creme/dourado) -->
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+  <link rel="preload" href="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/ab-test/69f251751ade356ee6a00b8d/player.js" as="script" fetchpriority="high">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
   <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://connect.facebook.net">
 
-  <link rel="preload" as="video" href="/quiz/assets/result.mp4" type="video/mp4">
-  <link rel="preload" as="image" href="/quiz/assets/result-poster.webp">
-
-  <link
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'"
-  >
-
-  <noscript>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap"
-    >
-  </noscript>
+  <!-- Favicon dourado (TODO: substituir por SVG real com cadeado dourado) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d0709'/%3E%3Cpath d='M22 28v-4a10 10 0 0 1 20 0v4M18 28h28v22H18z' fill='none' stroke='%23c9a96e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
   <style>
-    *,*::before,*::after{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    :root{
-      --bg:#080808;
-      --text:#ffffff;
-      --white:#ffffff;
-      --red:#d7001f;
-      --red-strong:#ff1236;
-      --gold:#c9a84c;
-      --serif:'Playfair Display', Georgia, serif;
-      --sans:'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    html,body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:var(--sans);
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html,body{background:#0d0709}
+    body{
       min-height:100vh;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:#ede4d3;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.55;
+      background:radial-gradient(ellipse at center,#1a0f12 0%,#0a0708 80%);
+      background-attachment:scroll;
+      position:relative;
       overflow-x:hidden;
     }
+    /* Vinheta sutil */
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.4) 100%);z-index:0}
+    /* Grão sutil (pseudo-noise via SVG inline) */
+    body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.025;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-    body::before{
-      content:'';
-      position:fixed;
-      inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events:none;
-      z-index:0;
-      opacity:.35;
-    }
+    .container{max-width:720px;margin:0 auto;padding:0 16px;position:relative;z-index:1}
 
-    .page{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      position:relative;
-      z-index:1;
-    }
+    /* Wordmark GOD MODE */
+    .wordmark{padding:36px 16px 0;text-align:center}
+    .wordmark .name{font-size:18px;font-weight:300;letter-spacing:.3em;color:#c9a96e;text-transform:uppercase;font-family:Georgia,"Times New Roman",serif}
+    .wordmark .divider{display:block;width:40px;height:1px;background:#c9a96e;margin:14px auto 0;opacity:.7}
 
-    .timer-strip{
-      background:linear-gradient(90deg,#1a0008,#240009,#1a0008);
-      border-bottom:1px solid rgba(215,0,31,0.25);
-      padding:12px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      font-size:14px;
-      color:#fff;
-      letter-spacing:.02em;
-      text-align:center;
-    }
+    /* Badge RESTRICTED ACCESS */
+    .restricted-badge{display:inline-flex;align-items:center;gap:8px;margin:28px auto 18px;padding:9px 18px;border:1px solid #c9a96e;border-radius:99px;background:rgba(0,0,0,.4);font-size:11px;font-weight:600;letter-spacing:.25em;color:#c9a96e;text-transform:uppercase;text-align:center}
+    .restricted-badge svg{width:13px;height:13px;flex-shrink:0;stroke:#c9a96e;stroke-width:1.5;fill:none}
+    .badge-wrap{text-align:center}
 
-    .timer-strip .dot{
-      width:7px;
-      height:7px;
-      background:var(--red);
-      border-radius:50%;
-      animation:pulse 1.4s infinite;
-      flex-shrink:0;
-    }
+    /* Headline serif elegante */
+    .headline{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:22px;font-weight:400;color:#d4b896;text-align:center;line-height:1.4;margin:8px auto 16px;max-width:600px;letter-spacing:.01em}
 
-    .timer-strip strong{
-      color:var(--red-strong);
-      font-weight:700;
-    }
+    /* Countdown line */
+    .countdown-line{display:flex;align-items:center;justify-content:center;gap:8px;font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:14px;color:#fff;margin-bottom:14px}
+    .countdown-line svg{width:14px;height:14px;stroke:#fff;stroke-width:1.5;fill:none}
+    .countdown-line .timer{color:#fff;font-weight:600;font-variant-numeric:tabular-nums}
 
-    @keyframes pulse{
-      0%,100%{
-        opacity:1;
-        transform:scale(1);
-      }
+    /* Microcopy de áudio */
+    .audio-cue{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-size:14px;font-weight:500;margin-bottom:22px;letter-spacing:.02em}
+    .audio-cue svg{width:18px;height:18px;stroke:#fff;stroke-width:1.5;fill:none}
 
-      50%{
-        opacity:.45;
-        transform:scale(.82);
-      }
-    }
+    /* Vídeo — wrapper com borda dourada visivel + glow */
+    .video-frame{position:relative;max-width:420px;margin:0 auto;padding:6px;border:2px solid #c9a96e;border-radius:14px;background:#0d0709;box-shadow:0 0 0 1px rgba(201,169,110,.25),0 8px 40px rgba(201,169,110,.18);animation:glow 3s ease-in-out infinite;overflow:hidden}
+    .video-frame vturb-smartplayer{display:block;margin:0 auto;border-radius:8px;overflow:hidden}
+    @keyframes glow{0%,100%{box-shadow:0 0 0 1px rgba(201,169,110,.25),0 8px 40px rgba(201,169,110,.18)}50%{box-shadow:0 0 0 1px rgba(201,169,110,.45),0 8px 60px rgba(201,169,110,.35)}}
 
-    .content{
-      width:100%;
-      max-width:520px;
-      margin:0 auto;
-      padding:28px 20px 44px;
-    }
+    /* Aviso pós-vídeo — branco */
+    .warn-line{text-align:center;font-size:13px;color:#fff;margin:22px auto 12px;letter-spacing:.02em;font-style:italic}
 
-    .headline{
-      font-family:var(--serif);
-      font-size:34px;
-      line-height:1.2;
-      font-weight:700;
-      color:#fff;
-      text-align:center;
-      margin-bottom:24px;
-      letter-spacing:-.02em;
-    }
+    /* Micro-selos — branco */
+    .seals{text-align:center;font-size:11px;color:#fff;letter-spacing:.15em;text-transform:uppercase;margin-bottom:48px;opacity:.9}
 
-    .headline .highlight-red{
-      color:var(--red-strong);
-      font-weight:700;
-    }
+    /* Footer dourado claro pequeno */
+    .site-footer{padding:24px 20px 32px;text-align:center;max-width:680px;margin:0 auto;position:relative;z-index:1}
+    .site-footer .disclaimer{font-size:10px;color:rgba(201,169,110,.55);line-height:1.6;margin-bottom:10px;letter-spacing:.02em}
+    .site-footer .copy{font-size:10px;color:rgba(201,169,110,.4);letter-spacing:.05em}
 
-    .video-wrap{
-      margin-top:8px;
-      position:relative;
-      border-radius:8px;
-      overflow:hidden;
-      border:1px solid rgba(215,0,31,0.2);
-      background:#0a0a0a;
-      aspect-ratio:16/9;
-    }
+    /* Footer */
+    .site-footer{padding:30px 20px 36px;text-align:center;border-top:1px solid rgba(201,169,110,.1);margin-top:24px}
+    .site-footer .brand{font-family:Georgia,"Times New Roman",serif;font-size:13px;letter-spacing:.25em;color:#c9a96e;text-transform:uppercase;margin-bottom:14px}
+    .site-footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:12px;font-size:12px}
+    .site-footer .links a{color:rgba(237,228,211,.55);text-decoration:none;letter-spacing:.05em;transition:color .2s}
+    .site-footer .links a:hover{color:#c9a96e}
+    .site-footer .disclaimer{max-width:680px;margin:14px auto 12px;font-size:11px;color:rgba(237,228,211,.35);line-height:1.6}
+    .site-footer .copy{font-size:11px;color:rgba(237,228,211,.3)}
 
-    .video-wrap video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      z-index:1;
-    }
-
-    .video-fallback{
-      position:absolute;
-      inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      height:100%;
-      z-index:0;
-      background:linear-gradient(135deg,#100004,#0d0008,#05000f);
-    }
-
-    .video-corner{
-      position:absolute;
-      top:10px;
-      right:10px;
-      font-size:10px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--gold);
-      background:rgba(0,0,0,.72);
-      padding:4px 8px;
-      border-radius:2px;
-      border:1px solid rgba(201,168,76,0.3);
-      z-index:2;
-    }
-
-    .sound-toggle{
-      position:absolute;
-      left:50%;
-      bottom:14px;
-      transform:translateX(-50%);
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      padding:10px 18px;
-      background:rgba(0,0,0,0.82);
-      border:1px solid rgba(215,0,31,0.55);
-      border-radius:26px;
-      color:#fff;
-      font-size:12px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-weight:600;
-      cursor:pointer;
-      backdrop-filter:blur(6px);
-      animation:soundPulse 2.4s infinite;
-      z-index:3;
-    }
-
-    .sound-toggle[hidden]{
-      display:none;
-    }
-
-    @keyframes soundPulse{
-      0%,100%{
-        box-shadow:0 0 0 0 rgba(215,0,31,0.55);
-      }
-
-      50%{
-        box-shadow:0 0 0 8px rgba(215,0,31,0);
-      }
-    }
-
-    .copy{
-      margin-top:26px;
-      font-size:16px;
-      line-height:1.75;
-      color:#fff;
-      text-align:left;
-    }
-
-    .copy strong{
-      color:#fff;
-      font-weight:700;
-    }
-
-    .normal-note{
-      margin-top:22px;
-      font-size:16px;
-      line-height:1.7;
-      color:#fff;
-      font-weight:400;
-    }
-
-    .cta-btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      margin-top:28px;
-      padding:22px 20px;
-      background:linear-gradient(135deg,#d7001f,#b1001a);
-      color:#fff;
-      font-family:var(--sans);
-      font-size:17px;
-      font-weight:700;
-      letter-spacing:.02em;
-      text-transform:uppercase;
-      text-align:center;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      text-decoration:none;
-      transition:transform .15s ease, opacity .2s ease;
-    }
-
-    .cta-btn:hover{
-      opacity:.95;
-      transform:translateY(-1px);
-    }
-
-    .cta-btn:active{
-      transform:translateY(0);
-      opacity:1;
-    }
-
-    .cta-secondary{
-      margin-top:16px;
-      text-align:center;
-      font-size:14px;
-      color:#fff;
-      letter-spacing:.02em;
-    }
-
-    .page-footer{
-      margin-top:26px;
-      padding-top:20px;
-      border-top:1px solid rgba(255,255,255,0.06);
-      text-align:center;
-      font-size:13px;
-      color:#fff;
-    }
-
-    @media (max-width:520px){
-      .headline{
-        font-size:28px;
-      }
-
-      .copy,
-      .normal-note{
-        font-size:15px;
-      }
-
-      .cta-btn{
-        font-size:15px;
-        padding:20px 18px;
-      }
+    @media(max-width:640px){
+      .container{padding:0 12px}
+      .wordmark{padding:24px 12px 0}
+      .wordmark .name{font-size:14px;letter-spacing:.25em}
+      .restricted-badge{font-size:10px;padding:7px 14px;letter-spacing:.2em}
+      .headline{font-size:17px;line-height:1.45}
+      .countdown-line{font-size:12px}
+      .audio-cue{font-size:13px}
+      .video-frame{padding:4px}
+      .warn-line{font-size:12px}
+      .seals{font-size:10px;letter-spacing:.12em;padding:0 12px}
     }
   </style>
 </head>
-
 <body>
 
-  <div class="page">
+  <main class="container">
 
-    <div class="timer-strip">
-      <span class="dot"></span>
-      <span>
-        ⚠ <strong>ATTENTION:</strong> This exclusive class goes offline in
-        <strong id="countdown">--:--:--</strong>
-      </span>
+    <div class="badge-wrap">
+      <div class="restricted-badge">
+        <svg viewBox="0 0 24 24"><path d="M5 11h14v10H5z"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        Restricted Access
+      </div>
     </div>
 
-    <main class="content">
+    <div class="countdown-line">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <span>Access expires in&nbsp;<span class="timer" id="countdown">03:00:00</span></span>
+    </div>
 
-      <h1 class="headline">
-        How to make any woman
-        <span class="highlight-red">soak the whole bed</span>
-        and have the
-        <span class="highlight-red">best orgasm of her life</span>
-        using only your fingertips
-      </h1>
+    <div class="audio-cue">
+      <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg>
+      Click play and turn your sound ON
+    </div>
 
-      <div class="video-wrap" id="media-result">
+    <div class="video-frame">
+      <vturb-smartplayer id="ab-69f251751ade356ee6a00b8d" style="display:block;margin:0 auto;width:100%;max-width:400px"></vturb-smartplayer>
+      <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/ab-test/69f251751ade356ee6a00b8d/player.js", s.async=!0,document.head.appendChild(s); </script>
+    </div>
 
-        <div class="video-fallback" id="video-fallback">
-          <svg width="100%" height="100%" viewBox="0 0 360 200" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <radialGradient id="vg" cx="50%" cy="50%" r="55%">
-                <stop offset="0%" stop-color="#3d001a" stop-opacity="0.6"/>
-                <stop offset="100%" stop-color="#050003" stop-opacity="1"/>
-              </radialGradient>
-            </defs>
-            <rect width="360" height="200" fill="url(#vg)"/>
-          </svg>
-        </div>
+    <p class="warn-line">Do not close this page — your private access will be revoked.</p>
 
-        <video
-          id="result-video"
-          preload="metadata"
-          muted
-          playsinline
-          autoplay
-          loop
-          poster="/quiz/assets/result-poster.webp"
-        >
-          <source src="/quiz/assets/result.mp4" type="video/mp4">
-        </video>
+    <p class="seals">Encrypted Session &nbsp;•&nbsp; Adults 18+ Only &nbsp;•&nbsp; Limited Viewing Window</p>
 
-        <div class="video-corner">Exclusive</div>
+  </main>
 
-        <button class="sound-toggle" id="sound-toggle" hidden>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-            <line x1="23" y1="9" x2="17" y2="15"></line>
-            <line x1="17" y1="9" x2="23" y2="15"></line>
-          </svg>
-          <span>Tap for sound</span>
-        </button>
+  <footer class="site-footer">
+    <p class="disclaimer">This presentation is intended for adults 18+. This site is not affiliated with, endorsed by, or sponsored by Facebook or Google. Facebook and Google are registered trademarks of their respective owners. All testimonials are from real people, but results may vary.</p>
+    <p class="copy">&copy; 2026 The Squirting System. All rights reserved.</p>
+  </footer>
 
-      </div>
-
-      <div class="copy">
-        The class you are about to watch features <strong>real models</strong>, no fluff, step by step.
-        <br><br>
-        You will learn how to stimulate any woman's <strong>U-Spot</strong> and make her have multiple squirting orgasms using only your fingertips.
-        <br><br>
-        This is not theory. It is an explicit class, recorded live.
-      </div>
-
-      <p class="normal-note">
-        Do not skip any part. Pay attention, take everything in, and tonight, make your woman never forget you.
-      </p>
-
-      <a
-        href="https://roxyfox.online/vsl"
-        class="cta-btn"
-        onclick="trackClick()"
-      >
-        I WANT TO MAKE MY WOMAN SQUIRT FOR THE FIRST TIME TODAY
-      </a>
-
-      <p class="cta-secondary">
-        🔒 18+ Content · Private Access · Unlocks now
-      </p>
-
-      <div class="page-footer">
-        For adults 18 and over only
-      </div>
-
-    </main>
-
-  </div>
-
+  <!-- Live countdown HH:MM:SS — 3h fixos por sessão -->
   <script>
-    function trackClick() {
-      return true;
+  (function(){
+    var el = document.getElementById('countdown');
+    if(!el) return;
+    var totalSec = 3*60*60; // 03:00:00
+    var key = 'vspot_countdown_start';
+    var start = parseInt(sessionStorage.getItem(key) || '0', 10);
+    if(!start){ start = Date.now(); sessionStorage.setItem(key, start.toString()); }
+    function pad(n){ return (n<10?'0':'')+n; }
+    function tick(){
+      var elapsed = Math.floor((Date.now() - start)/1000);
+      var rem = Math.max(0, totalSec - elapsed);
+      var h = Math.floor(rem/3600);
+      var m = Math.floor((rem%3600)/60);
+      var s = rem%60;
+      el.textContent = pad(h)+':'+pad(m)+':'+pad(s);
+      if(rem > 0) setTimeout(tick, 1000);
     }
-
-    function getSecsToMidnight() {
-      const now = new Date();
-      const midnight = new Date(now);
-      midnight.setHours(24, 0, 0, 0);
-      return Math.floor((midnight - now) / 1000);
-    }
-
-    function fmt(s) {
-      return [
-        Math.floor(s / 3600),
-        Math.floor((s % 3600) / 60),
-        s % 60
-      ].map(n => String(n).padStart(2, '0')).join(':');
-    }
-
-    let secs = getSecsToMidnight();
-
-    function tick() {
-      if (secs < 0) secs = 0;
-
-      const countdown = document.getElementById('countdown');
-
-      if (countdown) {
-        countdown.textContent = fmt(secs);
-      }
-
-      if (secs > 0) secs--;
-    }
-
     tick();
-    setInterval(tick, 1000);
-
-    const video = document.getElementById('result-video');
-    const toggle = document.getElementById('sound-toggle');
-    const fallback = document.getElementById('video-fallback');
-
-    if (video && toggle) {
-      let loaded = false;
-
-      video.addEventListener('loadeddata', () => {
-        loaded = true;
-
-        if (fallback) {
-          fallback.style.display = 'none';
-        }
-
-        toggle.hidden = false;
-      }, { once: true });
-
-      const onError = () => {
-        if (loaded) return;
-
-        video.style.display = 'none';
-        toggle.hidden = true;
-
-        if (fallback) {
-          fallback.style.display = '';
-        }
-      };
-
-      video.addEventListener('error', onError);
-
-      video.play().catch(() => {
-        toggle.hidden = true;
-      });
-
-      toggle.addEventListener('click', () => {
-        video.muted = false;
-        video.play().catch(() => {});
-        toggle.hidden = true;
-      });
-    }
+  })();
   </script>
 
-  <script>
+ <script>
     window.pixelId = "69efdffacac1704e8c46d56b";
     var a = document.createElement("script");
     a.setAttribute("async", "");
@@ -498,4 +185,3 @@
 
 </body>
 </html>
-
