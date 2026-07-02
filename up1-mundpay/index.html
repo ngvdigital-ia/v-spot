@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ignition Protocol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black:    #080808;
+    --deep:     #0e0e0e;
+    --card:     #141414;
+    --border:   #222222;
+    --gold:     #cc2222;
+    --gold-lt:  #e84444;
+    --gold-dim: #7a1515;
+    --red:      #cc2222;
+    --red-bg:   #b81c1c;
+    --yellow:   #f5d300;
+    --white:    #f0ece4;
+    --muted:    #888880;
+    --radius:   12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── ALERT BAR ─────────────────────────────── */
+  .alert-bar {
+    background: var(--red-bg);
+    color: var(--yellow);
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .02em;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 2px solid #ff3a3a;
+    animation: pulse-bar 3s ease-in-out infinite;
+  }
+  .alert-bar span { margin-right: 6px; }
+  @keyframes pulse-bar {
+    0%,100% { opacity: 1; }
+    50%      { opacity: .85; }
+  }
+
+  /* ─── WRAPPER ───────────────────────────────── */
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  /* ─── HERO ──────────────────────────────────── */
+  .hero {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, #1e1208 0%, var(--black) 70%);
+    padding: 64px 20px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 40px,
+      rgba(201,151,74,.03) 40px, rgba(201,151,74,.03) 41px
+    );
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold-dim);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+    border: 1px solid var(--gold-dim);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 7vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    font-weight: 300;
+  }
+
+
+
+  /* ─── DIVIDER ───────────────────────────────── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 56px auto;
+    max-width: 200px;
+    opacity: .4;
+  }
+
+  /* ─── SECTION LABEL ─────────────────────────── */
+  .section-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  /* ─── SECTION HEADINGS ──────────────────────── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .section-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  p { margin-bottom: 18px; color: #ccc8be; font-size: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ─── QUOTE BLOCK ───────────────────────────── */
+  .quote-block {
+    border-left: 3px solid var(--gold);
+    padding: 18px 24px;
+    background: rgba(201,151,74,.05);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 28px 0;
+    font-style: italic;
+    color: var(--white);
+    font-size: 1.05rem;
+  }
+
+  /* ─── PROBLEM CARDS ─────────────────────────── */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 32px 0;
+  }
+  @media(max-width:480px){ .problem-grid { grid-template-columns: 1fr; } }
+
+  .problem-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    transition: border-color .2s;
+  }
+  .problem-card:hover { border-color: var(--gold-dim); }
+  .problem-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .problem-card p {
+    font-size: .92rem;
+    color: #b0ac a4;
+    margin: 0;
+  }
+
+  /* ─── PROTOCOL STEPS ────────────────────────── */
+  .steps-list { list-style: none; margin: 32px 0; display: flex; flex-direction: column; gap: 20px; }
+  .step-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 22px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+    transition: border-color .25s, transform .25s;
+  }
+  .step-item:hover { border-color: var(--gold-dim); transform: translateX(4px); }
+  .step-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity .25s;
+  }
+  .step-item:hover::before { opacity: 1; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold-dim);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 36px;
+  }
+  .step-body strong {
+    display: block;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .step-body p { font-size: .93rem; margin: 0; color: #a8a49c; }
+
+  /* ─── HIGHLIGHT BOX ─────────────────────────── */
+  .highlight-box {
+    background: linear-gradient(135deg, #1a1000 0%, #120c00 100%);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, rgba(201,151,74,.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .highlight-box .big-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .highlight-box p { color: #ccc; font-size: .97rem; margin: 0; }
+
+  /* ─── FIRE METAPHOR ─────────────────────────── */
+  .fire-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .fire-section::before {
+    content: '🔥';
+    position: absolute;
+    right: 24px; top: 24px;
+    font-size: 48px;
+    opacity: .12;
+  }
+
+  /* ─── PRICE SECTION ─────────────────────────── */
+  .price-section {
+    scroll-margin-top: 90px;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, #1a1000 0%, var(--deep) 70%);
+    border: 1px solid var(--gold-dim);
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 100% 50% at 50% 100%, rgba(201,151,74,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .price-label {
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .price-old {
+    font-size: 1rem;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .price-sup { font-size: 1.8rem; vertical-align: super; }
+  .price-note { font-size: .88rem; color: var(--muted); margin-bottom: 32px; }
+
+  /* ─── CTA BUTTON ────────────────────────────── */
+  .cta-btn {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, #22a84a 0%, #168a38 100%);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 32px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 32px rgba(34,168,74,.35), 0 2px 8px rgba(0,0,0,.4);
+    transition: transform .2s, box-shadow .2s, filter .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+    transition: left .5s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 48px rgba(34,168,74,.5); filter: brightness(1.05); }
+  .cta-btn:hover::before { left: 160%; }
+  .cta-btn:active { transform: translateY(0); }
+
+  .skip-link {
+    display: block;
+    text-align: center;
+    color: var(--muted);
+    font-size: .82rem;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 8px;
+    opacity: .6;
+    transition: opacity .2s;
+  }
+  .skip-link:hover { opacity: 1; }
+
+  /* ─── SECURITY BADGES ───────────────────────── */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px 0;
+  }
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .8rem;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+  }
+  .badge-item span { font-size: 14px; }
+
+  /* ─── GUARANTEE ─────────────────────────────── */
+  .guarantee-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    margin: 32px 0;
+  }
+  @media(max-width:480px){ .guarantee-box { flex-direction: column; text-align: center; } }
+  .guarantee-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .guarantee-seal {
+    width: 88px; height: 88px;
+    background: linear-gradient(135deg, #1a1000, #0e0800);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 0 24px rgba(201,151,74,.2), inset 0 0 16px rgba(201,151,74,.05);
+    position: relative;
+  }
+  .guarantee-seal::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(201,151,74,.3);
+    border-radius: 50%;
+  }
+  .guarantee-seal .seal-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .guarantee-seal .seal-days {
+    font-size: .55rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-top: 2px;
+  }
+  .guarantee-box strong { display: block; color: var(--white); font-size: 1rem; margin-bottom: 4px; }
+  .guarantee-box p { font-size: .9rem; margin: 0; }
+
+  /* ─── BROTHERHOOD SECTION ───────────────────── */
+  .brotherhood {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .brotherhood .icon-large { font-size: 40px; margin-bottom: 16px; display: block; }
+
+  /* ─── FADE-IN ANIMATION ─────────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 20px;
+    text-align: center;
+  }
+  footer p { font-size: .78rem; color: var(--muted); margin: 0; }
+
+  /* ─── SCROLL INDICATOR ──────────────────────── */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+    z-index: 1000;
+    transition: width .1s linear;
+  }
+</style>
+    <script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ALERT BAR -->
+<div class="alert-bar">
+  <span>⚠️</span> ATTENTION: Please DO NOT close this page until the process is complete. Doing so may cause an error while releasing your access.
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badge">Exclusive — The Squirting System Members Only</div>
+    <h1>
+      CONGRATULATIONS,<br>
+      <em>YOU HAVE BEEN SELECTED<br>TO RECEIVE A GIFT!</em>
+    </h1>
+    <p class="hero-sub">Your access to the Squirting System is being processed right now. But before you enter your members area, I need 60 seconds of your time.</p>
+
+  </div>
+</section>
+
+<!-- SECTION 1: YOU'VE CROSSED A LINE -->
+<section style="padding: 56px 0;">
+  <div class="wrap">
+
+    <div class="fade-up">
+      <p>Hey, are you ready for what's coming? First of all, I want to congratulate you for making the right decision and stepping into The Squirting System. And I need to acknowledge something about you. Very few men make it this far, and even fewer have the guts to keep going.</p>
+      <p>You've just crossed a line most men never cross, so pay close attention. In just a few minutes, full access to the training will land straight in your inbox. And let me make this clear right now.</p>
+    </div>
+
+    <div class="highlight-box fade-up">
+      <div class="big-text">What you just bought is not entertainment.<br>It's applied knowledge.</div>
+      <p>And knowledge changes the way people react to you.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>Now, to make sure everything works perfectly, I need you to watch this short video all the way through. It's only about 3 minutes. And please, don't close this page and don't hit the back button, because that can cause issues with your purchase processing.</p>
+      <p>So stay here with me and don't miss a thing. You're just a few steps away from completely changing the way women react to you. With The Squirting System, you're going to learn exactly how to trigger real orgasmic overloads in the female body.</p>
+      <p>Not internet tricks, not empty theory, but techniques designed to work in real life. Everything you're about to receive was built to create real impact, the kind that leaves a mark. If you apply it the right way, the way women see you and the way they respond to your touch will never be the same again.</p>
+    </div>
+
+    <div class="brotherhood fade-up">
+      <span class="icon-large">⚔️</span>
+      <span class="section-label">The Brotherhood</span>
+      <p style="color:var(--white); font-size:1.05rem;">If you're here with me right now, I know one thing about you. You genuinely want to raise your sexual knowledge to give women the highest level of pleasure possible. And you're willing to do whatever it takes to be the man every woman wants in her bed.</p>
+      <p style="margin-top:12px;">That's why I consider you part of a very special group, what I call a brotherhood. An inner circle of elite men who are willing to go further, who are ready for more.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>And because of that, I don't see any problem with revealing the next step to you. In fact, I believe this step might be even more important than the techniques you're about to learn. What you just acquired will make her addicted to you. That's a fact.</p>
+      <p>But now, I want to take you to an even higher level. Let's call it the supreme level.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 2: THE PATTERN -->
+<section style="padding: 0 0 56px;">
+  <div class="wrap">
+
+    <div class="fade-up">
+      <span class="section-label">What's really happening</span>
+      <h2 class="section-title">And please, this is only for men who are already inside The Squirting System. So do me a favor, <em>don't share this with anyone.</em></h2>
+      <p>I'm about to show you something I guarantee no one has ever had the guts to share. I didn't show this in the first video because there were too many curious people. And not everyone is ready for this level of power. That's why I'm only revealing it here and only once.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>After The Squirting System was released, something started happening. A lot of men began messaging me saying the exact same things.</p>
+    </div>
+
+    <div class="problem-grid fade-up">
+      <div class="problem-card">
+        <div class="problem-icon">✅</div>
+        <p>"She actually squirts."</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">✅</div>
+        <p>"The impact is real."</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">✅</div>
+        <p>"She reacts differently."</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⚠️</div>
+        <p>"But almost all of them shared the same doubt."</p>
+      </div>
+    </div>
+
+    <div class="problem-grid fade-up">
+      <div class="problem-card">
+        <div class="problem-icon">❌</div>
+        <p>"I don't know the right moment."</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">❌</div>
+        <p>"I ended up hurting her because she was dry."</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">❌</div>
+        <p>"She's never in the mood."</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">❌</div>
+        <p>"She's very closed off."</p>
+      </div>
+    </div>
+
+    <div class="quote-block fade-up">
+      "I had the moves. I just didn't have the entry."
+    </div>
+
+    <div class="fade-up">
+      <p>That's when I noticed a pattern. It wasn't a lack of technique. It wasn't a lack of presence. It wasn't a lack of desire. They were all making the same silent mistake.</p>
+      <p>They thought triggering an orgasmic overload in the female body was just about jumping in too fast. Showing up. Throwing her on the bed. Ripping clothes off. Going deep. Hunting for the u-spot. Done.</p>
+    </div>
+
+    <div class="highlight-box fade-up">
+      <div class="big-text">And that's exactly<br>where everything breaks down.</div>
+      <p>My friends, that's not how a woman works.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>After years of experience in orgasmic massage, I learned one fundamental truth. The right technique at the wrong moment does nothing. If you go in too early, her body isn't ready. There hasn't been enough arousal. Not enough lubrication. Not enough focus.</p>
+      <p>And when that happens, instead of deep pleasure, you create tension and sometimes even pain.</p>
+      <p>It took me a while to truly understand this. But over time, I developed a very specific process to bring my patient's bodies into the ideal climax state. A state where she's already open, receptive, focused. Where her body and mind are aligned on every touch. And once she's there, everything becomes easy.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 3: THE PROTOCOL -->
+<section style="padding: 0 0 56px;">
+  <div class="wrap">
+
+    <div class="fade-up">
+      <span class="section-label">The Discovery</span>
+      <h2 class="section-title">Then I found <em>the shortcut.</em></h2>
+      <p>So I started teaching exactly what I used to do with them. But then new messages started coming in. A lot of guys said it worked, but complained it took too long. That it was too complicated. That it didn't fit real life. In my office, I had time. I used specific oils. I created the environment. I worked with rhythm, silence, music, scents. In real life, nobody has that kind of time or those materials.</p>
+      <p>That's when I realized something important. The process was right, but the format had to change. I needed something more direct. Simpler. Stronger. That's when I found the shortcut.</p>
+      <p>This shortcut I'm about to show you didn't come from theory. It came from something I learned years ago at a seminar in India. The birthplace of the Kama Sutra and Tantric Massage. Over there, sex was never treated as impulse or just pleasure. It was always treated as body science. Something sacred.</p>
+    </div>
+
+    <div class="fire-section fade-up">
+      <span class="section-label">Nervous System Activation</span>
+      <p>And what I learned there wasn't foreplay. It wasn't just a regular massage. It was nervous system activation. The nervous system works like a map. And certain points on that map determine whether the body goes into defense or into receptivity.</p>
+      <p>When those points are activated the right way, the body starts responding on its own. Small responses. Changes in breathing. Involuntary contractions. All of this happens before any deeper stimulation. Every place you touch will create a different response in her body.</p>
+      <p style="color:var(--white); font-weight:600; margin-top:12px;">And this is the process that moves the female body from a defensive state into full receptivity in just 3 minutes. This isn't mysticism. It's physiological.</p>
+    </div>
+
+    <div class="fade-up" style="margin: 40px 0;">
+      <span class="section-label">Introducing</span>
+      <h2 class="section-title">The <em>Ignition Protocol</em></h2>
+      <p>Because without this phase, a lot of men were trying to light the fire with wet wood.</p>
+      <p>The Ignition Protocol isn't about turning her on directly. Its purpose is to change the state of the body. The female body doesn't respond well to approaches that are too direct. Before pleasure, there's an invisible phase. A neurological transition. Until that transition happens, any intense attempt creates resistance, discomfort, or shutdown.</p>
+      <p>That's exactly where the Ignition Protocol works. It targets the nervous system first. Not the logical mind. Not conscious desire. But the part of the body that decides whether something is safe or whether it needs to defend itself.</p>
+      <p>Through rhythm, pressure, stimulus sequencing, and sensory activation, the body starts leaving an alert state and entering a state of deep receptivity. When that happens, breathing changes. Muscle tone changes. The skin responds differently to touch. Not because someone is trying to arouse her, but because the body was properly prepared. Pure instinct.</p>
+    </div>
+
+    <ul class="steps-list fade-up">
+      <li class="step-item">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <strong>Before any touch even happens</strong>
+          <p>You learn how to send micro signals of intent. Signals that aren't obvious to her conscious mind, but that her subconscious picks up instantly. While she thinks nothing is happening, her body is already starting to prepare.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <strong>What to say — and what never to say</strong>
+          <p>I show you exactly what to say, how to say it, and most importantly, what never to say. Because one wrong sentence can either accelerate everything or shut it down completely.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <strong>The kiss, the breath, the neck zones</strong>
+          <p>You learn how to communicate intent through the kiss, through breathing, and through the most responsive zones of the neck. The areas that shut off control and steal her breath.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <strong>Guided touch into receptive state</strong>
+          <p>During this contact, I show you where to touch and how to touch, so her body gradually enters a receptive state without her even realizing she's being guided.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <strong>The clear signs of activation</strong>
+          <p>She grips tighter, kisses with more urgency, breathing speeds up, body temperature changes. These are the first clear signs that the right state is being activated.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">06</div>
+        <div class="step-body">
+          <strong>Smooth progression without breaking the moment</strong>
+          <p>From there, I show you how to move forward without breaking the moment. How to begin removing each piece of clothing smoothly, if she hasn't already started doing it herself by then.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">07</div>
+        <div class="step-body">
+          <strong>Touch that communicates safety and deepens intensity</strong>
+          <p>You learn how to use touch to communicate safety, how to trigger physical responses without invading, and how to intensify sensitivity before any deeper stimulation. Nothing happens abruptly. Nothing feels like a step. It's a continuous progression.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="fade-up">
+      <p>When you reach the right point, the body is already open, lubricated, begging for penetration. And everything that comes after happens with far more intensity and far less effort. Because now, it's no longer you trying to lead. Her body has already entered the game.</p>
+    </div>
+
+    <div class="highlight-box fade-up">
+      <div class="big-text">The ignition protocol isn't advice.<br>It's not tantric massage.</div>
+      <p>And it's definitely not cheap foreplay. It's a shortcut, an activation hack.</p>
+    </div>
+
+    <div class="fire-section fade-up">
+      <p>If the female body works like a wood-burning stove, then the ignition protocol is like having alcohol and a match in your hands. One strike, and it's on. You don't force. You don't insist. You don't ask for permission.</p>
+      <p style="color:var(--white); font-weight:600; margin-top:12px;">You place the wood, pour the alcohol, strike the match. And the fire doesn't ask if it's allowed to start. It simply ignites the entire stack.</p>
+      <p style="margin-top:12px;">Not by pressure. Not by pushing. But because now, the body has no choice but to respond. When that happens, it's no longer you leading. It's the fire.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>Now you understand why I didn't talk about this in the first video. Because in the right hands, this creates an unfair advantage. And unfair advantages aren't taught on stage, aren't discussed online, and aren't shared out of curiosity.</p>
+      <p>I've never taught this in seminars. I've never put this online. This was always reserved for one-on-one mentorships. Mentorships that easily cost $2,000. And even then, there was a waiting list.</p>
+      <p>But today, I'm doing the opposite with you. Because you're already inside The Squirting System. And the men who make it this far aren't curious. They've already decided to operate on a different level.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PRICE + CTA SECTION -->
+<section style="padding: 0 0 64px;">
+  <div class="wrap">
+
+    <div class="price-section fade-up" id="oferta">
+      <p class="price-label">Exclusive Access — The Squirting System Members Only</p>
+      <p class="price-old">One-on-one mentorship value: $2,000</p>
+      <div class="price-main">
+        <span class="price-sup">$</span>147
+      </div>
+      <p class="price-note">That's about $0.40 a day.</p>
+
+      <!-- Vendepay Upsell widget (substitui botões sim/recusa) -->
+      <div data-mndpay-render="019f1ecf-6665-705f-8a9a-c27bbc942211" style="max-width:480px;margin:0 auto 16px;"></div>
+
+      <div class="badges" style="margin-top:28px;">
+        <div class="badge-item"><span>🔒</span> Secure Checkout</div>
+        <div class="badge-item"><span>⚡</span> Instant Access</div>
+        <div class="badge-item"><span>🛡️</span> 90-Day Guarantee</div>
+        <div class="badge-item"><span>🔐</span> 256-bit SSL</div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <p>Don't think of this as a price. Think of it as a signal of trust. Now let me ask you something directly, and answer it honestly to yourself.</p>
+      <p>Would you invest $0.40 a day to stop hearing excuses that are never said out loud? To never again have to guess whether now is the moment, or whether you're moving too early. Because when you have the map, you don't improvise.</p>
+      <p>That amount is what most men spend on a single date trying to impress. Without even knowing whether the night will end in frustration or success. With the ignition protocol, you run the risk of her not even wanting dinner on the first date. And instead, wanting to go straight home, or to a motel, because you've already left her completely soaked before the car even stops.</p>
+    </div>
+
+    <div class="highlight-box fade-up">
+      <div class="big-text">Now you set the rules,<br>and her body responds<br>without even understanding what's happening.</div>
+      <p>And that changes everything.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>How long are you going to keep operating at the same level as the average guy? Today, women move based on stimulation, novelty, and sensation. If you don't create that, you are forgotten. With this card up your sleeve, you stop being common and become the reference. Not because you do more, but because you do it at the right moment.</p>
+    </div>
+
+    <div class="guarantee-box fade-up">
+      <div class="guarantee-icon">
+        <div class="guarantee-seal">
+          <span class="seal-num">90</span>
+          <span class="seal-days">Days</span>
+        </div>
+      </div>
+      <div>
+        <strong>90-Day Money-Back Guarantee</strong>
+        <p>If for any reason this doesn't work for you, we refund 100% of your money. No questions. No hassle.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box fade-up" style="border-color: var(--red); background: linear-gradient(135deg, #1a0000 0%, #0e0000 100%);">
+      <div class="big-text" style="color:#ff6b6b; font-size:clamp(1.1rem,4vw,1.5rem);">This invitation appears once.<br>When you close this page, it disappears.</div>
+      <p>After that, access goes back to the original price and this offer will not be repeated.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>So the decision is simple. Keep playing like everyone else, or operate with an advantage that very few men even know exists. If you know you didn't make it this far by accident, click the button below and secure your access to the ignition protocol now.</p>
+      <p style="color:var(--white); font-weight:600; text-align:center; font-size:1.1rem; margin-top:8px;">From here on out, the game changes.</p>
+    </div>
+
+    <div style="margin-top:36px;" class="fade-up">
+      <a href="#oferta" class="cta-btn">🔥 Yes — Secure My Access to the Ignition Protocol Now</a>
+    </div>
+    <!-- Widget Vendepay Upsell — 1 iframe de checkout (aceite + recusa internos) -->
+
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>© 2026 · All rights reserved · This offer is exclusive and time-sensitive.</p>
+  </div>
+</footer>
+
+<script>
+  // ─── Scroll progress bar ───
+  const bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // ─── Fade-up on scroll ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ─── Stagger children inside problem grids ───
+  document.querySelectorAll('.problem-grid').forEach(grid => {
+    Array.from(grid.children).forEach((card, i) => {
+      card.style.transitionDelay = (i * 80) + 'ms';
+    });
+  });
+
+  // ─── Stagger steps ───
+  document.querySelectorAll('.step-item').forEach((el, i) => {
+    el.style.transitionDelay = (i * 60) + 'ms';
+  });
+</script>
+</body>
+</html>

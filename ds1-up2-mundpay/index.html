@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Horse Tonic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black:    #080808;
+    --deep:     #0e0e0e;
+    --card:     #141414;
+    --border:   #222222;
+    --gold:     #cc2222;
+    --gold-lt:  #e84444;
+    --gold-dim: #7a1515;
+    --red:      #cc2222;
+    --red-bg:   #b81c1c;
+    --yellow:   #f5d300;
+    --white:    #f0ece4;
+    --muted:    #888880;
+    --radius:   12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── ALERT BAR ─────────────────────────────── */
+  .alert-bar {
+    background: var(--red-bg);
+    color: var(--yellow);
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .02em;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 2px solid #ff3a3a;
+    animation: pulse-bar 3s ease-in-out infinite;
+  }
+  .alert-bar span { margin-right: 6px; }
+  @keyframes pulse-bar {
+    0%,100% { opacity: 1; }
+    50%      { opacity: .85; }
+  }
+
+  /* ─── WRAPPER ───────────────────────────────── */
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+  /* ─── HERO ──────────────────────────────────── */
+  .hero {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, #1e1208 0%, var(--black) 70%);
+    padding: 64px 20px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 40px,
+      rgba(201,151,74,.03) 40px, rgba(201,151,74,.03) 41px
+    );
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold-dim);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+    border: 1px solid var(--gold-dim);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 7vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.12;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    font-weight: 300;
+  }
+
+
+
+  /* ─── DIVIDER ───────────────────────────────── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 56px auto;
+    max-width: 200px;
+    opacity: .4;
+  }
+
+  /* ─── SECTION LABEL ─────────────────────────── */
+  .section-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  /* ─── SECTION HEADINGS ──────────────────────── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .section-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  p { margin-bottom: 18px; color: #ccc8be; font-size: 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ─── QUOTE BLOCK ───────────────────────────── */
+  .quote-block {
+    border-left: 3px solid var(--gold);
+    padding: 18px 24px;
+    background: rgba(201,151,74,.05);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 28px 0;
+    font-style: italic;
+    color: var(--white);
+    font-size: 1.05rem;
+  }
+
+  /* ─── PROBLEM CARDS ─────────────────────────── */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 32px 0;
+  }
+  @media(max-width:480px){ .problem-grid { grid-template-columns: 1fr; } }
+
+  .problem-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    transition: border-color .2s;
+  }
+  .problem-card:hover { border-color: var(--gold-dim); }
+  .problem-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .problem-card p {
+    font-size: .92rem;
+    color: #b0ac a4;
+    margin: 0;
+  }
+
+  /* ─── PROTOCOL STEPS ────────────────────────── */
+  .steps-list { list-style: none; margin: 32px 0; display: flex; flex-direction: column; gap: 20px; }
+  .step-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 22px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+    transition: border-color .25s, transform .25s;
+  }
+  .step-item:hover { border-color: var(--gold-dim); transform: translateX(4px); }
+  .step-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity .25s;
+  }
+  .step-item:hover::before { opacity: 1; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold-dim);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 36px;
+  }
+  .step-body strong {
+    display: block;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .step-body p { font-size: .93rem; margin: 0; color: #a8a49c; }
+
+  /* ─── HIGHLIGHT BOX ─────────────────────────── */
+  .highlight-box {
+    background: linear-gradient(135deg, #1a1000 0%, #120c00 100%);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    text-align: center;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::after {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, rgba(201,151,74,.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .highlight-box .big-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .highlight-box p { color: #ccc; font-size: .97rem; margin: 0; }
+
+  /* ─── FIRE METAPHOR ─────────────────────────── */
+  .fire-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .fire-section::before {
+    content: '🔥';
+    position: absolute;
+    right: 24px; top: 24px;
+    font-size: 48px;
+    opacity: .12;
+  }
+
+  /* ─── PRICE SECTION ─────────────────────────── */
+  .price-section {
+    scroll-margin-top: 90px;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, #1a1000 0%, var(--deep) 70%);
+    border: 1px solid var(--gold-dim);
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 100% 50% at 50% 100%, rgba(201,151,74,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .price-label {
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .price-old {
+    font-size: 1rem;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .price-sup { font-size: 1.8rem; vertical-align: super; }
+  .price-note { font-size: .88rem; color: var(--muted); margin-bottom: 32px; }
+
+  /* ─── CTA BUTTON ────────────────────────────── */
+  .cta-btn {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, #22a84a 0%, #168a38 100%);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 32px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 32px rgba(34,168,74,.35), 0 2px 8px rgba(0,0,0,.4);
+    transition: transform .2s, box-shadow .2s, filter .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+    transition: left .5s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 48px rgba(34,168,74,.5); filter: brightness(1.05); }
+  .cta-btn:hover::before { left: 160%; }
+  .cta-btn:active { transform: translateY(0); }
+
+  .skip-link {
+    display: block;
+    text-align: center;
+    color: var(--muted);
+    font-size: .82rem;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 8px;
+    opacity: .6;
+    transition: opacity .2s;
+  }
+  .skip-link:hover { opacity: 1; }
+
+  /* ─── SECURITY BADGES ───────────────────────── */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px 0;
+  }
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .8rem;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+  }
+  .badge-item span { font-size: 14px; }
+
+  /* ─── GUARANTEE ─────────────────────────────── */
+  .guarantee-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    margin: 32px 0;
+  }
+  @media(max-width:480px){ .guarantee-box { flex-direction: column; text-align: center; } }
+  .guarantee-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .guarantee-seal {
+    width: 88px; height: 88px;
+    background: linear-gradient(135deg, #1a1000, #0e0800);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 0 24px rgba(201,151,74,.2), inset 0 0 16px rgba(201,151,74,.05);
+    position: relative;
+  }
+  .guarantee-seal::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(201,151,74,.3);
+    border-radius: 50%;
+  }
+  .guarantee-seal .seal-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .guarantee-seal .seal-days {
+    font-size: .55rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-top: 2px;
+  }
+  .guarantee-box strong { display: block; color: var(--white); font-size: 1rem; margin-bottom: 4px; }
+  .guarantee-box p { font-size: .9rem; margin: 0; }
+
+  /* ─── BROTHERHOOD SECTION ───────────────────── */
+  .brotherhood {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .brotherhood .icon-large { font-size: 40px; margin-bottom: 16px; display: block; }
+
+  /* ─── FADE-IN ANIMATION ─────────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── FOOTER ────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 20px;
+    text-align: center;
+  }
+  footer p { font-size: .78rem; color: var(--muted); margin: 0; }
+
+  /* ─── SCROLL INDICATOR ──────────────────────── */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+    z-index: 1000;
+    transition: width .1s linear;
+  }
+</style>
+    <script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ALERT BAR -->
+<div class="alert-bar">
+  <span>⚠️</span> Hold on — before you write this off, let me take the only real risk off the table for you.
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badge">Horse Tonic App</div>
+    <h1>
+      YOU'RE NOT SAYING NO<br>
+      <em>TO THE TONIC.<br>YOU'RE SAYING NO TO THE PRICE.</em>
+    </h1>
+    <p class="hero-sub">A lower number, the full 90-day guarantee, and the only thing on the line from here is mine — not yours.</p>
+
+  </div>
+</section>
+
+<!-- SECTION 1: THE RISK -->
+<section style="padding: 56px 0;">
+  <div class="wrap">
+
+    <div class="fade-up">
+      <p>You passed on the Horse Tonic app at $97. I'm not going to pretend that's about whether you want it. It's about whether it works before you've ever seen it work. That's the honest hesitation, and I respect it.</p>
+      <p>So here's what I'll do. I'll drop the number, and I'll put the entire risk on my side of the table. If it doesn't do exactly what I said, you don't have to argue with anyone — you just take your money back.</p>
+    </div>
+
+    <div class="highlight-box fade-up">
+      <div class="big-text">And let me say the why<br>differently than before.</div>
+      <p>The Ignition gets her open. The System makes her squirt. Then her body turns and asks the one thing your hands physically cannot answer: how long can you stay. The Tonic is the only part of this that answers that question — and it's the part most men find out they needed one night too late.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>Because here's what I've learned: ready is not the same as willing. A woman can want it in her head while her body is still guarding itself. That gap is where confidence dies and doubt starts winning.</p>
+      <p>The Tonic closes that gap. It's calculated to your exact body — your weight, your age, your response pattern. It's not about chemistry or luck. It's about science applied to you. One profile. Entered once. Generated in seconds. Used when it matters.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SECTION 2: WHAT YOU GET -->
+<section style="padding: 0 0 56px;">
+  <div class="wrap">
+
+    <div class="fade-up">
+      <span class="section-label">What it does</span>
+      <h2 class="section-title">Four things that change everything when her body is asking for more.</h2>
+    </div>
+
+    <div class="problem-grid fade-up">
+      <div class="problem-card">
+        <div class="problem-icon">✓</div>
+        <p><strong>Your exact dosage</strong>, calculated from your weight, age and response — no guesswork</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">✓</div>
+        <p><strong>Sustained pressure and fullness</strong> that holds while she's still asking for more</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">✓</div>
+        <p><strong>Natural compounds</strong>, dialed in for you — no pharmacy counter, no side-effect roulette</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">✓</div>
+        <p><strong>Generated in seconds</strong> the moment you enter your numbers</p>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <p>Comparable pharmaceutical routes run $50–$200 every single month, forever.</p>
+      <p>This is a one-time $67. Not monthly. Once. And it's backed for a full 90 days — put it through a real night, and if it doesn't hold up the way I told you it would, you're out nothing.</p>
+    </div>
+
+    <div class="highlight-box fade-up">
+      <div class="big-text">That's the trade:<br>I lower the price<br>and I take the risk.</div>
+      <p>So the only reason left to walk away is that you don't actually want to stay hard while she's begging you not to stop.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>This price sits on this page and nowhere else. Leave, and it leaves with you.</p>
+      <p style="color:var(--white); font-weight:600;">The decision is simple. Risk on me, or risk on yourself.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PRICE + CTA SECTION -->
+<section style="padding: 0 0 64px;">
+  <div class="wrap">
+
+    <div class="price-section fade-up" id="oferta">
+      <p class="price-label">Risk Free — 90-Day Guarantee</p>
+      <p class="price-old">Regular price: $97</p>
+      <div class="price-main">
+        <span class="price-sup">$</span>67
+      </div>
+      <p class="price-note">One time. Risk on me.</p>
+
+      <!-- Vendepay Upsell widget -->
+      <div data-mndpay-render="019f230b-31f6-7014-9148-76c4ef76b4ab" style="max-width:480px;margin:0 auto 16px;"></div>
+
+      <div class="badges" style="margin-top:28px;">
+        <div class="badge-item"><span>🔒</span> Secure Checkout</div>
+        <div class="badge-item"><span>⚡</span> Instant Access</div>
+        <div class="badge-item"><span>🛡️</span> 90-Day Guarantee</div>
+        <div class="badge-item"><span>🔐</span> 256-bit SSL</div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <p>So let me ask you something directly. Would you invest $67 to stop guessing whether the moment is right? To hold control when she's asking for more? To never again wonder if you're going to disappoint her when it matters most?</p>
+      <p>That's what most men in your position end up wishing they had. Not more techniques. Not more time. Just the assurance that when the moment comes, your body shows up the way she needs it to.</p>
+    </div>
+
+    <div class="highlight-box fade-up">
+      <div class="big-text">Now you set the timeline,<br>and her body responds<br>without even understanding why.</div>
+      <p>And that changes everything.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>The men who make it this far aren't looking for tricks. They're looking for certainty. With the Tonic, you have it. Not because of luck, but because the app runs the math. You enter your body. The app knows your response. When the moment comes, you're not improvising. You're executing.</p>
+    </div>
+
+    <div class="guarantee-box fade-up">
+      <div class="guarantee-icon">
+        <div class="guarantee-seal">
+          <span class="seal-num">90</span>
+          <span class="seal-days">Days</span>
+        </div>
+      </div>
+      <div>
+        <strong>90-Day Money-Back Guarantee</strong>
+        <p>If for any reason this doesn't work for you, we refund 100% of your money. No questions. No hassle.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box fade-up" style="border-color: var(--red); background: linear-gradient(135deg, #1a0000 0%, #0e0000 100%);">
+      <div class="big-text" style="color:#ff6b6b; font-size:clamp(1.1rem,4vw,1.5rem);">This price is on this page only.<br>When you close this window, it closes with you.</div>
+      <p>The risk is on me. The decision is on you.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>So the choice is simple. Walk away and keep wondering, or claim it now and stop wondering forever. The Horse Tonic is waiting. And the risk is completely mine.</p>
+    </div>
+
+    <div style="margin-top:36px;" class="fade-up">
+      <a href="#oferta" class="cta-btn">Get the Horse Tonic — $67, risk on me</a>
+    </div>
+    <!-- Widget Vendepay Upsell -->
+
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>© 2026 · All rights reserved · This offer is exclusive and time-sensitive.</p>
+  </div>
+</footer>
+
+<script>
+  // ─── Scroll progress bar ───
+  const bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = pct + '%';
+  });
+
+  // ─── Fade-up on scroll ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ─── Stagger children inside problem grids ───
+  document.querySelectorAll('.problem-grid').forEach(grid => {
+    Array.from(grid.children).forEach((card, i) => {
+      card.style.transitionDelay = (i * 80) + 'ms';
+    });
+  });
+
+  // ─── Stagger steps ───
+  document.querySelectorAll('.step-item').forEach((el, i) => {
+    el.style.transitionDelay = (i * 60) + 'ms';
+  });
+</script>
+</body>
+</html>
