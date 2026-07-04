@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Purchase Wasn't Approved</title>
+<meta name="description" content="There was a problem with your payment. Try again now with an exclusive 30% discount.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --purple: #7c3aed;
+    --red: #ef4444;
+    --red-dark: #dc2626;
+    --green: #059669;
+    --whatsapp: #25d366;
+    --ink: #1e2433;
+    --muted: #64748b;
+    --border: #eef0f4;
+    --bg: #f4f6fb;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: linear-gradient(180deg, #eef1f8 0%, #f7f8fc 40%, #f4f6fb 100%);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: #fbfcff;
+    border-bottom: 1px solid var(--border);
+    padding: 22px 0;
+  }
+  header .logo {
+    display: block;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--purple);
+  }
+  main {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 40px 20px 64px;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(30, 36, 51, 0.08), 0 2px 8px rgba(30, 36, 51, 0.04);
+    padding: 40px 36px 36px;
+    animation: rise 0.5s ease both;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  .status-icon {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: linear-gradient(135deg, #f87171, var(--red-dark));
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 8px 22px rgba(239, 68, 68, 0.35);
+  }
+  .status-icon svg { width: 34px; height: 34px; }
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .subtext {
+    text-align: center;
+    color: var(--muted);
+    font-size: 15.5px;
+    line-height: 1.6;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .divider { height: 1px; background: var(--border); margin: 30px 0; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .reasons { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+  .reasons li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14.5px;
+    color: #3d4459;
+    line-height: 1.5;
+  }
+  .reasons svg { flex-shrink: 0; margin-top: 2px; width: 18px; height: 18px; color: var(--muted); }
+
+  .offer {
+    margin-top: 32px;
+    border-radius: 16px;
+    padding: 28px 26px;
+    background: linear-gradient(155deg, #fff5f5 0%, #fff 55%);
+    border: 1.5px solid #fecaca;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .offer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--red);
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .offer-badge svg { width: 13px; height: 13px; }
+  .offer h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .offer h2 span { color: var(--red-dark); }
+  .offer p {
+    font-size: 15px;
+    color: #4b5163;
+    line-height: 1.65;
+    max-width: 420px;
+    margin: 0 auto 24px;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+    color: #fff;
+    font-size: 16.5px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 17px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(220, 38, 38, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(220, 38, 38, 0.42); }
+  .cta:active { transform: translateY(0); }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 10px 24px rgba(220, 38, 38, 0.35); }
+    50% { box-shadow: 0 10px 30px rgba(220, 38, 38, 0.55); }
+  }
+  .cta svg { width: 19px; height: 19px; flex-shrink: 0; }
+
+  .fine-print {
+    text-align: center;
+    font-size: 12.5px;
+    color: #9aa1b2;
+    margin-top: 14px;
+    line-height: 1.6;
+  }
+
+  .support {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .support a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    background: #f0fdf6;
+    border: 1px solid #bbf0d1;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .support a:hover { background: #dcfce9; border-color: var(--whatsapp); }
+  .support a svg { width: 18px; height: 18px; color: var(--whatsapp); flex-shrink: 0; }
+
+  footer { text-align: center; padding: 8px 0 30px; color: #a2a8b8; font-size: 13px; }
+
+  @media (max-width: 480px) {
+    .card { padding: 32px 22px 28px; }
+    h1 { font-size: 22px; }
+    .offer { padding: 24px 18px; }
+    .offer h2 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="logo">VENDEPAY</span>
+</header>
+
+<main>
+  <div class="card">
+    <div class="status-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </div>
+    <h1>Oops! Your Purchase Wasn't Approved</h1>
+    <p class="subtext">There was a problem processing your payment. Don't worry — this can happen for a few different reasons, and it's usually quick to fix.</p>
+
+    <div class="divider"></div>
+
+    <p class="section-title">Why this might have happened</p>
+    <ul class="reasons">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        Insufficient balance on the card
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+        Your bank declined the transaction
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+        Your bank app requested a security code confirmation
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Incorrect card details
+      </li>
+    </ul>
+
+    <div class="offer">
+      <span class="offer-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18M12 8c-1.5-3-5.5-3-5.5 0S9 8 12 8zm0 0c1.5-3 5.5-3 5.5 0S15 8 12 8z"/></svg>
+        Reward unlocked
+      </span>
+      <h2>You've earned <span>30% OFF</span></h2>
+      <p>Because you're serious about finally satisfying her, we want to help you get there. As a one-time reward, this discount is unlocked right now — just tap below to complete your order.</p>
+      <a class="cta" href="https://checkout.vendepay.com/88ed4fd2-ec78-4462-9dba-d0657453cd2c?src=back-checkout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        I'll Try Again Now — With 30% Off
+      </a>
+    </div>
+    <p class="fine-print">This discount is only available on this page and will not be shown again once you leave.</p>
+
+    <div class="support">
+      Need help?
+      <a href="https://wa.me/5534998718760?text=There%20was%20an%20error%20with%20my%20purchase%20of%20the%20Squirting%20System.%20I%20need%20help" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.44.79 3.06 1.2 4.72 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.9 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.14-.95-.31-1.64-.61-2.87-1.24-4.74-4.14-4.89-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.14.12.31.02.5-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.28-.12.55.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.09 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+        Chat with us on WhatsApp
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer>&copy; 2026 Vendepay. All rights reserved.</footer>
+
+</body>
+</html>
