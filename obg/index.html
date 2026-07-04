@@ -81,6 +81,26 @@
     color: #0D0D0D;
   }
 
+  /* CTA button */
+  .cta-button {
+    display: inline-block;
+    background: #22C55E;
+    color: #FFFFFF;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: clamp(15px, 4vw, 17px);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 10px;
+    margin-bottom: 36px;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .cta-button:hover {
+    background: #16A34A;
+    box-shadow: 0 4px 16px rgba(34,197,94,0.35);
+    transform: translateY(-2px);
+  }
+
   /* Email logos */
   .email-label {
     font-size: 12px;
@@ -157,8 +177,10 @@
 
   <!-- Subheadline -->
   <p class="sub">
-    To access your product, simply <strong>check your email.</strong>
+    To access your product, simply <strong>check your email</strong>, or tap the button below to be redirected to the members area automatically.
   </p>
+
+  <a href="https://app.ngvmembers.site/squirting-system/login" class="cta-button">Access my product</a>
 
   <!-- Email logos -->
   <p class="email-label">Open your inbox</p>
