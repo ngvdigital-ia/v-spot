@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/vsl/",
+      "destination": "/vsl-2/",
       "permanent": false
     },
     {
