@@ -164,7 +164,7 @@
       font-weight:700;
       color:#fff;
       text-align:center;
-      margin-bottom:24px;
+      margin-bottom:20px;
       letter-spacing:-.02em;
       text-shadow:0 4px 30px rgba(0,0,0,.5);
     }
@@ -253,16 +253,76 @@
       50%{box-shadow:0 0 0 8px rgba(215,0,31,0);}
     }
 
+    /* ---------- copy de apoio ---------- */
+    .lead-copy{
+      margin-top:20px;
+      text-align:center;
+      font-size:16px;
+      line-height:1.62;
+      color:rgba(255,255,255,.80);
+      letter-spacing:.005em;
+      text-wrap:pretty;
+    }
+
+    .lead-copy .hl{
+      color:var(--red-strong);
+      font-weight:700;
+    }
+
+    /* ---------- bullets ---------- */
+    .benefits{
+      margin-top:18px;
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:11px;
+      padding:18px 20px;
+      border-radius:12px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(215,0,31,.18);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .benefits li{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-size:15.5px;
+      line-height:1.35;
+      font-weight:500;
+      color:rgba(255,255,255,.94);
+      text-align:left;
+    }
+
+    .benefits .check{
+      flex:0 0 auto;
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      font-weight:700;
+      line-height:1;
+      color:var(--red-strong);
+      background:rgba(215,0,31,.14);
+      border:1px solid rgba(215,0,31,.42);
+    }
+
     /* ---------- arraste para desbloquear ---------- */
     .unlock-title{
-      margin-top:34px;
+      margin-top:26px;
       font-family:var(--sans);
       font-weight:700;
-      font-size:30px;
-      line-height:1.15;
+      font-size:27px;
+      line-height:1.2;
       letter-spacing:-.02em;
       text-align:center;
       color:#fff;
+      text-wrap:balance;
       text-shadow:0 4px 26px rgba(0,0,0,.5);
     }
 
@@ -384,14 +444,19 @@
 
     @media (max-width:520px){
       .headline{font-size:28px;}
-      .unlock-title{font-size:26px;}
+      .unlock-title{font-size:24px;}
+      .lead-copy{font-size:15.5px;}
+      .benefits{padding:16px 17px; gap:10px;}
+      .benefits li{font-size:15px;}
       .slider{height:86px;}
       .slider-handle{width:74px; height:74px;}
       .slider-label{font-size:16px; padding-left:50px;}
     }
 
     @media (max-width:360px){
-      .unlock-title{font-size:23px;}
+      .unlock-title{font-size:21px;}
+      .lead-copy{font-size:15px;}
+      .benefits li{font-size:14px;}
       .slider-label{font-size:14.5px;}
     }
 
@@ -463,12 +528,25 @@
 
       </div>
 
-      <h2 class="unlock-title">Swipe to unlock the class</h2>
+      <p class="lead-copy">
+        Most men stimulate the wrong spot.
+        <strong class="hl">Roxy Fox reveals in practice with real models</strong>
+        the exact physical trigger and finger movement in this
+        <strong class="hl">private demonstration for free</strong>.
+      </p>
+
+      <ul class="benefits">
+        <li><span class="check" aria-hidden="true">&#10003;</span>Where the hidden trigger is</li>
+        <li><span class="check" aria-hidden="true">&#10003;</span>The exact finger movement</li>
+        <li><span class="check" aria-hidden="true">&#10003;</span>The #1 mistake most men make</li>
+      </ul>
+
+      <h2 class="unlock-title">Slide to unlock the private lesson</h2>
 
       <div class="slider" id="slider" role="button" tabindex="0"
-           aria-label="Swipe to unlock the class">
+           aria-label="Slide to unlock the private lesson">
         <div class="slider-fill" id="slider-fill"></div>
-        <div class="slider-label" id="slider-label"><span>swipe to unlock</span></div>
+        <div class="slider-label" id="slider-label"><span>slide to unlock</span></div>
         <div class="slider-handle" id="slider-handle">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
                stroke-linecap="round" stroke-linejoin="round">
