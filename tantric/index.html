@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0507">
+<title>18+</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0507;--surface:#140A0E;--surface-h:#1C0F15;
+  --border:rgba(255,255,255,.08);
+  --text:#fff;--muted:#B8A7AE;
+  --wine:#C2123F;--pink:#FF4D8D;
+  --grad:linear-gradient(135deg,#C2123F 0%,#FF4D8D 100%);
+  --ok:#2ECC71;
+  --head:'Plus Jakarta Sans',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,sans-serif;
+}
+html{background:var(--bg);scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh}
+/* Brilhos de fundo (fixos) */
+body::before,body::after{content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(120px);pointer-events:none}
+body::before{width:560px;height:560px;left:-180px;top:-180px;background:rgba(194,18,63,.35)}
+body::after{width:520px;height:520px;right:-160px;bottom:-160px;background:rgba(255,77,141,.20)}
+[hidden]{display:none!important}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+h1,h2,h3{font-family:var(--head);font-weight:800}
+h1{font-size:32px;line-height:1.1}
+h2{font-size:26px;line-height:1.15}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.block{padding:40px 0}
+.small{font-size:13px;color:var(--muted)}
+.muted{color:var(--muted)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.tag{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:12px}
+.blockhead{margin-bottom:28px}
+.blockhead h2{margin-bottom:10px}
+.blockhead p{color:var(--muted)}
+.center{text-align:center}
+.pill{display:inline-block;border-radius:999px;background:rgba(255,77,141,.12);color:var(--pink);font-size:12px;font-weight:600;padding:6px 14px;margin-bottom:16px}
+.badge{display:inline-block;border-radius:999px;background:rgba(255,77,141,.12);color:var(--pink);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px}
+
+/* Botão */
+.btn{display:flex;align-items:center;justify-content:center;gap:0;width:100%;max-width:420px;height:56px;border-radius:14px;background:var(--grad);color:#fff;font-size:16px;font-weight:700;text-align:center;box-shadow:0 10px 30px rgba(194,18,63,.35);transition:transform .15s;padding:0 16px;text-decoration:none}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,.card-choice:focus-visible,.faq-q:focus-visible,.link-btn:focus-visible,.nav a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.btn.gray{background:#2A1D23;box-shadow:none;color:#fff}
+.btn.sm{height:40px;font-size:13px;width:auto;border-radius:999px;padding:0 16px;box-shadow:none}
+
+/* Cards */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:24px}
+.card.feat{border:2px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box}
+
+/* Placeholder + imagem borrada */
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#4A0A1F 0%,#C2123F 55%,#FF4D8D 100%)}
+.ph::before,.ph::after{content:"";position:absolute;border-radius:50%;filter:blur(26px);pointer-events:none}
+.ph::before{width:55%;aspect-ratio:1;left:-10%;top:-15%;background:rgba(255,200,220,.35)}
+.ph::after{width:45%;aspect-ratio:1;right:-8%;bottom:-15%;background:rgba(255,77,141,.5)}
+.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.lock{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.lock span{width:46px;height:46px;border-radius:50%;background:rgba(10,5,7,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center}
+.lock svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============ TELA 1 ============ */
+.topbar{border-bottom:1px solid var(--border)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
+.logo{font-family:var(--head);font-weight:800;font-size:18px;text-decoration:none}
+.topbadge{font-size:12px;color:var(--muted)}
+.hero{padding:32px 0 8px;display:grid;gap:32px}
+.hero h1{margin-bottom:16px}
+.hero .sub{color:var(--muted);font-size:16px;max-width:520px}
+.mock{position:relative;display:flex;justify-content:center;padding:22px 0}
+.phone{width:280px;height:560px;border-radius:36px;border:1px solid rgba(255,255,255,.18);background:#0F0709;padding:14px;display:flex;flex-direction:column;gap:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);flex:none}
+.phone-top{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:600;padding:4px 6px}
+.phone-top i{width:6px;height:6px;border-radius:50%;background:var(--pink);display:inline-block;margin-right:6px}
+.phone-video{flex:1;border-radius:20px}
+.playlock{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center}
+.playlock span{position:relative;width:64px;height:64px;border-radius:50%;background:rgba(10,5,7,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.25)}
+.playlock svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.progress{height:4px;border-radius:4px;background:rgba(255,255,255,.15);margin:2px 6px 8px}
+.progress b{display:block;height:100%;width:34%;border-radius:4px;background:var(--grad)}
+.chip{position:absolute;z-index:3;max-width:210px;border-radius:999px;background:rgba(10,5,7,.78);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);font-size:12px;font-weight:600;padding:8px 14px;animation:float 4s ease-in-out infinite}
+.chip.c1{top:96px;left:0}
+.chip.c2{top:46%;right:0;animation-delay:-1.3s}
+.chip.c3{bottom:44px;left:6%;animation-delay:-2.6s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.chip{animation:none}html{scroll-behavior:auto}}
+
+.ask{padding:32px 0 24px}
+.ask h2{margin-bottom:8px}
+.ask>p{color:var(--muted);margin-bottom:24px}
+.choices{display:grid;gap:16px;align-items:stretch}
+.card-choice{position:relative;display:flex;flex-direction:column;gap:12px;text-align:left;cursor:pointer;transition:background .15s,transform .15s;padding-top:34px}
+.card-choice:hover{background:var(--surface-h)}
+.card-choice.feat:hover{background:linear-gradient(var(--surface-h),var(--surface-h)) padding-box,var(--grad) border-box}
+.card-choice .badge{position:absolute;top:14px;left:20px}
+.card-choice h3{font-size:20px;line-height:1.2}
+.card-choice .line{color:var(--muted);font-size:14px}
+.card-choice ul{list-style:none;display:grid;gap:8px;font-size:14px;margin:4px 0 8px}
+.card-choice .btn{margin-top:auto;max-width:none}
+.skip{margin:24px 0 8px;text-align:center}
+.link-btn{background:none;color:var(--muted);text-decoration:underline;font-size:14px;padding:6px}
+.privline{text-align:center;color:var(--muted);font-size:13px;padding:8px 0 40px}
+
+/* ============ MODAL / LOADER ============ */
+.overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.78);backdrop-filter:blur(4px)}
+.modal{width:100%;max-width:440px;background:#140A0E;border:1px solid var(--border);border-radius:20px;padding:24px;max-height:100%;overflow:auto}
+.modal h2{font-size:22px;margin-bottom:10px}
+.modal p{color:var(--muted);font-size:15px;margin-bottom:16px}
+.summary{border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.03);padding:4px 16px;margin-bottom:20px}
+.summary div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;font-size:14px}
+.summary div+div{border-top:1px solid var(--border)}
+.summary span{color:var(--muted)}
+.summary b{text-align:right;font-weight:600}
+.modal .btn{max-width:none;margin-bottom:10px}
+.modal .center{margin-top:8px}
+.loader{z-index:110;background:var(--bg);backdrop-filter:none;flex-direction:column;text-align:center}
+.loader h2{font-size:26px;max-width:520px;margin-bottom:24px}
+.bar{width:100%;max-width:360px;height:8px;border-radius:8px;background:rgba(255,255,255,.1);overflow:hidden;margin:0 auto 24px}
+.bar b{display:block;height:100%;width:0;background:var(--grad);border-radius:8px}
+.loader.run .bar b{width:100%;transition:width 2.5s linear}
+.checks{list-style:none;display:grid;gap:10px;text-align:left;min-height:96px}
+.checks li{opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;font-size:15px}
+.checks li.on{opacity:1;transform:none}
+
+/* ============ TELA 3 ============ */
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,5,7,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:6px 16px;padding-top:8px;padding-bottom:8px}
+.nav .logo{order:1;margin-right:auto}
+.nav .btn.sm{order:2}
+.nav nav{order:3;flex:1 0 100%;display:flex;gap:20px;overflow-x:auto;font-size:13px;color:var(--muted);scrollbar-width:none}
+.nav nav::-webkit-scrollbar{display:none}
+.nav nav a{text-decoration:none;white-space:nowrap;padding:4px 0}
+.nav nav a:hover{color:#fff}
+section[id]{scroll-margin-top:96px}
+
+.b1{display:grid;gap:28px;padding-top:32px}
+.b1 h1{margin-bottom:16px}
+.b1 .sub{color:var(--muted);margin-bottom:20px}
+.anchor{border:1px solid var(--border);border-radius:16px;background:var(--surface);margin-bottom:20px;overflow:hidden}
+.anchor div{padding:12px 16px;font-size:14px}
+.anchor div+div{border-top:1px solid var(--border)}
+.anchor .old{color:var(--muted);text-decoration:line-through}
+.anchor .save{background:rgba(46,204,113,.08);color:var(--ok);font-weight:600}
+.seals{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:16px;font-size:13px;color:var(--muted)}
+.proof{margin-top:12px;font-size:13px;color:var(--muted)}
+
+.steps{display:grid;gap:12px}
+.step{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:start}
+.step .time{font-family:var(--head);font-weight:800;font-size:15px;color:var(--pink);padding-top:22px}
+.step h3{font-size:17px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:14px}
+
+.diff{display:grid;gap:16px}
+.col h3{font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.col.without{opacity:.8}
+.col.without h3,.col.without li{color:var(--muted)}
+.col.with{border:2px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box}
+.col ul{list-style:none;display:grid;gap:12px;font-size:15px}
+.col li{display:flex;gap:10px}
+.note{margin-top:16px;font-size:13px;color:var(--muted);text-align:center}
+
+.lessons{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.lesson{padding:0;overflow:hidden;position:relative}
+.lesson .ph{aspect-ratio:16/9}
+.lesson .age{position:absolute;top:8px;right:8px;z-index:3;font-size:11px;font-weight:600;background:rgba(10,5,7,.75);border-radius:999px;padding:3px 8px}
+.lesson .lbody{padding:12px}
+.lesson h3{font-size:14px;line-height:1.25;margin-bottom:4px}
+.lesson p{font-size:12px;color:var(--muted)}
+.lesson .badge{position:absolute;top:8px;left:8px;z-index:3;font-size:10px;background:var(--grad);color:#fff}
+.strip{margin-top:16px;border:1px solid var(--border);border-radius:14px;background:var(--surface);text-align:center;padding:14px;font-size:14px;color:var(--muted)}
+
+.offer{max-width:520px;margin:0 auto;text-align:center}
+.offer .badge{margin-bottom:16px}
+.offer h3{font-size:24px;margin-bottom:12px}
+.price{font-family:var(--head);font-weight:800;font-size:56px;line-height:1}
+.price-sub{color:var(--muted);font-size:14px;margin:6px 0 20px}
+.offer ul{list-style:none;display:grid;gap:12px;text-align:left;margin-bottom:24px;font-size:15px}
+.offer .btn{margin:0 auto 14px}
+
+.vs{display:grid;gap:12px;align-items:stretch;margin-bottom:16px}
+.vs .card h3{font-size:16px;margin-bottom:14px}
+.vs ul{list-style:none;display:grid;gap:10px;font-size:14px}
+.vs li{display:flex;gap:8px}
+.vs .card.bad{opacity:.85}
+.vs .card.bad li,.vs .card.bad h3{color:var(--muted)}
+.vs .mid{display:flex;align-items:center;justify-content:center;font-family:var(--head);font-weight:800;color:var(--pink)}
+.banner{text-align:center;font-family:var(--head);font-weight:800;font-size:18px;margin:8px 0 24px}
+.guarantee{display:grid;gap:12px;text-align:center;justify-items:center}
+.guarantee .shield{font-size:36px}
+.guarantee h3{font-size:20px}
+.guarantee p{color:var(--muted);font-size:15px;max-width:520px}
+.ticks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;font-size:14px;margin-top:4px}
+
+.reviews{display:grid;gap:16px}
+.rev .stars{color:#FFC94D;letter-spacing:2px;margin:6px 0 10px}
+.rev .who{font-weight:600}
+.rev .meta{font-size:13px;color:var(--muted)}
+.rev p{font-size:15px;margin-bottom:12px}
+.rev .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+
+.trust{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.trust .card{padding:18px}
+.trust .ico{font-size:24px;margin-bottom:8px}
+.trust b{display:block;margin-bottom:4px;font-size:14px}
+.trust p{font-size:13px;color:var(--muted)}
+
+.faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.faq-q{display:flex;gap:14px;align-items:center;width:100%;text-align:left;padding:16px 18px;font-weight:600;font-size:15px}
+.faq-q .n{color:var(--pink);font-family:var(--head);font-weight:800}
+.faq-q .t{flex:1}
+.faq-q .pm{font-size:20px;color:var(--pink);line-height:1;transition:transform .2s}
+.faq-item.open .pm{transform:rotate(45deg)}
+.faq-a{padding:0 18px 18px 48px;color:var(--muted);font-size:15px}
+.final{text-align:center;padding:40px 0}
+.final h2{margin-bottom:20px}
+.final .btn{margin:0 auto}
+.footer{border-top:1px solid var(--border);padding:28px 0 40px;text-align:center;font-size:12px;color:var(--muted)}
+.footer a{color:var(--muted)}
+.footer .fl{margin-bottom:8px;font-family:var(--head);font-weight:800;font-size:14px;color:#fff}
+
+/* CTA fixo no celular */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(10,5,7,.92);backdrop-filter:blur(10px);border-top:1px solid var(--border);transform:translateY(110%);transition:transform .25s}
+.sticky.show{transform:none}
+.sticky .btn{max-width:none;height:50px}
+.s3-pad{padding-bottom:76px}
+
+@media (min-width:640px){
+  .lessons{gap:16px}
+  .trust{gap:16px}
+  .btn{max-width:420px}
+}
+@media (max-width:639px){
+  .btn{max-width:none}
+  .btn.sm{max-width:none}
+  .nav .btn.sm{height:36px}
+}
+@media (min-width:900px){
+  h1{font-size:56px}
+  h2{font-size:40px}
+  .block{padding:64px 0}
+  .hero,.b1{grid-template-columns:1.1fr .9fr;align-items:center;gap:48px}
+  .hero{padding-top:56px}
+  .choices{grid-template-columns:repeat(3,1fr)}
+  .card-choice.feat{transform:scale(1.04)}
+  .nav .wrap{flex-wrap:nowrap}
+  .nav nav{order:2;flex:1;justify-content:center}
+  .nav .btn.sm{order:3}
+  .nav .logo{margin-right:0}
+  .steps{grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{grid-template-columns:1fr;gap:10px}
+  .step .time{padding-top:0;font-size:18px}
+  .diff{grid-template-columns:1fr 1fr}
+  .lessons{grid-template-columns:repeat(3,1fr)}
+  .lesson h3{font-size:16px}
+  .lesson p{font-size:13px}
+  .vs{grid-template-columns:1fr 56px 1fr}
+  .reviews{grid-template-columns:repeat(3,1fr)}
+  .trust{grid-template-columns:repeat(4,1fr)}
+  .sticky{display:none}
+  .s3-pad{padding-bottom:0}
+}
+</style>
+</head>
+<body>
+
+<div id="app">
+
+<!-- =========================== TELA 1 =========================== -->
+<main id="screen1">
+  <header class="topbar">
+    <div class="wrap">
+      <span class="logo" data-v="PRODUCT_NAME"></span>
+      <span class="topbadge">🔞 18+ only · 🔒 100% Discreet · ⚡ Instant Access</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <span class="pill">Real models · Fully nude · 100% explicit</span>
+        <h1>Make Her Shake, <span class="grad">Squirt</span> and Beg for More. <span class="grad">Tonight</span>.</h1>
+        <p class="sub">Real tantric massage lessons, shown on real nude models. Every touch. Every angle. Nothing hidden.</p>
+      </div>
+      <div data-mock="s1"></div>
+    </section>
+
+    <section class="ask" id="choose">
+      <h2>What do you want to give her first?</h2>
+      <p>Pick one. We'll show you the exact lessons for it.</p>
+      <div class="choices">
+        <div class="card card-choice feat" role="button" tabindex="0" data-pick="squirt">
+          <span class="badge">⭐ Most wanted</span>
+          <h3>Her First Squirting Orgasm</h3>
+          <p class="line">The exact spot and the exact rhythm that make her gush, even if she's never squirted before.</p>
+          <ul>
+            <li>💦 Find her G-spot in seconds</li>
+            <li>🎯 The stroke that makes her lose control, shown on a real model</li>
+            <li>🔥 She'll feel something no man ever gave her</li>
+          </ul>
+          <span class="btn">Make her squirt →</span>
+        </div>
+        <div class="card card-choice" role="button" tabindex="0" data-pick="multiple">
+          <span class="badge">🔥 Hottest</span>
+          <h3>Multiple Orgasms, Back-to-Back</h3>
+          <p class="line">Don't stop at one. Take her from orgasm to orgasm until her legs won't stop shaking.</p>
+          <ul>
+            <li>🌊 The "orgasm wave" that keeps her coming</li>
+            <li>⏳ Keep her on the edge, then push her over again</li>
+            <li>😮 She'll lose count. You won't.</li>
+          </ul>
+          <span class="btn">Give her more →</span>
+        </div>
+        <div class="card card-choice" role="button" tabindex="0" data-pick="addicted">
+          <span class="badge">❤️‍🔥 Most powerful</span>
+          <h3>Make Her Addicted to Your Touch</h3>
+          <p class="line">Become the man she thinks about all day and can't wait to get home to.</p>
+          <ul>
+            <li>🧠 The touch she'll replay in her head at work</li>
+            <li>📲 She starts texting you first</li>
+            <li>👑 No ex will ever compare to you</li>
+          </ul>
+          <span class="btn">Make her mine →</span>
+        </div>
+      </div>
+      <div class="skip"><button type="button" class="link-btn" data-pick="all">Skip, show me everything</button></div>
+      <p class="privline">🔒 Private. Nothing appears on your statement except a neutral name.</p>
+    </section>
+  </div>
+</main>
+
+<!-- =========================== TELA 3 =========================== -->
+<div id="screen3" class="s3-pad" hidden>
+  <header class="nav">
+    <div class="wrap">
+      <span class="logo" data-v="PRODUCT_NAME"></span>
+      <nav aria-label="Sections">
+        <a href="#how" data-scroll="#how">How It Works</a>
+        <a href="#lessons" data-scroll="#lessons">Lessons</a>
+        <a href="#reviews" data-scroll="#reviews" data-nav="reviews">Reviews</a>
+        <a href="#faq" data-scroll="#faq">FAQ</a>
+      </nav>
+      <a href="#offer" class="btn sm" data-scroll="#offer">Get Access</a>
+    </div>
+  </header>
+
+  <!-- Bloco 1 -->
+  <div class="wrap">
+    <section class="b1 block" id="b1">
+      <div>
+        <span class="pill">100% Explicit · Real Models · Instant Access</span>
+        <h1 id="headline"></h1>
+        <p class="sub">Watch real tantric massage lessons performed on real nude models. Every touch, every angle, nothing hidden. Do it on her tonight. <span data-g="SUB_END"></span></p>
+        <div class="anchor">
+          <div class="old">👤 Private tantric coach: <span data-v="COACH_ANCHOR"></span></div>
+          <div>✨ <b data-v="PRODUCT_NAME"></b>: <b data-v="PRICE"></b>, lifetime access</div>
+          <div class="save">💰 You save <span data-v="SAVINGS"></span> and learn it at home, tonight.</div>
+        </div>
+        <a class="btn" id="hero-cta" href="#" data-cta>🔥 Unlock my lessons, <span data-v="PRICE"></span></a>
+        <div class="seals"><span>🔞 18+ only</span><span>🔒 Discreet billing</span><span>⚡ Instant access</span><span>🛡️ 30-day guarantee</span></div>
+        <p class="proof" id="proof" hidden>⭐ <span data-v="RATING"></span>/5 from <span data-v="RATING_COUNT"></span> men</p>
+      </div>
+      <div data-mock="b1"></div>
+    </section>
+  </div>
+
+  <!-- Bloco 2 -->
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="blockhead">
+        <span class="tag">HOW IT WORKS</span>
+        <h2>From dinner tonight to her best night ever. In 3 steps.</h2>
+        <p>No books. No theory. Just watch and do.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="time">00:00</div><div class="card"><h3>Get access.</h3><p>Pay <span data-v="PRICE"></span> once. Lessons unlock instantly on your phone. Private, no app.</p></div></div>
+        <div class="step"><div class="time">00:20</div><div class="card"><h3>Watch the real demo.</h3><p>See every move performed on a real nude model. Pause, rewind, repeat.</p></div></div>
+        <div class="step"><div class="time">Tonight</div><div class="card"><h3>Do it on her.</h3><p>Watch her body react. She'll never forget this night.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 3 -->
+  <section class="block" id="difference">
+    <div class="wrap">
+      <div class="blockhead">
+        <span class="tag">THE DIFFERENCE</span>
+        <h2>Same bed. Same woman. A completely different night.</h2>
+      </div>
+      <div class="diff">
+        <div class="card col without">
+          <h3>Without <span data-v="PRODUCT_NAME"></span></h3>
+          <ul>
+            <li><span>❌</span>Same 3 moves, every time</li>
+            <li><span>❌</span>She "finishes"… or says she did</li>
+            <li><span>❌</span>Sex feels like a routine</li>
+            <li><span>❌</span>You wonder if her ex did it better</li>
+            <li><span>❌</span>She's "too tired" again</li>
+          </ul>
+        </div>
+        <div class="card col with">
+          <h3 class="grad">With <span data-v="PRODUCT_NAME"></span></h3>
+          <ul>
+            <li><span>✅</span>You know exactly where and how to touch her</li>
+            <li><span>✅</span>Her first squirting orgasm, on your hands</li>
+            <li><span>✅</span>Orgasm after orgasm, back-to-back</li>
+            <li><span>✅</span>She can't stop thinking about it the next day</li>
+            <li><span>✅</span>She starts initiating and begging for more</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Results vary. Every woman's body is different.</p>
+    </div>
+  </section>
+
+  <!-- Bloco 4 -->
+  <section class="block" id="lessons">
+    <div class="wrap">
+      <div class="blockhead">
+        <span class="tag">LESSONS</span>
+        <h2>What you'll see inside. Nothing hidden.</h2>
+        <p>Real models. Fully nude. Shown up close, step by step. Unlocks right after checkout.</p>
+      </div>
+      <div class="lessons" id="lessons-grid"></div>
+      <div class="strip">🔒 Uncensored versions unlock after purchase.</div>
+    </div>
+  </section>
+
+  <!-- Bloco 5 -->
+  <section class="block" id="offer">
+    <div class="wrap">
+      <div class="card feat offer">
+        <span class="badge">⭐ Your plan: <span data-g="GOAL_NAME"></span></span>
+        <h3><span data-v="PRODUCT_NAME"></span>: Complete Method</h3>
+        <div class="price" data-v="PRICE"></div>
+        <p class="price-sub">one-time payment, lifetime access</p>
+        <ul>
+          <li>💦 Make her squirt, even if she never has</li>
+          <li>🔥 Multiple orgasms, back-to-back</li>
+          <li>❤️‍🔥 She gets addicted to your touch</li>
+          <li>🔞 Real nude models, 100% explicit, every angle</li>
+          <li>⏱️ Short lessons. Learn it tonight.</li>
+          <li>📱 Watch privately on your phone</li>
+          <li>🔒 Discreet billing</li>
+        </ul>
+        <a class="btn" href="#" data-cta>🔥 Unlock the lessons, <span data-v="PRICE"></span></a>
+        <p class="small">No subscription. No hidden fees. 30-day money-back guarantee.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 6 -->
+  <section class="block" id="why">
+    <div class="wrap">
+      <div class="blockhead"><span class="tag">💡 WHY NOT JUST WATCH PORN?</span></div>
+      <div class="vs">
+        <div class="card bad">
+          <h3>❌ Porn</h3>
+          <ul>
+            <li><span>❌</span>Made for the camera, not for her</li>
+            <li><span>❌</span>Fake orgasms</li>
+            <li><span>❌</span>Teaches moves women secretly hate</li>
+          </ul>
+        </div>
+        <div class="mid">VS</div>
+        <div class="card feat">
+          <h3>✅ <span data-v="PRODUCT_NAME"></span></h3>
+          <ul>
+            <li><span>✅</span>Made for her real pleasure</li>
+            <li><span>✅</span>Real techniques, step by step</li>
+            <li><span>✅</span>Shown slowly on real models, every angle</li>
+          </ul>
+        </div>
+      </div>
+      <p class="banner">Stop copying porn. Start giving her real orgasms.</p>
+      <div class="card guarantee">
+        <div class="shield">🛡️</div>
+        <h3>30-Day "She Loved It" Guarantee</h3>
+        <p>If she doesn't feel the difference, email us and get every cent back. No questions asked.</p>
+        <div class="ticks"><span>✅ Zero risk</span><span>✅ Refund in 24h</span><span>✅ No questions asked</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 7 (só com dado real) -->
+  <section class="block" id="reviews" hidden>
+    <div class="wrap">
+      <div class="blockhead">
+        <span class="tag">REVIEWS</span>
+        <h2>What men are saying (and what she said after)</h2>
+      </div>
+      <div class="reviews" id="reviews-list"></div>
+    </div>
+  </section>
+
+  <!-- Bloco 8 -->
+  <section class="block" id="trust">
+    <div class="wrap">
+      <div class="blockhead center"><h2>100% private. 100% safe.</h2></div>
+      <div class="trust">
+        <div class="card"><div class="ico">🔒</div><b>Discreet billing</b><p>shows as "<span data-v="STATEMENT_DESCRIPTOR"></span>" on your statement</p></div>
+        <div class="card"><div class="ico">📱</div><b>Private access</b><p>no app, nothing on your home screen</p></div>
+        <div class="card"><div class="ico">🛡️</div><b>30-day guarantee</b><p>full refund if it doesn't work for you</p></div>
+        <div class="card"><div class="ico">💳</div><b>Secure checkout</b><p>Visa · Mastercard · Amex · PayPal</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 9 -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="blockhead">
+        <span class="tag">FAQ</span>
+        <h2>Still wondering? Here's everything men ask.</h2>
+      </div>
+      <div class="faq" id="faq-list">
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false"><span class="n">01</span><span class="t">Is it really explicit?</span><span class="pm">+</span></button><div class="faq-a" hidden>Yes. Real models, fully nude, every move shown up close. It's the only way to learn it right. 18+ only.</div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false"><span class="n">02</span><span class="t">I'm a total beginner. Will it work for me?</span><span class="pm">+</span></button><div class="faq-a" hidden>Yes. Lesson 1 starts from zero. If you can follow a video, you can do this tonight.</div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false"><span class="n">03</span><span class="t">She has never squirted. Can she?</span><span class="pm">+</span></button><div class="faq-a" hidden>Most women who never have were simply never touched the right way. Lesson 3 shows you exactly how. Every body is different, but this gives her the best chance she's ever had.</div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false"><span class="n">04</span><span class="t">Will she know I learned it online?</span><span class="pm">+</span></button><div class="faq-a" hidden>Only if you tell her. She'll just know something changed.</div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false"><span class="n">05</span><span class="t">Will it show on my card statement?</span><span class="pm">+</span></button><div class="faq-a" hidden>No. It shows as "<span data-v="STATEMENT_DESCRIPTOR"></span>". Nothing sexual, nothing obvious.</div></div>
+        <div class="faq-item"><button type="button" class="faq-q" aria-expanded="false"><span class="n">06</span><span class="t">What if it doesn't work?</span><span class="pm">+</span></button><div class="faq-a" hidden>You're covered by the 30-day guarantee. Full refund, no questions.</div></div>
+      </div>
+      <div class="final">
+        <h2 class="grad">Tonight could be the night she never forgets.</h2>
+        <a class="btn" href="#" data-cta>🔥 Unlock my lessons, <span data-v="PRICE"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="fl" data-v="PRODUCT_NAME"></div>
+      <p>18+ only · All models are consenting adults aged 18+ with signed releases · For adult education · Results vary · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="/refund">Refund Policy</a> · Contact (<a id="contact" href="#"><span data-v="SUPPORT_EMAIL"></span></a>)</p>
+    </div>
+  </footer>
+
+  <div class="sticky" id="sticky"><a class="btn" href="#" data-cta>🔥 Get access, <span data-v="PRICE"></span></a></div>
+</div>
+
+</div><!-- /#app -->
+
+<!-- =========================== TELA 2: MODAL =========================== -->
+<div class="overlay" id="modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <h2 id="modal-title">Before we unlock your lessons…</h2>
+    <p id="modal-desc">These lessons show real nude models and explicit techniques. Confirm you're 18 or older to continue.</p>
+    <div class="summary">
+      <div><span>Your goal:</span><b data-g="GOAL_NAME"></b></div>
+      <div><span>Lessons:</span><b>6</b></div>
+      <div><span>Explicit:</span><b>Yes</b></div>
+    </div>
+    <button type="button" class="btn" id="m-yes">Yes, I'm 18+. Show me →</button>
+    <button type="button" class="btn gray" id="m-change">Change goal</button>
+    <div class="center"><button type="button" class="link-btn" id="m-exit">I'm under 18. Exit</button></div>
+  </div>
+</div>
+
+<!-- Carregamento -->
+<div class="overlay loader" id="loader" hidden role="status" aria-live="polite">
+  <h2>Building your lessons for <span data-g="GOAL_NAME"></span>…</h2>
+  <div class="bar"><b></b></div>
+  <ul class="checks">
+    <li>✅ Goal locked in</li>
+    <li>✅ Real-model lessons selected</li>
+    <li>✅ Ready to watch tonight</li>
+  </ul>
+</div>
+
+<!-- Template do celular (mockup) -->
+<template id="tpl-mock">
+  <div class="mock">
+    <div class="phone">
+      <div class="phone-top"><span><i></i><span class="lname"></span></span><span>🔞</span></div>
+      <div class="phone-video ph">
+        <img src="/tantric/assets/hero_mockup.jpg" alt="" onerror="this.remove()">
+        <div class="playlock"><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div>
+      </div>
+      <div class="progress"><b></b></div>
+    </div>
+    <span class="chip c1"></span><span class="chip c2"></span><span class="chip c3"></span>
+  </div>
+</template>
+
+<script src="/tantric/config.js"></script>
+<script>
+(function(){
+'use strict';
+var C = window.SITE_CONFIG || {};
+var GOALS = C.GOALS || {};
+var state = { goal: null, rawQuery: '', screen: 1 };
+var LOCK_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+
+function $(s, r){ return (r || document).querySelector(s); }
+function $$(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+function store(act, k, v){
+  try { return act === 'get' ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch(e){ return null; }
+}
+
+/* ---------- Variáveis ---------- */
+function money(s){ var m = String(s || '').match(/\d[\d,]*(?:\.\d+)?/); return m ? parseFloat(m[0].replace(/,/g, '')) : NaN; }
+function savings(){
+  var a = money(C.COACH_ANCHOR), p = money(C.PRICE);
+  if (isNaN(a) || isNaN(p)) return '';
+  var cur = (String(C.PRICE).match(/^[^\d\s]+/) || [''])[0];
+  return cur + Math.floor(a - p) + (/\+/.test(C.COACH_ANCHOR) ? '+' : '');
+}
+var VARS = {
+  PRODUCT_NAME: C.PRODUCT_NAME, PRICE: C.PRICE, COACH_ANCHOR: C.COACH_ANCHOR,
+  STATEMENT_DESCRIPTOR: C.STATEMENT_DESCRIPTOR, SUPPORT_EMAIL: C.SUPPORT_EMAIL,
+  RATING: C.RATING, RATING_COUNT: C.RATING_COUNT, SAVINGS: savings()
+};
+function fillVars(){
+  $$('[data-v]').forEach(function(el){ el.textContent = VARS[el.getAttribute('data-v')] || ''; });
+  document.title = C.PRODUCT_NAME || '18+';
+  var c = $('#contact'); if (c) c.href = 'mailto:' + (C.SUPPORT_EMAIL || '');
+  var hasProof = C.RATING && C.RATING_COUNT;
+  $('#proof').hidden = !hasProof;
+}
+
+/* ---------- Mockups ---------- */
+var S1_CHIPS = ['💦 Her first squirting orgasm', '🔥 3 orgasms in a row', '✅ Lesson complete'];
+function buildMock(host, chips, chipGoalField){
+  var n = document.getElementById('tpl-mock').content.cloneNode(true);
+  var c = $$('.chip', n);
+  chips.forEach(function(t, i){ c[i].textContent = t; });
+  if (chipGoalField) c[0].setAttribute('data-g', chipGoalField);
+  host.appendChild(n);
+}
+
+/* ---------- Aulas ---------- */
+function lessonNo(g){ var m = String((GOALS[g] || {}).FEATURED_LESSON || '').match(/Lesson\s+(\d+)/i); return m ? parseInt(m[1], 10) : 0; }
+function buildLessons(){
+  var grid = $('#lessons-grid');
+  (C.LESSONS || []).forEach(function(l, i){
+    var n = i + 1, d = document.createElement('div');
+    d.className = 'card lesson'; d.setAttribute('data-lesson', n);
+    d.innerHTML =
+      '<div class="ph"><img src="/tantric/assets/lesson_' + n + '.jpg" alt="" loading="lazy" onerror="this.remove()"><div class="lock"><span>' + LOCK_SVG + '</span></div></div>' +
+      '<span class="age">🔞 18+</span><div class="lbody"><h3></h3><p></p></div>';
+    $('h3', d).textContent = 'Lesson ' + n + ' · ' + l.title;
+    $('p', d).textContent = l.line;
+    grid.appendChild(d);
+  });
+}
+function buildReviews(){
+  var list = C.TESTIMONIALS || [], sec = $('#reviews'), nav = $('[data-nav="reviews"]');
+  if (!list.length){ sec.hidden = true; nav.hidden = true; return; }
+  sec.hidden = false; nav.hidden = false;
+  var host = $('#reviews-list');
+  list.forEach(function(t){
+    var d = document.createElement('div'); d.className = 'card rev';
+    d.innerHTML = '<div class="who"></div><div class="meta"></div><div class="stars" aria-label="5 stars">★★★★★</div><p></p><div class="foot"><span class="badge"></span><span class="dt"></span></div>';
+    $('.who', d).textContent = t.name || '';
+    $('.meta', d).textContent = [t.age, t.state].filter(Boolean).join(' · ');
+    $('p', d).textContent = t.text || '';
+    $('.badge', d).textContent = t.badge || '';
+    $('.dt', d).textContent = t.date || '';
+    host.appendChild(d);
+  });
+}
+
+/* ---------- Personalização ---------- */
+function applyGoal(g){
+  var G = GOALS[g]; if (!G) return;
+  state.goal = g;
+  $$('[data-g]').forEach(function(el){ el.textContent = G[el.getAttribute('data-g')] || ''; });
+  // headline com gradiente nas palavras-chave
+  var h = $('#headline'), txt = G.HEADLINE, hl = G.HEADLINE_HIGHLIGHT || '';
+  h.textContent = '';
+  var i = hl ? txt.indexOf(hl) : -1;
+  if (i < 0){ h.textContent = txt; }
+  else {
+    h.appendChild(document.createTextNode(txt.slice(0, i)));
+    var s = document.createElement('span'); s.className = 'grad'; s.textContent = hl; h.appendChild(s);
+    h.appendChild(document.createTextNode(txt.slice(i + hl.length)));
+  }
+  // aula em destaque
+  var f = lessonNo(g);
+  $$('.lesson').forEach(function(el){
+    var on = parseInt(el.getAttribute('data-lesson'), 10) === f;
+    el.classList.toggle('feat', on);
+    var b = $('.badge', el); if (b) b.remove();
+    if (on){ var s2 = document.createElement('span'); s2.className = 'badge'; s2.textContent = 'Your #1 lesson'; el.appendChild(s2); }
+  });
+  // nome da aula nos celulares
+  var ln = f || 3, L = (C.LESSONS || [])[ln - 1];
+  $$('.lname').forEach(function(el){ el.textContent = L ? 'Lesson ' + ln + ' · ' + L.title : ''; });
+}
+
+/* ---------- Rastreamento (Meta Pixel) ---------- */
+function pixelOn(){ return !!C.PIXEL_ID; }
+function initPixel(){
+  if (!pixelOn()) return;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  window.fbq('init', C.PIXEL_ID);
+  window.fbq('track', 'PageView');
+}
+function track(kind, name, data){
+  if (!pixelOn() || !window.fbq) return;
+  window.fbq(kind, name, data || {});
+}
+
+/* ---------- Query / checkout ---------- */
+function captureQuery(){
+  var parts = location.search.replace(/^\?/, '').split('&').filter(function(p){ return p && p.split('=')[0] !== 'goal'; });
+  if (parts.length){ state.rawQuery = parts.join('&'); store('set', 'tantric_q', state.rawQuery); }
+  else { state.rawQuery = store('get', 'tantric_q') || ''; }
+}
+function checkoutUrl(){
+  var base = C.CHECKOUT_URL; if (!base) return null;
+  var hash = '', i = base.indexOf('#');
+  if (i > -1){ hash = base.slice(i); base = base.slice(0, i); }
+  var q = [];
+  if (state.rawQuery) q.push(state.rawQuery);
+  q.push('goal=' + encodeURIComponent(state.goal || 'all'));
+  var sep = base.indexOf('?') > -1 ? (/[?&]$/.test(base) ? '' : '&') : '?';
+  return base + sep + q.join('&') + hash;
+}
+function goCheckout(e){
+  if (e) e.preventDefault();
+  var url = checkoutUrl();
+  if (!url){ console.warn('[tantric] CHECKOUT_URL is empty in config.js. No redirect.'); return; }
+  track('track', 'InitiateCheckout', { goal: state.goal });
+  setTimeout(function(){ window.location.href = url; }, pixelOn() ? 150 : 0);
+}
+
+/* ---------- Telas ---------- */
+function show(n){
+  state.screen = n;
+  $('#screen1').hidden = n !== 1;
+  $('#screen3').hidden = n !== 3;
+  updateSticky();
+}
+function pushUrl(){
+  var q = [];
+  if (state.rawQuery) q.push(state.rawQuery);
+  q.push('goal=' + encodeURIComponent(state.goal));
+  try { history.pushState({ s: 3, goal: state.goal }, '', location.pathname + '?' + q.join('&')); } catch(e){}
+}
+function enter3(){
+  pushUrl(); show(3); window.scrollTo(0, 0);
+  track('track', 'ViewContent');
+}
+
+/* ---------- Modal (Tela 2) ---------- */
+var lastFocus = null;
+function openModal(g){
+  applyGoal(g);
+  lastFocus = document.activeElement;
+  $('#modal').hidden = false;
+  document.body.style.overflow = 'hidden';
+  $('#app').setAttribute('aria-hidden', 'true');
+  $('#m-yes').focus();
+}
+function closeModal(){
+  $('#modal').hidden = true;
+  document.body.style.overflow = '';
+  $('#app').removeAttribute('aria-hidden');
+}
+function trapFocus(e){
+  if ($('#modal').hidden || e.key !== 'Tab') return;
+  var f = $$('button', $('#modal'));
+  var first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  else if (f.indexOf(document.activeElement) < 0){ e.preventDefault(); first.focus(); }
+}
+function runLoader(){
+  var L = $('#loader'), items = $$('.checks li', L);
+  items.forEach(function(li){ li.classList.remove('on'); });
+  L.classList.remove('run');
+  L.hidden = false;
+  void L.offsetWidth;
+  L.classList.add('run');
+  items.forEach(function(li, i){ setTimeout(function(){ li.classList.add('on'); }, 200 + i * 800); });
+  setTimeout(function(){ L.hidden = true; L.classList.remove('run'); enter3(); }, 2500);
+}
+function confirm18(){
+  store('set', 'tantric_18', '1');
+  closeModal();
+  runLoader();
+}
+
+/* ---------- Sticky CTA ---------- */
+var heroGone = false, offerVisible = false;
+function updateSticky(){ $('#sticky').classList.toggle('show', state.screen === 3 && heroGone && !offerVisible); }
+function initSticky(){
+  if (!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(es){ var e = es[0]; heroGone = !e.isIntersecting && e.boundingClientRect.top < 0; updateSticky(); }).observe($('#hero-cta'));
+  new IntersectionObserver(function(es){ offerVisible = es[0].isIntersecting; updateSticky(); }).observe($('#offer'));
+}
+
+/* ---------- FAQ ---------- */
+function initFaq(){
+  var items = $$('.faq-item');
+  function set(item, open){
+    item.classList.toggle('open', open);
+    $('.faq-q', item).setAttribute('aria-expanded', open ? 'true' : 'false');
+    $('.faq-a', item).hidden = !open;
+  }
+  items.forEach(function(item){
+    $('.faq-q', item).addEventListener('click', function(){
+      var willOpen = !item.classList.contains('open');
+      items.forEach(function(o){ set(o, false); });
+      if (willOpen) set(item, true);
+    });
+  });
+  set(items[0], true);
+}
+
+/* ---------- Init ---------- */
+function init(){
+  fillVars();
+  buildLessons();
+  buildReviews();
+  buildMock($('[data-mock="s1"]'), S1_CHIPS);
+  buildMock($('[data-mock="b1"]'), ['', '🔥 +3 orgasms', '✅ Lesson complete'], 'MOCKUP_CHIP');
+  applyGoal('all');
+  initFaq();
+  initSticky();
+  captureQuery();
+
+  // cards de escolha (cartão inteiro clicável) e Skip
+  $$('[data-pick]').forEach(function(el){
+    function pick(){ var g = el.getAttribute('data-pick'); track('trackCustom', 'GoalSelected', { goal: g }); openModal(g); }
+    el.addEventListener('click', pick);
+    el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); pick(); } });
+  });
+  $('#m-yes').addEventListener('click', confirm18);
+  $('#m-change').addEventListener('click', function(){ closeModal(); if (lastFocus && lastFocus.focus) lastFocus.focus(); });
+  $('#m-exit').addEventListener('click', function(){ window.location.href = 'https://www.google.com'; });
+  document.addEventListener('keydown', trapFocus);
+
+  // CTAs
+  $$('[data-cta]').forEach(function(a){ a.addEventListener('click', goCheckout); });
+
+  // menu de rolagem suave
+  $$('[data-scroll]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var t = $(a.getAttribute('data-scroll'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // botão voltar do navegador
+  window.addEventListener('popstate', function(e){
+    closeModal(); $('#loader').hidden = true;
+    var s = e.state;
+    if (s && s.s === 3 && GOALS[s.goal]){ applyGoal(s.goal); show(3); }
+    else { show(1); window.scrollTo(0, 0); }
+  });
+
+  initPixel();
+  show(1);
+  track('track', 'ViewContent');
+
+  // link direto ?goal=
+  var m = location.search.match(/[?&]goal=([^&#]*)/);
+  var g = m ? decodeURIComponent(m[1]) : '';
+  if (GOALS[g]){
+    applyGoal(g);
+    if (store('get', 'tantric_18') === '1') runLoader(); else openModal(g);
+  }
+}
+init();
+})();
+</script>
+</body>
+</html>
