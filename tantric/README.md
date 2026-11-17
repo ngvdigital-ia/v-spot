@@ -38,6 +38,8 @@ Basta colocar o arquivo com o nome certo; nenhum código precisa mudar. Enquanto
 
 ## Fluxo e links úteis
 
+- **`SKIP_GATE` (em `config.js`)**: `true` (atual) abre direto na página de vendas (Tela 3), sem escolha, sem confirmação 18+ e sem carregamento, com `goal = all` (ou o `?goal=` da URL, se vier). Mude para `false` para voltar ao fluxo completo abaixo.
+
 - Tela 1 (cards) → clique em um card ou em "Skip" → modal 18+ → carregamento (2,5 s) → Tela 3 personalizada.
 - Link direto: `/tantric?goal=squirt|multiple|addicted|all` pula os cards, mas mostra o modal 18+ (a menos que já confirmado na sessão).
 - Eventos do Meta Pixel (só com `PIXEL_ID`): `PageView` e `ViewContent` (Tela 1), `GoalSelected` (com `goal`), `ViewContent` (Tela 3), `InitiateCheckout` (qualquer CTA, antes do redirecionamento).

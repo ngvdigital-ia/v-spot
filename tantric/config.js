@@ -35,6 +35,12 @@ window.SITE_CONFIG = {
   //   badge: "💦 First squirt", date: "Nov 2026" }
   TESTIMONIALS: [],
 
+  /* ---- Fluxo ------------------------------------------------------------- */
+  // true  = abre direto na página de vendas (Tela 3), sem escolha, sem 18+ e sem carregamento.
+  //         Usa goal = all, ou o goal de ?goal=squirt|multiple|addicted|all se vier na URL.
+  // false = fluxo completo do briefing (Tela 1 → Tela 2 → Tela 3).
+  SKIP_GATE: true,
+
   /* ---- Rastreamento ------------------------------------------------------ */
   // Meta Pixel. Se vazio, nenhum evento é disparado.
   PIXEL_ID: "",

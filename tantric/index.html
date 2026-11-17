@@ -883,6 +883,18 @@ function init(){
   });
 
   initPixel();
+
+  // Entrada direta na página de vendas (config.SKIP_GATE)
+  if (C.SKIP_GATE){
+    var dm = location.search.match(/[?&]goal=([^&#]*)/);
+    var dg = dm ? decodeURIComponent(dm[1]) : '';
+    applyGoal(GOALS[dg] ? dg : 'all');
+    show(3);
+    window.scrollTo(0, 0);
+    track('track', 'ViewContent');
+    return;
+  }
+
   show(1);
   track('track', 'ViewContent');
 
