@@ -11,8 +11,8 @@ window.SITE_CONFIG = {
   PRICE: "$9.90",
 
   // Link do checkout. Fase 1: checkout do SQS System. Fase 2: novo produto.
-  // TROCAR: se ficar vazio, os botões só avisam no console e não redirecionam.
-  CHECKOUT_URL: "",
+  // Se ficar vazio, os botões só avisam no console e não redirecionam.
+  CHECKOUT_URL: "https://go.centerpag.com/PPU38CQHQQD",
 
   // TROCAR: descritor da fatura (o time fornece). Valor abaixo é só exemplo.
   STATEMENT_DESCRIPTOR: "EXAMPLE*DESCRIPTOR",

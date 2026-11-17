@@ -15,8 +15,8 @@ Sem build e sem backend. Publicado em `/tantric` (pasta `tantric/` + `vercel.jso
 ## Onde trocar as variáveis (`config.js`)
 
 - **Fase 1 → Fase 2:** troque só `PRODUCT_NAME` (`SQS System` → `The Tantric Lover`) e `CHECKOUT_URL`.
-- `CHECKOUT_URL`: está **vazio**. Enquanto estiver vazio, todos os botões de compra apenas avisam no console e não redirecionam.
-  Preencha com o link do checkout. Os parâmetros da URL de entrada (`utm_*`, `fbclid`, `src`...) são repassados intactos, mais `goal={goal}`.
+- `CHECKOUT_URL`: aponta para o checkout da Centerpag (`https://go.centerpag.com/PPU38CQHQQD`). Se ficar vazio, todos os botões de compra apenas avisam no console e não redirecionam.
+  Os parâmetros da URL de entrada (`utm_*`, `fbclid`, `src`...) são repassados intactos, mais `goal={goal}`.
 - `STATEMENT_DESCRIPTOR` e `SUPPORT_EMAIL`: hoje têm **valores de exemplo** (`EXAMPLE*DESCRIPTOR`, `support@example.com`). Troque antes de publicar para tráfego real.
 - `COACH_ANCHOR`: `$300+ per session` (valor a confirmar). A economia `You save $290+` é calculada sozinha (COACH_ANCHOR − PRICE).
 - `RATING` e `RATING_COUNT`: vazios = a linha de prova do Bloco 1 não aparece. Preencha só com dado real.
