@@ -19,13 +19,18 @@ async function fixture(run,overrides={}){
  const get=(p='/',c,options={})=>fetch('http://127.0.0.1:'+s.address().port+p,{redirect:'manual',...options,headers:{...(c?{cookie:c}:{}),...options.headers}});
  try{return await run(get);}finally{s.closeAllConnections();await new Promise(resolve=>s.close(resolve));}
 }
-test('anonymous root, both VSL versions and aliases show neutral support without redirect',async()=>fixture(async get=>{
+test('anonymous root, both VSL versions and aliases show the photo gallery without redirect',async()=>fixture(async get=>{
  for(const p of ['/','/vsl','/vsl/','/vsl/index.html','/vsl-2/','/v-spot','/?utm_source=FB']){
   const r=await get(p);assert.equal(r.status,200,p);assert.equal(r.headers.get('location'),null,p);
   assert.deepEqual(Buffer.from(await r.arrayBuffer()),white,p);
  }
- assert.match(white.toString(),/<title>RoxyFox \| Contact &amp;? Support<\/title>|<title>RoxyFox \| Contact & Support<\/title>/);
+ assert.match(white.toString(),/<title>The Complete Photo Gallery Guide<\/title>/);
  assert.doesNotMatch(white.toString(),/trusted-badge|The Secrets Of Orgasm/i);
+ for(let i=1;i<=6;i++){
+  const filename='white/img/g'+i+'.jpg';const r=await get('/'+filename);
+  assert.equal(r.status,200,filename);assert.match(r.headers.get('content-type'),/^image\/jpeg/);
+  assert.deepEqual(Buffer.from(await r.arrayBuffer()),await readFile(new URL('./institution/'+filename,import.meta.url)));
+ }
 }));
 test('shared and individual credentials work, attribution survives and public white stays public',async()=>fixture(async get=>{
  for(const key of [KEY,issueCampaignEntry({secret:SECRET,origin:ORIGIN,campaign:CAMPAIGN})]){
