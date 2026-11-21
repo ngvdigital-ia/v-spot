@@ -43,7 +43,7 @@ test('shared and individual credentials work, attribution survives and public wh
   assert.deepEqual(Buffer.from(await(await get('/white/',c)).arrayBuffer()),white);
  }
 }));
-test('all original HTML, scripts and media remain byte-identical after authorization',async()=>fixture(async get=>{
+test('all approved HTML, scripts and media remain byte-identical after authorization',async()=>fixture(async get=>{
  const c=cookie(await get('/vsl?access_token='+KEY));let checked=0;
  for(const file of origin.files){
   if(file.path==='vercel.json')continue;
@@ -101,3 +101,25 @@ test('invalid/duplicate keys and unconfigured signing secret fail closed',async(
  });
  await fixture(async get=>{const r=await get('/vsl');assert.equal(r.status,503);assert.doesNotMatch(await r.text(),/SECRET|fixture|credential|SHA256/);},{XPROTOCOL_GATE_SECRET:undefined});
 });
+test('both authorized VSLs contain exactly the Utmify pixel requested by Diogo',async()=>fixture(async get=>{
+ const expected={id:'6af3ae8ae7a1a1e791ee8148',url:'https://cdn.utmify.com.br/scripts/pixel/pixel.js'};
+ const c=cookie(await get('/vsl?access_token='+KEY));
+ for(const route of ['/vsl','/vsl-2/']){
+  const response=await get(route,c);assert.equal(response.status,200,route);
+  const html=await response.text(),pixels=[];
+  for(const [,body] of html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)){
+   const plain=/window\.pixelId\s*=\s*["']([a-z0-9]+)["']/.exec(body);
+   if(plain)pixels.push({id:plain[1],url:/\.src\s*=\s*["']([^"']+)["']/.exec(body)?.[1]});
+   for(const [,payload] of body.matchAll(/atob\(\s*["']([A-Za-z0-9+/=]+)["']\s*\)/g)){
+    const raw=Buffer.from(payload,'base64'),size=raw[0],key=raw.subarray(1,1+size);
+    if(!size||key.length!==size)continue;
+    let config;try{config=JSON.parse(Buffer.from(raw.subarray(1+size).map((b,i)=>b^key[i%size])).toString());}catch{continue;}
+    if(config.url===expected.url){
+     const globals=config.globals.filter(g=>g.name==='pixelId');assert.equal(globals.length,1,route);
+     assert.deepEqual(config.attributes??[],[],route);pixels.push({id:globals[0].value,url:config.url});
+    }
+   }
+  }
+  assert.deepEqual(pixels,[expected],route);
+ }
+}));
