@@ -84,11 +84,9 @@
     .fade.d2{animation-delay:.12s}.fade.d3{animation-delay:.24s}.fade.d4{animation-delay:.36s}
     @keyframes fadein{to{opacity:1;transform:none}}
 
-    .title{margin:0 0 12px;text-align:center;font-family:var(--serif);font-weight:700;font-size:clamp(19px,5.4vw,30px);line-height:1.22;letter-spacing:.005em;text-wrap:balance}
-    .title em{font-style:normal;color:var(--gold)}
 
     /* Vídeo (vertical 9:16 → largura limitada pela altura da tela, para caber na primeira dobra) */
-    .player-wrap{position:relative;width:min(100%,400px,calc((100svh - var(--bar-h) - 120px) * .5625));min-width:min(100%,280px);margin:0 auto}
+    .player-wrap{position:relative;width:min(100%,400px,calc((100svh - var(--bar-h) - 80px) * .5625));min-width:min(100%,280px);margin:0 auto}
     .player-wrap::before{content:"";position:absolute;inset:-26px;border-radius:40px;background:radial-gradient(closest-side,rgba(179,18,58,.55),rgba(179,18,58,0) 100%);filter:blur(14px);z-index:-1;animation:glow 7s ease-in-out infinite}
     @keyframes glow{0%,100%{opacity:.45;transform:scale(.97)}50%{opacity:.95;transform:scale(1.03)}}
     .player-frame{border:1px solid var(--gold-30);border-radius:var(--r);overflow:hidden;background:#000;box-shadow:0 20px 60px rgba(0,0,0,.6)}
@@ -204,8 +202,6 @@
   </header>
 
   <main>
-    <h1 class="title fade" id="pageTitle">Private class: the spot most men never find</h1>
-
     <div class="player-wrap fade d2">
       <div class="player-frame">
         <vturb-smartplayer id="vid-6a0f2093081ec374f8361115" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
@@ -440,8 +436,6 @@
     var CONFIG = {
       TRICK_START: 325,          // second where the demonstration starts (5:25)
       TRICK_END: 505,            // second where the demonstration ends (CONFIRM on the final video)
-      TITLE: 'Private class: the spot most men never find',
-      // TITLE: "It's not the size. It's not the stamina. It's knowing where to touch.",  // option B to test
       PLAYER_ID: 'vid-6a0f2093081ec374f8361115',
             PAGE_SIZE: 5,
       BG_VIDEO: '',              // optional (desktop only): 'assets/bg.mp4' — muted 6–10 s loop, ≤ 1.5 MB
@@ -454,8 +448,6 @@
     function fmt(sec) { var m = Math.floor(sec / 60), s = sec % 60; return m + ':' + (s < 10 ? '0' : '') + s; }
     function safeGet(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
     function safeSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
-
-    $('pageTitle').textContent = CONFIG.TITLE;
 
     /* ═══════ BACKGROUND ═══════ */
     if (CONFIG.BG_POSTER) $('bg').style.setProperty('--bg-poster', 'url("' + CONFIG.BG_POSTER + '")');
