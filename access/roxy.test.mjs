@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {createHash} from 'node:crypto';
-import {readFile} from 'node:fs/promises';
+import {readFile,lstat} from 'node:fs/promises';
 import {createVercelHandler} from '../.vercel/output/functions/access.func/index.mjs';
 import {issueCampaignEntry} from '../.vercel/output/functions/access.func/gate.mjs';
 
@@ -52,7 +52,7 @@ test('all original HTML, scripts and media remain byte-identical after authoriza
  }
  assert.equal(checked,62);
 }));
-test('anonymous private assets are denied; legal documents keep their original public bytes',async()=>fixture(async get=>{
+test('gate function denies its private copy anonymously; original legal documents remain intact',async()=>fixture(async get=>{
  for(const file of origin.files){
   if(file.path==='vercel.json')continue;
   const r=await get('/'+file.path);
@@ -65,6 +65,22 @@ test('anonymous private assets are denied; legal documents keep their original p
  }
  for(const p of ['/gate.mjs','/index.mjs','/runtime.json','/.env','/vercel.json','/package.json'])assert.equal((await get(p)).status,404,p);
 }));
+test('build exposes original funnel pages and assets publicly while VSL source and media stay out of static output',async()=>{
+ let exposed=0,protectedFiles=0;
+ for(const file of origin.files){
+  if(file.path==='vercel.json')continue;
+  const built=new URL('../.vercel/output/static/'+file.path,import.meta.url);
+  if(/^(?:vsl|vsl-2)\//.test(file.path)){
+   await assert.rejects(lstat(built),{code:'ENOENT'},file.path);protectedFiles++;
+  }else{
+   const bytes=await readFile(built);
+   assert.equal(createHash('sha256').update(bytes).digest('hex'),file.sha256,file.path);exposed++;
+  }
+ }
+ assert.equal(exposed+protectedFiles,62);assert.ok(exposed>30);assert.ok(protectedFiles>10);
+ for(const file of ['index.html','gate.mjs','index.mjs','runtime.json','.env','vercel.json','package.json'])
+  await assert.rejects(lstat(new URL('../.vercel/output/static/'+file,import.meta.url)),{code:'ENOENT'},file);
+});
 test('all three original redirects preserve destination and UTMs after access',async()=>fixture(async get=>{
  const c=cookie(await get('/vsl?access_token='+KEY));
  for(const [source,destination] of [['/','/vsl-2/'],['/v-spot','/the-squirting-system/'],['/v-spot-PF','/the-squirting-system-PF/']]){
