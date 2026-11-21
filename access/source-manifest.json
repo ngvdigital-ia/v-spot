@@ -305,7 +305,7 @@
     {
       "path": "vsl-2/index.html",
       "bytes": 30194,
-      "sha256": "74b69000007ab259f046374dadd6e08c9b519950a538379465a5f4658bad2a00"
+      "sha256": "f9c5b0fbabfc782285bb981aec7ee2f7897c30df7add898f22112efe0644780c"
     },
     {
       "path": "vsl/README.md",
@@ -315,7 +315,21 @@
     {
       "path": "vsl/index.html",
       "bytes": 36248,
-      "sha256": "95aec597c8f92bca5767891907b19e0917ae162b0965f2cc38a6125020f48383"
+      "sha256": "f097ac7fa63df29d042ffd40b5f56d04eab0d032349310be3d981cda4b656829"
+    }
+  ],
+  "approved_changes": [
+    {
+      "kind": "pixel_replacement",
+      "baseline_commit": "f1e03170bc74b1b34ceac889c44e8d605f6667f6",
+      "reference_slack_ts": "1795304289.234389",
+      "old_public_pixel_id": "6a8cb5c8edc220dca81f872d",
+      "new_public_pixel_id": "6af3ae8ae7a1a1e791ee8148",
+      "files": [
+        "vsl-2/index.html",
+        "vsl/index.html"
+      ],
+      "at": "2026-11-21T23:52:09.786523+00:00"
     }
   ]
 }
