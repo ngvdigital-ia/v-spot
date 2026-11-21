@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0B0A0D">
-  <title>Aula privada +18 — V-Spot</title>
-  <meta name="description" content="Aula privada para homens. Assista até o fim, em local reservado, com som.">
+  <title>Private Class 18+ — V-Spot</title>
+  <meta name="description" content="Private class for men. Watch until the end, in a private place, with sound.">
 
   <!-- VTurb: carregamento acelerado do player -->
   <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
@@ -63,7 +63,7 @@
     /* ───────── Barra superior (retenção) ───────── */
     .topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--bar-h);padding-top:env(safe-area-inset-top,0);box-sizing:content-box;
       background:rgba(0,0,0,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--gold-30)}
-    .topbar-in{height:var(--bar-h);max-width:1100px;margin:0 auto;padding:0 12px 3px;display:flex;align-items:center;gap:10px}
+    .topbar-in{height:var(--bar-h);max-width:1100px;margin:0 auto;padding:0 12px;display:flex;align-items:center;gap:10px}
     .tb-left{display:flex;align-items:center;gap:5px;flex:0 0 auto;color:var(--gold);font-size:11px;font-weight:600;white-space:nowrap}
     .tb-left svg{width:14px;height:14px}
     .tb-badge{flex:0 0 auto;margin-left:auto;padding:2px 7px;border:1px solid var(--gold);border-radius:6px;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.04em;line-height:1.4}
@@ -74,16 +74,9 @@
     .tb-msg-in.scroll{animation:slide var(--dur,9s) ease-in-out infinite alternate}
     @keyframes slide{0%,18%{transform:translateX(0)}82%,100%{transform:translateX(var(--shift))}}
     .tb-msg b{color:var(--gold);font-weight:700}
-    .tb-count{color:var(--muted);font-weight:500}
-    .topbar[data-state="now"] .tb-msg{color:#fff}
+        .topbar[data-state="now"] .tb-msg{color:#fff}
     .topbar[data-state="now"] .tb-msg-in{animation:none}
     .topbar[data-state="after"] .tb-msg{color:var(--muted)}
-    /* progresso */
-    .tb-prog{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:rgba(242,234,228,.12)}
-    .tb-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--wine),var(--crimson) 60%,var(--gold));transition:width .4s linear}
-    .tb-mark{position:absolute;top:50%;left:var(--mark,20%);width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(201,166,107,.6);animation:markpulse 2.4s ease-out infinite}
-    .topbar[data-state="after"] .tb-mark{animation:none;opacity:.5}
-    @keyframes markpulse{0%{box-shadow:0 0 0 0 rgba(201,166,107,.65)}70%,100%{box-shadow:0 0 0 9px rgba(201,166,107,0)}}
 
     /* ───────── Página ───────── */
     main{padding:calc(var(--bar-h) + env(safe-area-inset-top,0px) + 14px) 16px 40px;max-width:960px;margin:0 auto}
@@ -106,7 +99,7 @@
     /* divisor dourado */
     .divider{height:1px;margin:44px auto 30px;max-width:520px;background:linear-gradient(90deg,transparent,var(--gold-30),transparent)}
 
-    /* ───────── Comentários ───────── */
+    /* ───────── Comments ───────── */
     .comments{max-width:720px;margin:0 auto}
     .c-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
     .c-head h2{margin:0;font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.2}
@@ -117,37 +110,27 @@
 
     .card{background:var(--card);border:1px solid var(--gold-15);border-radius:14px;padding:14px}
     .composer{margin-bottom:18px}
-    .composer .reply-chip{display:none;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;padding:6px 10px;border-radius:8px;background:rgba(90,15,36,.45);color:var(--gold);font-size:12.5px}
-    .composer .reply-chip.on{display:flex}
-    .reply-chip button{border:0;background:none;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;padding:0 2px}
     .composer input[type=text],.composer textarea{width:100%;border:1px solid var(--gold-15);border-radius:10px;background:rgba(11,10,13,.7);padding:10px 12px;font-size:16px;line-height:1.5;outline:none;transition:border-color .2s}
     .composer textarea{min-height:76px;resize:vertical;margin-top:8px}
     .composer input::placeholder,.composer textarea::placeholder{color:#7d7177}
     .composer input:focus,.composer textarea:focus{border-color:var(--gold)}
-    .composer .more{display:none;margin-top:10px}
-    .composer.open .more{display:block}
-    .consent{display:flex;gap:8px;align-items:flex-start;color:var(--muted);font-size:12.5px;line-height:1.45}
-    .consent input{margin-top:2px;accent-color:var(--crimson);flex:0 0 auto}
     .c-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
     .c-note{color:var(--muted);font-size:12px;line-height:1.4}
     .c-note.ok{color:var(--gold)}.c-note.err{color:#ff7a8f}
-    .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
     .btn{border:0;cursor:pointer;border-radius:999px;padding:10px 22px;font-weight:600;font-size:14px;color:#1a0c10;background:linear-gradient(180deg,#d9b97f,var(--gold));box-shadow:0 6px 20px rgba(201,166,107,.2);transition:transform .15s,filter .2s;white-space:nowrap}
     .btn:hover{filter:brightness(1.08)}.btn:active{transform:scale(.97)}.btn:disabled{opacity:.5;cursor:default}
     .btn-ghost{display:block;margin:14px auto 0;background:none;color:var(--gold);border:1px solid var(--gold-30);box-shadow:none}
 
     .feed{display:flex;flex-direction:column;gap:12px}
     .cm{display:flex;gap:12px}
-    .cm.pending{opacity:.72}
-    .avatar{flex:0 0 40px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:14px;color:var(--text);background:linear-gradient(135deg,var(--wine),var(--crimson));box-shadow:0 0 0 1px var(--gold-30);overflow:hidden;object-fit:cover}
+        .avatar{flex:0 0 40px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:14px;color:var(--text);background:linear-gradient(135deg,var(--wine),var(--crimson));box-shadow:0 0 0 1px var(--gold-30);overflow:hidden;object-fit:cover}
     .cm-body{min-width:0;flex:1}
     .cm-top{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:14px}
     .cm-name{font-weight:600}
     .cm-time{color:var(--muted);font-size:12.5px}
     .tag{padding:1px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
     .tag.team{color:#1a0c10;background:var(--gold)}
-    .tag.wait{color:var(--gold);border:1px solid var(--gold-30)}
-    .cm-text{margin:4px 0 0;font-size:15px;line-height:1.55;overflow-wrap:anywhere;white-space:pre-line}
+        .cm-text{margin:4px 0 0;font-size:15px;line-height:1.55;overflow-wrap:anywhere;white-space:pre-line}
     .cm-act{display:flex;gap:16px;margin-top:8px}
     .cm-act button{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:2px 0;color:var(--muted);font-size:13px;cursor:pointer;transition:color .2s}
     .cm-act button:hover{color:var(--text)}
@@ -168,7 +151,7 @@
     /* desktop */
     @media (min-width:768px){
       :root{--bar-h:52px}
-      .topbar-in{padding:0 20px 3px}
+      .topbar-in{padding:0 20px}
       .tb-msg{font-size:13.5px}
       .tb-left,.tb-badge{font-size:12px}.tb-left{letter-spacing:.04em;text-transform:uppercase}
       main{padding-left:24px;padding-right:24px}
@@ -213,16 +196,15 @@
     <div class="topbar-in">
       <div class="tb-left">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.1" fill="currentColor" stroke="none"/></svg>
-        <span>Acesso privado</span>
+        <span>Private access</span>
       </div>
       <div class="tb-msg" id="tbMsg" role="status" aria-live="polite"><span class="tb-msg-in" id="tbMsgIn"></span></div>
-      <div class="tb-badge" aria-label="Conteúdo para maiores de 18 anos">+18</div>
+      <div class="tb-badge" aria-label="Content for adults 18 and over">+18</div>
     </div>
-    <div class="tb-prog" aria-hidden="true"><div class="tb-fill" id="tbFill"></div><div class="tb-mark" id="tbMark"></div></div>
   </header>
 
   <main>
-    <h1 class="title fade" id="pageTitle">Aula privada: o ponto que a maioria dos homens nunca encontra</h1>
+    <h1 class="title fade" id="pageTitle">Private class: the spot most men never find</h1>
 
     <div class="player-wrap fade d2">
       <div class="player-frame">
@@ -232,39 +214,34 @@
     <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/00c3b583-8874-4e64-a32e-65f6dd9ba521/players/6a0f2093081ec374f8361115/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 
     <p class="micro fade d3">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Assista até o fim, em local reservado, com som.
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Watch until the end, in a private place, with sound.
     </p>
 
     <div class="divider" aria-hidden="true"></div>
 
     <section class="comments fade d4" id="comments" aria-labelledby="cTitle">
       <div class="c-head">
-        <h2 id="cTitle">Comentários</h2>
-        <div class="sort" id="sort" role="group" aria-label="Ordenar comentários" hidden>
-          <button type="button" data-sort="recent" aria-pressed="true">Mais recentes</button>
-          <button type="button" data-sort="likes" aria-pressed="false">Mais curtidos</button>
+        <h2 id="cTitle">Comments</h2>
+        <div class="sort" id="sort" role="group" aria-label="Sort comments" hidden>
+          <button type="button" data-sort="recent" aria-pressed="true">Newest</button>
+          <button type="button" data-sort="likes" aria-pressed="false">Most liked</button>
         </div>
       </div>
 
       <form class="card composer" id="composer" novalidate>
-        <div class="reply-chip" id="replyChip"><span id="replyTxt"></span><button type="button" id="replyX" aria-label="Cancelar resposta">×</button></div>
-        <input type="text" id="cName" name="name" placeholder="Seu nome" maxlength="40" autocomplete="given-name" aria-label="Seu nome">
-        <textarea id="cText" name="text" placeholder="Deixe seu comentário" maxlength="500" aria-label="Deixe seu comentário"></textarea>
-        <input type="text" class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="more">
-          <label class="consent"><input type="checkbox" id="cConsent"><span>Autorizo a publicação do meu comentário nesta página, após moderação.</span></label>
-          <div class="c-actions"><span class="c-note" id="cNote">Seu comentário será publicado após moderação.</span><button class="btn" type="submit" id="cSend">Publicar</button></div>
-        </div>
+        <input type="text" id="cName" name="name" placeholder="Your name" maxlength="40" autocomplete="given-name" aria-label="Your name">
+        <textarea id="cText" name="text" placeholder="Leave your comment" maxlength="500" aria-label="Leave your comment"></textarea>
+        <div class="c-actions"><span class="c-note" id="cNote"></span><button class="btn" type="submit" id="cSend">Publish</button></div>
       </form>
 
       <div class="feed" id="feed"></div>
-      <button class="btn btn-ghost" type="button" id="more" hidden>Ver mais</button>
+      <button class="btn btn-ghost" type="button" id="more" hidden>Show more</button>
     </section>
 
     <footer>
-      <p>Conteúdo exclusivo para maiores de 18 anos. Resultados variam de pessoa para pessoa e não há garantia de resultado específico.</p>
-      <p>Este site não é afiliado, endossado ou patrocinado pelo Facebook, Meta Platforms, Inc. ou Google. Facebook™ e Google™ são marcas de seus respectivos proprietários.</p>
-      <p><a href="/terms/">Termos de uso</a><a href="/privacy/">Privacidade</a><a href="/refund/">Reembolso</a></p>
+      <p>Content for adults 18+ only. Results vary from person to person and no specific result is guaranteed.</p>
+      <p>This site is not affiliated with, endorsed by, or sponsored by Facebook, Meta Platforms, Inc. or Google. Facebook™ and Google™ are trademarks of their respective owners.</p>
+      <p><a href="/terms/">Terms of use</a><a href="/privacy/">Privacy</a><a href="/refund/">Refund</a></p>
     </footer>
   </main>
 
@@ -272,34 +249,30 @@
   (function () {
     'use strict';
 
-    /* ═══════ CONFIGURAÇÃO ═══════
-       Se o vídeo for editado, atualize aqui. A mensagem da barra precisa ser verdadeira. */
+    /* ═══════ CONFIG ═══════
+       If the video is edited, update the two times below. The top bar message must be true. */
     var CONFIG = {
-      TRICK_START: 325,          // segundo exato em que a demonstração começa (5:25)
-      TRICK_END: 505,            // segundo em que a demonstração termina (CONFIRMAR no vídeo final)
-      VIDEO_DURATION: 1589,      // duração do vídeo em segundos (usada até o player informar a real)
-      SHOW_COUNTDOWN: true,      // mostra "faltam m:ss" enquanto o vídeo está rodando
-      TITLE: 'Aula privada: o ponto que a maioria dos homens nunca encontra',
-      // TITLE: 'Não é o tamanho. Não é o tempo. É saber onde tocar.',  // opção B para teste
+      TRICK_START: 325,          // second where the demonstration starts (5:25)
+      TRICK_END: 505,            // second where the demonstration ends (CONFIRM on the final video)
+      TITLE: 'Private class: the spot most men never find',
+      // TITLE: "It's not the size. It's not the stamina. It's knowing where to touch.",  // option B to test
       PLAYER_ID: 'vid-6a0f2093081ec374f8361115',
-      COMMENTS_URL: 'comments.json',   // feed (apenas comentários reais e autorizados)
-      COMMENTS_ENDPOINT: '',           // opcional: URL que recebe os envios (POST JSON) para moderação
+      COMMENTS_URL: 'comments.json',
       PAGE_SIZE: 5,
-      BG_VIDEO: '',                    // opcional (desktop): 'assets/bg.mp4' — loop mudo de 6–10 s, ≤ 1,5 MB
-      BG_POSTER: ''                    // opcional: 'assets/bg-poster.webp'
+      BG_VIDEO: '',              // optional (desktop only): 'assets/bg.mp4' — muted 6–10 s loop, ≤ 1.5 MB
+      BG_POSTER: ''              // optional: 'assets/bg-poster.webp'
     };
 
     var $ = function (id) { return document.getElementById(id); };
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var desktop = window.matchMedia('(min-width: 768px) and (pointer: fine)').matches;
-    function fmt(sec) { sec = Math.max(0, Math.ceil(sec)); var m = Math.floor(sec / 60), s = sec % 60; return m + ':' + (s < 10 ? '0' : '') + s; }
+    function fmt(sec) { var m = Math.floor(sec / 60), s = sec % 60; return m + ':' + (s < 10 ? '0' : '') + s; }
     function safeGet(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
     function safeSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 
     $('pageTitle').textContent = CONFIG.TITLE;
-    document.title = 'Aula privada +18 — V-Spot';
 
-    /* ═══════ FUNDO ═══════ */
+    /* ═══════ BACKGROUND ═══════ */
     if (CONFIG.BG_POSTER) $('bg').style.setProperty('--bg-poster', 'url("' + CONFIG.BG_POSTER + '")');
     if (desktop && !reduce) {
       if (CONFIG.BG_VIDEO) {
@@ -309,7 +282,7 @@
       }
       embers();
     }
-    function embers() { // brasas / poeira de luz subindo devagar
+    function embers() { // slow rising embers / light dust
       var c = document.createElement('canvas'); $('bg').appendChild(c);
       var x = c.getContext('2d'), W, H, P = [], N = 42, running = true;
       function size() { W = c.width = innerWidth; H = c.height = innerHeight; }
@@ -335,11 +308,9 @@
       tick();
     }
 
-    /* ═══════ BARRA SUPERIOR ═══════ */
-    var bar = $('topbar'), msg = $('tbMsg'), msgIn = $('tbMsgIn'), fill = $('tbFill'), mark = $('tbMark');
-    var duration = CONFIG.VIDEO_DURATION, curState = '', curCount = '', lastT = 0;
-    function placeMark() { mark.style.setProperty('--mark', Math.min(100, CONFIG.TRICK_START / duration * 100) + '%'); }
-    function fit() { // se a mensagem passar da largura, rola suavemente
+    /* ═══════ TOP BAR ═══════ */
+    var bar = $('topbar'), msg = $('tbMsg'), msgIn = $('tbMsgIn'), curState = '';
+    function fit() { // if the message is wider than the bar, scroll it smoothly
       msgIn.classList.remove('scroll');
       msgIn.style.removeProperty('--shift');
       var over = msgIn.scrollWidth - msg.clientWidth;
@@ -349,26 +320,19 @@
         msgIn.classList.add('scroll');
       }
     }
-    function html(state, left) {
-      var m = fmt(CONFIG.TRICK_START);
-      if (state === 'now') return '<b>O truque está sendo mostrado agora</b>';
-      if (state === 'after') return 'Acesso privado · Conteúdo +18';
-      return 'O truque mostrado na prática será revelado no minuto <b>' + m + '</b>' +
-             (left ? ' <span class="tb-count">· faltam ' + fmt(left) + '</span>' : '');
+    function html(state) {
+      if (state === 'now') return '<b>The trick is being shown right now</b>';
+      if (state === 'after') return 'Private access · 18+ content';
+      return 'The trick shown in practice will be revealed at minute <b>' + fmt(CONFIG.TRICK_START) + '</b>';
     }
     function render(t) {
-      lastT = t;
       var state = t >= CONFIG.TRICK_END ? 'after' : (t >= CONFIG.TRICK_START ? 'now' : 'before');
-      var left = (state === 'before' && CONFIG.SHOW_COUNTDOWN && t >= 1) ? CONFIG.TRICK_START - t : 0;
-      var count = left ? fmt(left) : '';
-      fill.style.width = Math.min(100, t / duration * 100) + '%';
-      if (state === curState && count === curCount) return;
-      var stateChanged = state !== curState;
-      curState = state; curCount = count; bar.setAttribute('data-state', state);
-      var apply = function () { msgIn.innerHTML = html(state, left); fit(); msgIn.classList.remove('swap'); };
-      if (stateChanged && !reduce) { msgIn.classList.add('swap'); setTimeout(apply, 250); } else { apply(); }
+      if (state === curState) return;
+      curState = state; bar.setAttribute('data-state', state);
+      var apply = function () { msgIn.innerHTML = html(state); fit(); msgIn.classList.remove('swap'); };
+      if (!reduce && msgIn.innerHTML) { msgIn.classList.add('swap'); setTimeout(apply, 250); } else { apply(); }
     }
-    placeMark(); render(0);
+    render(0);
     addEventListener('resize', fit);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
 
@@ -378,18 +342,12 @@
         var t = e && e.detail && +e.detail.time;
         if (isFinite(t)) render(t);
       });
-      player.addEventListener('player:ready', function () {
-        try {
-          var d = player.playback && +player.playback.duration;
-          if (d > 60) { duration = d; placeMark(); render(lastT); }
-        } catch (e) {}
-      });
     }
 
-    /* ═══════ COMENTÁRIOS ═══════ */
-    var KEY_LIKES = 'vsl_likes_v1', KEY_PEND = 'vsl_pending_v1';
-    var comments = [], sortBy = 'recent', shown = CONFIG.PAGE_SIZE, replyTo = null;
-    var liked = safeGet(KEY_LIKES) || {}, pending = safeGet(KEY_PEND) || [];
+    /* ═══════ COMMENTS ═══════ */
+    var KEY_LIKES = 'vsl_likes_v1', KEY_MINE = 'vsl_mine_v1';
+    var comments = [], mine = safeGet(KEY_MINE) || [], liked = safeGet(KEY_LIKES) || {};
+    var sortBy = 'recent', shown = CONFIG.PAGE_SIZE;
     var feed = $('feed'), moreBtn = $('more'), sortEl = $('sort'), composer = $('composer'), note = $('cNote');
 
     function valid(c) { return c && typeof c.text === 'string' && c.text.trim() && c.authorized === true; }
@@ -399,87 +357,73 @@
         return c;
       });
     }
-    function total() { return comments.reduce(function (n, c) { return n + 1 + c.replies.length; }, 0); }
+    function all() { return mine.concat(comments); }
+    function total() { return all().reduce(function (n, c) { return n + 1 + (c.replies ? c.replies.length : 0); }, 0); }
     function ago(iso) {
       var d = new Date(iso).getTime(); if (!d) return '';
-      var s = Math.max(0, (Date.now() - d) / 1000);
-      if (s < 60) return 'agora';
-      if (s < 3600) return 'há ' + Math.floor(s / 60) + ' min';
-      if (s < 86400) return 'há ' + Math.floor(s / 3600) + ' h';
-      if (s < 604800) { var n = Math.floor(s / 86400); return 'há ' + n + (n === 1 ? ' dia' : ' dias'); }
-      if (s < 2592000) { var w = Math.floor(s / 604800); return 'há ' + w + (w === 1 ? ' semana' : ' semanas'); }
-      var m = Math.floor(s / 2592000); return 'há ' + m + (m === 1 ? ' mês' : ' meses');
+      var s = Math.max(0, (Date.now() - d) / 1000), n;
+      if (s < 60) return 'just now';
+      if (s < 3600) return Math.floor(s / 60) + ' min ago';
+      if (s < 86400) { n = Math.floor(s / 3600); return n + (n === 1 ? ' hour ago' : ' hours ago'); }
+      if (s < 604800) { n = Math.floor(s / 86400); return n + (n === 1 ? ' day ago' : ' days ago'); }
+      if (s < 2592000) { n = Math.floor(s / 604800); return n + (n === 1 ? ' week ago' : ' weeks ago'); }
+      n = Math.floor(s / 2592000); return n + (n === 1 ? ' month ago' : ' months ago');
     }
     function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
     function initials(n) { var p = String(n || '?').trim().split(/\s+/); return ((p[0][0] || '?') + (p[1] ? p[1][0] : '')).toUpperCase(); }
     var HEART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.2-9.4C1.6 7.6 3.7 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.3 0 5.4 3.1 4.2 6.6-1.7 4.8-9.2 9.4-9.2 9.4z"/></svg>';
 
-    function node(c, parent, isPending) {
-      var wrap = el('article', 'cm' + (isPending ? ' pending' : ''));
-      var av;
+    function node(c) {
+      var wrap = el('article', 'cm'), av;
       if (c.avatar) { av = el('img', 'avatar'); av.src = c.avatar; av.alt = ''; av.loading = 'lazy'; av.width = 40; av.height = 40; }
       else av = el('div', 'avatar', initials(c.name));
       var body = el('div', 'cm-body'), top = el('div', 'cm-top');
-      top.appendChild(el('span', 'cm-name', c.name || 'Anônimo'));
-      if (c.team) top.appendChild(el('span', 'tag team', 'Equipe'));
-      if (isPending) top.appendChild(el('span', 'tag wait', 'Em análise'));
-      else if (c.date) top.appendChild(el('span', 'cm-time', ago(c.date)));
+      top.appendChild(el('span', 'cm-name', c.name || 'Anonymous'));
+      if (c.team) top.appendChild(el('span', 'tag team', 'Team'));
+      if (c.date) top.appendChild(el('span', 'cm-time', ago(c.date)));
       body.appendChild(top);
       body.appendChild(el('p', 'cm-text', c.text));
-      if (!isPending) {
-        var act = el('div', 'cm-act');
-        var id = String(c.id || (c.name + c.date)), on = !!liked[id];
-        var lk = el('button', 'like'); lk.type = 'button'; lk.setAttribute('aria-pressed', on);
-        lk.innerHTML = HEART; var cnt = el('span', null, String((c.likes || 0) + (on ? 1 : 0))); lk.appendChild(cnt);
-        lk.addEventListener('click', function () {
-          on = !on; if (on) liked[id] = 1; else delete liked[id]; safeSet(KEY_LIKES, liked);
-          lk.setAttribute('aria-pressed', on); cnt.textContent = (c.likes || 0) + (on ? 1 : 0);
-        });
-        act.appendChild(lk);
-        var rp = el('button', null, 'Responder'); rp.type = 'button';
-        rp.addEventListener('click', function () { startReply(c, parent || c); });
-        act.appendChild(rp); body.appendChild(act);
-      }
+      var id = String(c.id || (c.name + c.date)), on = !!liked[id];
+      var lk = el('button', 'like'); lk.type = 'button'; lk.setAttribute('aria-pressed', on); lk.setAttribute('aria-label', 'Like');
+      lk.innerHTML = HEART; var cnt = el('span');
+      function count() { var n = (c.likes || 0) + (on ? 1 : 0); cnt.textContent = n ? String(n) : ''; }
+      count(); lk.appendChild(cnt);
+      lk.addEventListener('click', function () {
+        on = !on; if (on) liked[id] = 1; else delete liked[id]; safeSet(KEY_LIKES, liked);
+        lk.setAttribute('aria-pressed', on); count();
+      });
+      var act = el('div', 'cm-act'); act.appendChild(lk); body.appendChild(act);
       wrap.appendChild(av); wrap.appendChild(body);
       return wrap;
     }
     function sorted() {
-      var a = comments.slice();
+      var a = comments.slice(); // stable: keeps file order when there are no dates / likes
       if (sortBy === 'likes') a.sort(function (x, y) { return (y.likes || 0) - (x.likes || 0); });
-      else a.sort(function (x, y) { return new Date(y.date) - new Date(x.date); });
+      else a.sort(function (x, y) { return (new Date(y.date) || 0) - (new Date(x.date) || 0); });
       return a;
     }
     function draw() {
       var n = total();
-      $('cTitle').textContent = n ? 'Comentários (' + n + ')' : 'Comentários';
-      sortEl.hidden = comments.length < 2;
+      $('cTitle').textContent = n ? 'Comments (' + n + ')' : 'Comments';
+      sortEl.hidden = !comments.some(function (c) { return c.date || c.likes; });
       feed.textContent = '';
-      pending.forEach(function (p) { feed.appendChild(node(p, null, true)); });
-      if (!comments.length && !pending.length) {
+      mine.forEach(function (c) { var card = el('div', 'card'); card.appendChild(node(c)); feed.appendChild(card); });
+      if (!all().length) {
         var e = el('div', 'card empty'); e.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>';
-        e.appendChild(el('p', null, 'Seja o primeiro a comentar')); feed.appendChild(e);
+        e.appendChild(el('p', null, 'Be the first to comment')); feed.appendChild(e);
       }
       var list = sorted();
       list.slice(0, shown).forEach(function (c) {
-        var card = el('div', 'card'), n = node(c, null, false);
+        var card = el('div', 'card'), n = node(c);
         if (c.replies.length) {
           var r = el('div', 'replies');
-          c.replies.forEach(function (rp) { r.appendChild(node(rp, c, false)); });
+          c.replies.forEach(function (rp) { r.appendChild(node(rp)); });
           n.querySelector('.cm-body').appendChild(r);
         }
         card.appendChild(n); feed.appendChild(card);
       });
       moreBtn.hidden = list.length <= shown;
     }
-    function startReply(target, parent) {
-      replyTo = { id: String(parent.id || ''), name: target.name };
-      $('replyTxt').textContent = 'Respondendo a ' + (target.name || 'comentário');
-      $('replyChip').classList.add('on');
-      composer.classList.add('open');
-      composer.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-      $('cText').focus({ preventScroll: true });
-    }
-    $('replyX').addEventListener('click', function () { replyTo = null; $('replyChip').classList.remove('on'); });
     sortEl.addEventListener('click', function (e) {
       var b = e.target.closest('button[data-sort]'); if (!b) return;
       sortBy = b.getAttribute('data-sort'); shown = CONFIG.PAGE_SIZE;
@@ -488,28 +432,17 @@
     });
     moreBtn.addEventListener('click', function () { shown += CONFIG.PAGE_SIZE; draw(); });
 
-    // envio: só entra no feed depois de moderado e colado no comments.json
-    ['focusin', 'input'].forEach(function (ev) { composer.addEventListener(ev, function () { composer.classList.add('open'); }); });
+    // A visitor's own comment is saved only in their browser (name + comment + Publish).
     composer.addEventListener('submit', function (e) {
       e.preventDefault();
-      var f = composer.elements, name = f.name.value.trim(), text = f.text.value.trim();
+      var name = composer.elements.name.value.trim(), text = composer.elements.text.value.trim();
       var say = function (m, cls) { note.textContent = m; note.className = 'c-note ' + (cls || ''); };
-      if (f.website.value) return;                       // honeypot
-      if (!name) { say('Informe seu nome.', 'err'); f.name.focus(); return; }
-      if (text.length < 3) { say('Escreva seu comentário.', 'err'); f.text.focus(); return; }
-      if (!$('cConsent').checked) { say('Marque a autorização para enviar.', 'err'); return; }
-      var item = { name: name, text: text, date: new Date().toISOString(), replyTo: replyTo, consent: true, consentAt: new Date().toISOString(), page: location.pathname };
-      var btn = $('cSend'); btn.disabled = true;
-      var done = function () {
-        pending.unshift({ name: name, text: text }); pending = pending.slice(0, 5); safeSet(KEY_PEND, pending);
-        composer.reset(); replyTo = null; $('replyChip').classList.remove('on'); btn.disabled = false;
-        say('Recebido! Seu comentário será publicado após moderação.', 'ok'); draw();
-      };
-      if (CONFIG.COMMENTS_ENDPOINT) {
-        fetch(CONFIG.COMMENTS_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(item) })
-          .then(function (r) { if (!r.ok) throw 0; done(); })
-          .catch(function () { btn.disabled = false; say('Não foi possível enviar agora. Tente de novo.', 'err'); });
-      } else { done(); }
+      if (!name) { say('Enter your name.', 'err'); composer.elements.name.focus(); return; }
+      if (!text) { say('Write your comment.', 'err'); composer.elements.text.focus(); return; }
+      mine.unshift({ id: 'mine-' + Date.now(), name: name, text: text, date: new Date().toISOString(), likes: 0 });
+      mine = mine.slice(0, 20); safeSet(KEY_MINE, mine);
+      composer.elements.text.value = ''; say('');
+      draw();
     });
 
     draw();
