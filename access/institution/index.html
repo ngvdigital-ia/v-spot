@@ -1,100 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RoxyFox | Contact & Support</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0a0a0a; color: #e0e0e0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
-    a { color: #e53935; text-decoration: none; }
-    a:hover { color: #ff5252; }
-    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-    header { padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    header .container { display: flex; align-items: center; justify-content: space-between; }
-    header .logo { font-size: 20px; font-weight: 700; color: #ffffff; }
-    header .back-link { font-size: 14px; color: #a0a0a0; }
-    header .back-link:hover { color: #e53935; }
-    .page-content { padding: 56px 0 72px; }
-    .page-content h1 { font-size: 36px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; color: #ffffff; }
-    .page-content p { margin-bottom: 16px; color: #c0c0c0; }
-    .page-content ul { margin: 12px 0 20px 24px; color: #c0c0c0; }
-    .page-content ul li { padding: 4px 0; line-height: 1.7; }
-    .card { background: #141414; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px; margin: 24px 0; }
-    .card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; color: #ffffff; }
-    .card p { margin-bottom: 8px; }
-    .card p:last-child { margin-bottom: 0; }
-    footer { background: #050505; border-top: 1px solid rgba(255,255,255,0.08); color: #888; padding: 40px 0; text-align: center; font-size: 14px; }
-    footer .footer-links { margin-bottom: 16px; }
-    footer .footer-links a { color: #a0a0a0; margin: 0 12px; }
-    footer .footer-links a:hover { color: #ffffff; }
-    footer .footer-links span { color: #444; }
-    footer .copyright { color: #666; font-size: 13px; }
-    @media (max-width: 640px) { body { font-size: 16px; } .page-content h1 { font-size: 28px; } .page-content { padding: 40px 0 56px; } .container { padding: 0 20px; } .card { padding: 24px; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Complete Photo Gallery Guide</title>
+<meta name="description" content="A step-by-step guide to building a polished, professional-looking photo gallery with the equipment you already have.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf8f5;--card:#fff;--ink:#2b2724;--mute:#6f6761;--line:#ece5de;--accent:#b98a73;--accent-d:#9c705b;--soft:#f4ece6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:.005em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-d);font-weight:600;margin-bottom:14px}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:16px 34px;border-radius:999px;font-weight:500;font-size:.95rem;transition:.2s}
+.btn:hover{background:var(--accent-d);transform:translateY(-1px)}
+section{padding:80px 0}
+.center{text-align:center}
+.lead{color:var(--mute);max-width:620px;margin:16px auto 0;font-size:1.05rem}
+h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:8px}
+/* hero */
+.hero{padding:70px 0 60px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-bottom:18px}
+.hero h1 em{color:var(--accent-d);font-style:italic}
+.hero p{color:var(--mute);font-size:1.08rem;max-width:480px;margin-bottom:30px}
+.collage{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.collage img{width:100%;height:100%;object-fit:cover;border-radius:18px;aspect-ratio:3/4}
+.collage img:nth-child(2){margin-top:34px}
+
+/* learn */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:48px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px}
+.card .ic{font-size:1.6rem;margin-bottom:12px}
+.card h3{font-size:1.5rem;margin-bottom:8px}
+.card p,.card li{color:var(--mute);font-size:.96rem}
+.card ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin-top:10px}
+.card li:before{content:"✓ ";color:var(--accent)}
+/* gallery */
+.gallery{background:var(--soft)}
+.masonry{columns:3;column-gap:16px;margin-top:44px}
+.masonry img{width:100%;border-radius:16px;margin-bottom:16px;break-inside:avoid}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;margin-top:48px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 22px;counter-increment:s}
+.step:before{content:"0" counter(s);font-family:"Cormorant Garamond",serif;font-size:2.4rem;color:var(--accent);display:block;line-height:1}
+.step h3{font-size:1.35rem;margin:10px 0 6px}
+.step p{font-size:.92rem;color:var(--mute)}
+/* formula */
+.formula{background:var(--ink);color:#fff;border-radius:28px;padding:56px 28px;text-align:center}
+.formula h2{color:#fff}
+.formula .f{font-family:"Cormorant Garamond",serif;font-size:clamp(1.3rem,3.2vw,2rem);color:#e9cfc0;margin-top:18px}
+.formula p{color:#cfc6bf;max-width:560px;margin:14px auto 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.two img{border-radius:22px;width:100%;aspect-ratio:4/5;object-fit:cover}
+/* checklist */
+.cl{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:44px;text-align:left}
+.cl h3{font-size:1.4rem;margin-bottom:12px;color:var(--accent-d)}
+.cl li{list-style:none;color:var(--ink);font-size:.95rem;padding:5px 0;border-bottom:1px dashed var(--line)}
+.cl li:before{content:"✓ ";color:var(--accent);font-weight:700}
+.final{text-align:center;background:var(--soft)}
+footer{padding:36px 0;text-align:center;color:var(--mute);font-size:.82rem;border-top:1px solid var(--line)}
+@media(max-width:820px){
+ .hero .wrap,.two{grid-template-columns:1fr;gap:32px}
+ .masonry{columns:2}
+ section{padding:56px 0}
+ .card ul{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <span class="logo">RoxyFox</span>
-      <a href="/white/" class="back-link">&larr; Back to Home</a>
-    </div>
-  </header>
-  <div class="page-content">
-    <div class="container">
-      <h1>Contact Us</h1>
-      <p>We are here to help with any questions regarding <strong>RoxyFox</strong>, your order, or our policies.</p>
 
-      <div class="card">
-        <h3>Customer Support</h3>
-        <p>Email: <a href="mailto:contatoleo@ngvdigital.site">contatoleo@ngvdigital.site</a></p>
-        <p>Phone: <a href="tel:+5534911080066">+55 34 9110-8066</a></p>
-        <p>We aim to reply within 24&ndash;48 business hours (Mon&ndash;Fri).</p>
-      </div>
-
-      <div class="card">
-        <h3>Refund Requests</h3>
-        <p>If you would like to request a refund, please follow the instructions on our <a href="/refund-policy/">Refund Policy</a> page.</p>
-        <p>You may also request a refund directly through your <strong>Digistore24 order receipt</strong> or by contacting Digistore24 Support.</p>
-      </div>
-
-      <div class="card">
-        <h3>Business Details</h3>
-        <p>Company: <strong>NGV Digital Ltda</strong></p>
-        <p>Address: Bahia, Lauro de Freitas, Itinga, 42739705</p>
-        <p>Phone: <a href="tel:+5534911080066">+55 34 9110-8066</a></p>
-        <p>Email: <a href="mailto:contatoleo@ngvdigital.site">contatoleo@ngvdigital.site</a></p>
-      </div>
-
-      <div class="card">
-        <h3>Important Notes</h3>
-        <ul>
-          <li>Payments are securely processed by <strong>Digistore24 GmbH</strong>, our authorized reseller and payment provider.</li>
-          <li>Please contact Digistore24 directly for billing or payment issues.</li>
-          <li>For product-related questions, please email us at <a href="mailto:contatoleo@ngvdigital.site">contatoleo@ngvdigital.site</a>.</li>
-        </ul>
-      </div>
-
-      <p style="text-align: center; color: #666; margin-top: 40px; font-size: 14px;">&copy; 2026 RoxyFox. All rights reserved.</p>
-    </div>
+<header class="hero">
+ <div class="wrap">
+  <div>
+   <div class="eyebrow">Photography Guide</div>
+   <h1>The Complete <em>Photo Gallery</em> Guide</h1>
+   <p>Create a photo gallery that looks professional, beautiful and effortless. Your gallery is more than a collection of pictures — it’s knowing which photos to take, which angles work best, how to pose naturally, how to edit and how to keep one consistent visual style.</p>
+   <a class="btn" href="#cta">Learn how to create your gallery</a>
   </div>
-  <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="/white/">Home</a><span>&middot;</span>
-        <a href="/privacy-policy/">Privacy Policy</a><span>&middot;</span>
-        <a href="/refund-policy/">Refund Policy</a><span>&middot;</span>
-        <a href="/terms-of-use/">Terms of Use</a><span>&middot;</span>
-        <a href="/contact/">Contact</a><span>&middot;</span>
-        <a href="/imprint/">Imprint</a>
-      </div>
-      <p class="copyright">&copy; 2026 RoxyFox. All rights reserved.</p>
-    </div>
-  </footer>
-<div style="text-align: center; padding: 24px 0;">
-</div>
+  <div class="collage">
+   <img src="/white/img/g3.jpg" alt="Natural light portrait beside a lake" loading="eager">
+   <img src="/white/img/g1.jpg" alt="Smiling woman in an editorial portrait" loading="eager">
+   <img src="/white/img/g4.jpg" alt="Lifestyle photo in a denim jacket" loading="lazy">
+   <img src="/white/img/g5.jpg" alt="Relaxed lifestyle portrait" loading="lazy">
+  </div>
+ </div>
+</header>
+
+<section>
+ <div class="wrap center">
+  <div class="eyebrow">Stop taking random photos</div>
+  <h2>You don’t need hundreds of pictures.<br>You need the right pictures.</h2>
+  <p class="lead">A professional-looking gallery comes from knowing what to capture, how to frame it, and how to make every image work together. Inside the guide you’ll learn how to plan your gallery before you take the first photo.</p>
+ </div>
+</section>
+
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="center"><div class="eyebrow">What you’ll learn</div><h2>Everything behind a polished gallery</h2></div>
+  <div class="grid">
+   <div class="card"><div class="ic">📸</div><h3>Which photos to take</h3><p>Discover the essential types of photos every well-rounded gallery needs, and how to create variety without feeling random or repetitive.</p></div>
+   <div class="card"><div class="ic">📐</div><h3>Best angles &amp; compositions</h3><p>See how camera position, framing, distance and perspective change the final image — with simple techniques for your phone or camera.</p></div>
+   <div class="card"><div class="ic">🧍</div><h3>Natural poses</h3><p>Pose without looking stiff or rehearsed. From standing and sitting to walking and everyday lifestyle shots, create images that feel effortless.</p></div>
+   <div class="card"><div class="ic">💡</div><h3>Lighting that makes a difference</h3><p>Recognize good natural light, know where to position yourself and avoid common mistakes. No complicated equipment required.</p></div>
+   <div class="card"><div class="ic">🎨</div><h3>Editing &amp; color</h3><p>Turn a good photo into a polished final image. Learn the basics of:</p>
+    <ul><li>Brightness</li><li>Contrast</li><li>Exposure</li><li>Shadows</li><li>Highlights</li><li>Color balance</li><li>Skin tones</li><li>Cropping</li><li>Consistency</li></ul></div>
+   <div class="card"><div class="ic">🖼️</div><h3>A consistent look</h3><p>Your photos don’t have to look identical — they simply need to belong together. Choose photos, colors, lighting and editing styles that create a cohesive gallery.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="gallery">
+ <div class="wrap center">
+  <div class="eyebrow">Inspiration</div>
+  <h2>Different photos. One cohesive style.</h2>
+  <p class="lead">Variety in pose, framing and distance — unified by light, color and editing.</p>
+  <div class="masonry">
+   <img src="/white/img/g1.jpg" alt="Editorial portrait with warm tones" loading="lazy">
+   <img src="/white/img/g2.jpg" alt="Bright winter lifestyle photo" loading="lazy">
+   <img src="/white/img/g3.jpg" alt="Soft natural light portrait" loading="lazy">
+   <img src="/white/img/g4.jpg" alt="Casual outdoor lifestyle shot" loading="lazy">
+   <img src="/white/img/g6.jpg" alt="Denim styling portrait" loading="lazy">
+   <img src="/white/img/g5.jpg" alt="Everyday lifestyle portrait" loading="lazy">
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap center">
+  <div class="eyebrow">From the first photo to the final gallery</div>
+  <h2>A simple 5-step process</h2>
+  <div class="steps" style="text-align:left">
+   <div class="step"><h3>Plan</h3><p>Choose the style, locations, outfits and types of photos before shooting.</p></div>
+   <div class="step"><h3>Shoot</h3><p>Use simple composition, positioning, angles and lighting techniques.</p></div>
+   <div class="step"><h3>Select</h3><p>Choose the strongest photos and remove images that weaken your gallery.</p></div>
+   <div class="step"><h3>Edit</h3><p>Apply simple edits that enhance the image without looking artificial.</p></div>
+   <div class="step"><h3>Organize</h3><p>Arrange your final selection so the gallery feels intentional and balanced.</p></div>
+  </div>
+ </div>
+</section>
+
+<section style="padding-top:0">
+ <div class="wrap two">
+  <img src="/white/img/g2.jpg" alt="Smiling portrait taken with natural light" loading="lazy">
+  <div>
+   <div class="eyebrow">Your phone can be enough</div>
+   <h2>No expensive camera required</h2>
+   <p style="color:var(--mute);margin-top:14px">You don’t need a professional photographer to start. With the right techniques, your smartphone can capture clean, polished, professional-looking photos. The guide focuses on practical techniques you can apply with the equipment you already have.</p>
+  </div>
+ </div>
+</section>
+
+<section style="padding-top:0">
+ <div class="wrap">
+  <div class="formula">
+   <div class="eyebrow" style="color:#e9cfc0">What makes a photo look professional?</div>
+   <h2>It’s rarely just the camera.</h2>
+   <div class="f">Composition + Lighting + Angle + Pose + Editing + Consistency</div>
+   <p>Once you understand how these elements work together, taking better photos becomes much easier.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap center">
+  <div class="eyebrow">Included</div>
+  <h2>Your complete gallery checklist</h2>
+  <p class="lead">Make sure you have everything before you consider your gallery finished.</p>
+  <div class="cl">
+   <div class="card"><h3>Before the shoot</h3><ul style="display:block;margin:0"><li>Choose your visual style</li><li>Select locations</li><li>Plan outfits</li><li>Prepare your shot list</li><li>Check lighting conditions</li></ul></div>
+   <div class="card"><h3>During the shoot</h3><ul style="display:block;margin:0"><li>Capture different angles</li><li>Vary your distance from the camera</li><li>Try different compositions</li><li>Take close-up and wider shots</li><li>Capture natural-looking poses</li></ul></div>
+   <div class="card"><h3>After the shoot</h3><ul style="display:block;margin:0"><li>Select your strongest images</li><li>Remove repetitive photos</li><li>Edit consistently</li><li>Adjust colors and lighting</li><li>Arrange your final gallery</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<section class="final" id="cta">
+ <div class="wrap">
+  <div class="eyebrow">Simple techniques. Better photos.</div>
+  <h2>Ready to create your own professional-looking gallery?</h2>
+  <p class="lead" style="margin-bottom:30px">Stop taking random photos and hoping a few turn out great. Start creating your gallery with intention, structure and a clear visual direction.</p>
+  <a class="btn" href="#cta">Start creating your gallery</a>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">© 2026 Photo Gallery Guide · Photography by <a href="https://unsplash.com" style="color:inherit">Unsplash</a> contributors</div>
+</footer>
 </body>
 </html>
