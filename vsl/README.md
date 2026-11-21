@@ -13,6 +13,6 @@ Single page, mobile-first, plain HTML/CSS/JS. Two blocks: video (VTurb) and comm
 
 ## Comments
 
-- The feed comes from `comments.json` (comments sent directly by viewers). Only items with `"authorized": true` are shown.
+- The feed is embedded in `index.html` (`<script type="application/json" id="commentsData">`), so it renders instantly with no extra request. These are the comments sent directly by viewers. Only items with `"authorized": true` are shown. The first 5 show; "Show more" reveals 5 at a time. The name/comment box sits below "Show more".
 - Names are shown as first name + last initial. No dates/likes are set, so no time or counter is shown; add `date` (ISO) and `likes` when you have real values and the "Newest / Most liked" sort appears.
 - Visitors can comment (name + comment + Publish). Their comment is saved **only in their own browser** (localStorage) and is not sent anywhere.
