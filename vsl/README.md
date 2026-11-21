@@ -8,7 +8,6 @@ Single page, mobile-first, plain HTML/CSS/JS. Two blocks: video (VTurb) and comm
 |---|---|
 | `TRICK_START` | Exact second where the demonstration starts (now `325` = 5:25). **Update if the video is edited.** |
 | `TRICK_END` | Second where the demonstration ends (now `505`, **to confirm**). After it the bar goes back to "Private access · 18+ content". |
-| `TITLE` | Serif headline (option B is commented next to it). |
 | `BG_VIDEO` / `BG_POSTER` | Optional background video (desktop only, muted loop, ≤ 1.5 MB) and WebP poster. Mobile never loads video. |
 
 ## Comments
