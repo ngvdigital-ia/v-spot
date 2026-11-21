@@ -1,0 +1,71 @@
+{
+  "oferta": "RoxyFox",
+  "origem": "https://roxyfox.online",
+  "campanha": "roxyfox-20261121",
+  "projeto_vercel": "v-spot",
+  "arquivo_principal": "vsl-2/index.html",
+  "rotas": [
+    "/",
+    "/ds2-up2/",
+    "/up2/",
+    "/ds1-up5/",
+    "/ds1-up1/",
+    "/terms-of-use-PF/",
+    "/OB1/",
+    "/imprint/",
+    "/ds1-up2-mundpay/",
+    "/refund/",
+    "/up2-mundpay/",
+    "/orgasmic-rides/",
+    "/up4/",
+    "/up1-mundpay/",
+    "/ds2-up1/",
+    "/ds1-up1-mundpay/",
+    "/imprint-PF/",
+    "/privacy-policy-PF/",
+    "/vsl-2/",
+    "/slow-fire-protocol/",
+    "/vsl/",
+    "/reconnection-code/",
+    "/refund-policy-PF/",
+    "/contact/",
+    "/ds1-up3/",
+    "/ignition-protocol/",
+    "/contact-PF/",
+    "/privacy-policy/",
+    "/oto1/",
+    "/ds1-up2/",
+    "/terms-of-use/",
+    "/up5/",
+    "/support-PF/",
+    "/refund-policy/",
+    "/the-squirting-system/",
+    "/terms/",
+    "/card-recused/",
+    "/the-squirting-system-PF/",
+    "/ds1-up4/",
+    "/up3/",
+    "/up1/",
+    "/obg/",
+    "/privacy/",
+    "/consensual-connection-blueprint/",
+    "/tantric/"
+  ],
+  "redirecionamentos": [
+    {
+      "source": "/",
+      "destination": "/vsl-2/",
+      "permanent": false
+    },
+    {
+      "source": "/v-spot",
+      "destination": "/the-squirting-system/",
+      "permanent": false
+    },
+    {
+      "source": "/v-spot-PF",
+      "destination": "/the-squirting-system-PF/",
+      "permanent": false
+    }
+  ]
+}
