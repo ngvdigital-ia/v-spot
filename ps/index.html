@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0B0A0D">
+  <title>Educational Content 18+</title>
+  <meta name="description" content="Educational content for adults 18 and over.">
+  <link rel="prefetch" href="/vsl/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <style>
+    :root{--bg:#0B0A0D;--card:#16121A;--crimson:#B3123A;--wine:#5A0F24;--gold:#C9A66B;--text:#F2EAE4;--muted:#A89BA0;
+      --serif:"Playfair Display",Georgia,"Times New Roman",serif;--sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:dark}
+    *,*::before,*::after{box-sizing:border-box}
+    html{background:var(--bg);-webkit-text-size-adjust:100%}
+    body{margin:0;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:24px 16px;color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    /* moving background */
+    .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+    .bg .blob{position:absolute;width:140vmax;height:140vmax;left:50%;top:50%;margin:-70vmax 0 0 -70vmax;will-change:transform}
+    .bg .b1{background:radial-gradient(closest-side,rgba(179,18,58,.95),transparent 70%);transform:translate(-22%,-26%);animation:d1 26s ease-in-out infinite alternate}
+    .bg .b2{background:radial-gradient(closest-side,rgba(110,18,44,1),transparent 70%);transform:translate(26%,22%);animation:d2 32s ease-in-out infinite alternate}
+    @keyframes d1{to{transform:translate(-8%,-10%) scale(1.12)}}
+    @keyframes d2{to{transform:translate(12%,8%) scale(1.08)}}
+    .bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 25%,rgba(0,0,0,.72) 100%),linear-gradient(rgba(11,10,13,.72),rgba(11,10,13,.8))}
+    .grain{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+    .wrap{width:100%;max-width:560px;text-align:center;opacity:0;transform:translateY(8px);animation:in .8s ease forwards}
+    @keyframes in{to{opacity:1;transform:none}}
+    .badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;padding:5px 12px;border:1px solid rgba(201,166,107,.4);border-radius:999px;color:var(--gold);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+    .badge svg{width:14px;height:14px}
+    h1{margin:0 0 18px;font-family:var(--serif);font-weight:700;font-size:clamp(24px,6.6vw,36px);line-height:1.2;text-wrap:balance}
+    h1 em{font-style:normal;color:var(--gold)}
+    p{margin:0 0 14px;font-size:clamp(16px,4.3vw,18px);color:#d9cfca}
+    p.lead{color:var(--text)}
+    .line{height:1px;margin:26px auto;max-width:240px;background:linear-gradient(90deg,transparent,rgba(201,166,107,.4),transparent)}
+    .cta{display:block;width:100%;margin-top:24px;padding:18px 20px;border-radius:14px;background:linear-gradient(180deg,#d01846,var(--crimson) 55%,#8f0e2f);color:#fff;font-family:var(--sans);font-size:clamp(16px,4.4vw,19px);font-weight:700;line-height:1.3;text-decoration:none;box-shadow:0 10px 34px rgba(179,18,58,.45),inset 0 1px 0 rgba(255,255,255,.2);animation:pulse 2.6s ease-in-out infinite;transition:transform .15s,filter .2s}
+    .cta:hover{filter:brightness(1.1)}.cta:active{transform:scale(.98)}
+    @keyframes pulse{0%,100%{box-shadow:0 10px 34px rgba(179,18,58,.4),inset 0 1px 0 rgba(255,255,255,.2)}50%{box-shadow:0 10px 46px rgba(179,18,58,.75),inset 0 1px 0 rgba(255,255,255,.2)}}
+    small{display:block;margin-top:18px;color:var(--muted);font-size:12px;line-height:1.5}
+    small a{color:var(--muted)}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.wrap{opacity:1;transform:none}}
+  </style>
+  <script src="https://quiz-analytics-phi.vercel.app/assets/tracker.js" data-nga-project-id="roxyfox" data-nga-funnel-id="roxyfox" data-nga-page-id="ps" data-nga-endpoint="https://quiz-analytics-phi.vercel.app/api/track" defer></script>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <div class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+      Private access · 18+
+    </div>
+
+    <h1>The content that follows is <em>educational</em>. It has nothing to do with pornography.</h1>
+
+    <p class="lead">What you are about to see will show you a way to give your partner the maximum happiness in the bedroom, and to be the best experience she has ever had in her life.</p>
+    <div class="line" aria-hidden="true"></div>
+    <p>If that is what you want, click the button below.</p>
+
+    <a class="cta" id="go" href="/vsl/">I am over 18 and I want exactly that</a>
+    <small>By continuing you confirm that you are 18 years or older.</small>
+  </main>
+
+  <script>
+    // Keep UTMs / click ids when moving to the VSL page.
+    (function () {
+      var a = document.getElementById('go');
+      a.href = '/vsl/' + location.search + location.hash;
+    })();
+  </script>
+
+  <!-- UTMify -->
+  <script>
+(function () {
+  window.pixelId = "6a8cb5c8edc220dca81f872d";
+  var script = document.createElement("script");
+  script.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+  script.async = true;
+  script.defer = true;
+  (document.head || document.documentElement).appendChild(script);
+})();
+</script>
+  <script>
+(function () {
+  var script = document.createElement("script");
+  script.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+  script.async = true;
+  script.defer = true;
+  script.setAttribute("data-utmify-prevent-xcod-sck", "");
+  script.setAttribute("data-utmify-prevent-subids", "");
+  (document.head || document.documentElement).appendChild(script);
+})();
+</script>
+</body>
+</html>
