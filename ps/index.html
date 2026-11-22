@@ -39,8 +39,24 @@
     .cta{display:block;width:100%;margin-top:24px;padding:18px 20px;border-radius:14px;background:linear-gradient(180deg,#d01846,var(--crimson) 55%,#8f0e2f);color:#fff;font-family:var(--sans);font-size:clamp(16px,4.4vw,19px);font-weight:700;line-height:1.3;text-decoration:none;box-shadow:0 10px 34px rgba(179,18,58,.45),inset 0 1px 0 rgba(255,255,255,.2);animation:pulse 2.6s ease-in-out infinite;transition:transform .15s,filter .2s}
     .cta:hover{filter:brightness(1.1)}.cta:active{transform:scale(.98)}
     @keyframes pulse{0%,100%{box-shadow:0 10px 34px rgba(179,18,58,.4),inset 0 1px 0 rgba(255,255,255,.2)}50%{box-shadow:0 10px 46px rgba(179,18,58,.75),inset 0 1px 0 rgba(255,255,255,.2)}}
-    small{display:block;margin-top:18px;color:var(--muted);font-size:12px;line-height:1.5}
-    small a{color:var(--muted)}
+    .cta{border:0;cursor:pointer}
+    /* 18+ confirmation checkbox */
+    .confirm{margin:22px auto 0;max-width:340px}
+    .warn{display:none;margin:0 0 8px;color:#ff6b86;font-size:14px;font-weight:700;line-height:1.35}
+    .warn .arrow{display:block;font-size:20px;line-height:1;animation:bounce .7s ease-in-out infinite}
+    .confirm.attn .warn{display:block}
+    @keyframes bounce{0%,100%{transform:translateY(-3px)}50%{transform:translateY(5px)}}
+    .chk{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid rgba(201,166,107,.3);border-radius:10px;background:rgba(22,18,26,.7);color:var(--muted);font-size:13px;line-height:1.3;text-align:left;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+    .chk input{appearance:none;-webkit-appearance:none;flex:0 0 20px;width:20px;height:20px;margin:0;border:1.5px solid var(--gold);border-radius:5px;background:transparent;display:grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+    .chk input::after{content:"";width:10px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) scale(0) translate(1px,-1px);transition:transform .15s}
+    .chk input:checked{background:var(--crimson);border-color:var(--crimson)}
+    .chk input:checked::after{transform:rotate(-45deg) scale(1) translate(1px,-1px)}
+    .chk input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+    .confirm.attn .chk{border-color:#ff3b5f;color:var(--text);animation:blink .55s ease-in-out 4,shake .45s ease-in-out 1}
+    .confirm.attn .chk input{border-color:#ff3b5f;animation:ring 1.1s ease-out infinite}
+    @keyframes blink{0%,100%{background:rgba(22,18,26,.7)}50%{background:rgba(179,18,58,.55)}}
+    @keyframes shake{0%,100%{transform:none}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+    @keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,59,95,.8)}100%{box-shadow:0 0 0 10px rgba(255,59,95,0)}}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.wrap{opacity:1;transform:none}}
   </style>
   <script src="https://quiz-analytics-phi.vercel.app/assets/tracker.js" data-nga-project-id="roxyfox" data-nga-funnel-id="roxyfox" data-nga-page-id="ps" data-nga-endpoint="https://quiz-analytics-phi.vercel.app/api/track" defer></script>
@@ -61,15 +77,29 @@
     <div class="line" aria-hidden="true"></div>
     <p>If that is what you want, click the button below.</p>
 
-    <a class="cta" id="go" href="/vsl/">I am over 18 and I want exactly that</a>
-    <small>By continuing you confirm that you are 18 years or older.</small>
+    <div class="confirm" id="confirm">
+      <div class="warn" id="warn" role="alert"><span>To continue, please confirm you are 18 or older</span><span class="arrow" aria-hidden="true">▼</span></div>
+      <label class="chk" for="age"><input type="checkbox" id="age"><span>I confirm that I am 18 years of age or older.</span></label>
+    </div>
+
+    <button class="cta" id="go" type="button">I am over 18 and I want exactly that</button>
   </main>
 
   <script>
-    // Keep UTMs / click ids when moving to the VSL page.
+    // The button only continues after the 18+ box is ticked. UTMs / click ids are kept.
     (function () {
-      var a = document.getElementById('go');
-      a.href = '/vsl/' + location.search + location.hash;
+      var box = document.getElementById('age'), wrap = document.getElementById('confirm'), go = document.getElementById('go');
+      function clear() { wrap.classList.remove('attn'); }
+      box.addEventListener('change', function () { if (box.checked) clear(); });
+      go.addEventListener('click', function () {
+        if (!box.checked) {
+          clear(); void wrap.offsetWidth;          // restart the animations on repeated clicks
+          wrap.classList.add('attn');
+          wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+        location.href = '/vsl/' + location.search + location.hash;
+      });
     })();
   </script>
 
